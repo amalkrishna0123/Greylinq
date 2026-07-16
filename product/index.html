@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/transition.css">
-    
+    <link rel="stylesheet" href="../css/global.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
@@ -244,7 +244,7 @@
     <div>
         <header class="hidden" id="header"
             class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
-            <a href="../home/index.html">
+            <a href="index.html">
                 <div class="w-[100px]">
                     <img src="../assets/logo.png" alt="">
                 </div>
@@ -252,23 +252,23 @@
     
             <nav id="desktopNav" class="flex items-center transition-all duration-500">
                 <ul class="flex items-center gap-5 font-semibold tracking-[-1px]">
-                    <a href="../about/about.html" class="page-link">
+                    <a href="../about/index.html" class="page-link">
                         <li>About</li>
                     </a>
     
-                    <a href="services.html" class="page-link">
+                    <a href="../services/index.html" class="page-link">
                         <li>Services</li>
                     </a>
     
-                    <a href="../product/product.html" class="page-link">
+                    <a href="../product/index.html" class="page-link">
                         <li>Products</li>
                     </a>
     
-                    <a href="../career/career.html" class="page-link">
+                    <a href="../career/index.html" class="page-link">
                         <li>Career</li>
                     </a>
     
-                    <a href="../contact/contact.html" class="page-link">
+                    <a href="../contact/index.html" class="page-link">
                         <li>Contact US</li>
                     </a>
                 </ul>
@@ -289,34 +289,30 @@
                 </button>
             </div>
         </header>
-
-
-        <section class="min-h-screen w-full flex justify-center items-center">
-            <div>
-                <div class="max-w-[1200px] mx-auto">
-                    <div class="md:flex items-end justify-between gap-5">
-                        <div class="md:w-[55%]">
-                            <span class="tracking-[-1px] text-[#01628F]">--- Our Services ---</span>
-                            <h2 class="text-6xl tracking-[-5px]">Comprehensive Digital Insurance Solutions for Smarter Business Operations</h2>
-                        </div>
-                        <div class="md:w-[45%]">
-                            <p class="mb-5">GreyLinq offers comprehensive insurance technology services designed to help organizations optimize operations, improve efficiency, and accelerate digital transformation.</p>
-                            <div class="flex gap-5 items-center">
-                                <button
-                                    class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex items-center justify-between gap-2 pl-5 pr-2 py-2 rounded-3xl text-sm tracking-[-1px] text-[#fff]">
-                                    Explore More <span
-                                        class="rounded-full w-[30px] h-[30px] bg-[#fff] text-[#000] flex items-center justify-center"><i
-                                            class="ri-arrow-right-up-line"></i></span>
-                                </button>
-                                <div class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex items-center justify-center w-[150px] rounded-3xl p-0.5">
-                                    <button
-                                        class="bg-[#fff] flex items-center justify-between w-[150px] gap-2 pl-5 pr-2 py-2 rounded-3xl text-sm tracking-[-1px] text-[#000]">
-                                        Explore More <span
-                                            class="rounded-full w-[30px] h-[30px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] flex items-center justify-center"><i
-                                                class="ri-arrow-right-up-line"></i></span>
-                                    </button>
+    
+    
+        <section class="min-h-screen mb-20 w-full flex justify-center items-center">
+            <div class="h-full w-full flex justify-center items-center flex-col">
+                <div class="h-full pt-32 w-full max-w-[1200px] mx-auto">
+                    <!-- <h2 class="text-6xl tracking-[-5px] mb-10 text-center">Insurance Technology Solutions<span class="md:block">Designed for Growth</span></h2> -->
+                    <div class="grid md:grid-cols-2 gap-x-3 h-[500px] w-full">
+                        <div class="h-full w-full bg-gray-100">
+                            <div class="h-full flex flex-col justify-center items-center px-5">
+                                <div class="w-full flex flex-col justify-center items-center mb-10">
+                                    <span class="px-6 py-2 rounded-3xl border border-gray-400 mb-3">Our Products</span>
+                                    <h3 class="text-6xl text-gray-800 tracking-[-4px] text-center">Insurance Technology Solutions
+                                        Designed for Growth
+                                    </h3>
+                                    <p class="text-center mt-3">Building secure and scalable insurance platforms that help organizations operate smarter and serve customers better.</p>
+                                </div>
+                                <div class="mb-5">
+                                    <button class="text bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 rounded-3xl min-w-[160px] text-white tracking-[-1px] py-2 pr-2 flex items-center gap-2 justify-between">Explore More <span class="w-[30px] flex items-center bg-white justify-center h-[30px] text-[#000] rounded-full"><i class="ri-arrow-right-up-line"></i></span></button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="h-full w-full bg-[#000]">
+                            <div class="w-full h-full">
+                                <img src="../assets/product-hero.png" class="w-full h-full object-cover" alt="">
                             </div>
                         </div>
                     </div>
@@ -325,173 +321,259 @@
         </section>
 
 
-        <section class="">
+        <section class="pt-24">
+          <div>
+            <div>
+                <div class="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="flex justify-between items-center gap-3">
+                        <div class="md:w-[40%] rounded-xl h-[300px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex flex-col justify-center items-center">
+                            <div class="px-3 flex flex-col justify-evenly h-full">
+                                <h4 class="text-2xl tracking-[-1px] text-[#fff]">Empowering Digital Insurance Transformation</h4>
+                                <div class="">
+                                    <button class="flex items-center gap-3 bg-[#fff] tracking-[-1px] pl-3 pr-2 py-2 rounded-3xl">Explore Products <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white"><i class="ri-arrow-right-up-line"></i></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-[25%] h-[300px] flex flex-col gap-3">
+                            <div class="md:h-[50%] w-full bg-[#000] rounded-xl overflow-hidden">
+                                <div class="w-full h-full">
+                                    <img src="https://i.pinimg.com/736x/74/ff/66/74ff66dc91415dd71437662824d37032.jpg" class="w-full h-full object-cover" alt="">
+                                </div>
+                            </div>
+                            <div class="md:h-[50%] w-full bg-[#000] overflow-hidden rounded-xl">
+                                <div class="w-full h-full">
+                                    <img src="https://i.pinimg.com/736x/04/81/b4/0481b4085bd90e7b70c9d5440470a3ae.jpg" class="w-full h-full object-cover" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-[35%] bg-[#000] h-[300px] rounded-xl overflow-hidden">
+                            <img src="../assets/products-img1.png" class="w-full h-full object-cover" alt="">
+                        </div>
+                    </div>
+                    <div class="w-full flex justify-center items-center gap-3">
+                        <div class="h-[300px] md:w-[50%] bg-gray-100 rounded-xl px-5 py-5">
+                            <span class="text-3xl tracking-[-2px] text-gray-800x-col gap-2">
+                                Implementation <span class=" block">Success <i class="ri-verified-badge-fill text-[#119FE0]"></i></span></span>
+                            <p class="mt-5 pt-3 border-t border-dashed border-gray-700">GreyLinq products are designed to help organizations embrace digital transformation while maintaining operational excellence, compliance, and customer satisfaction.</p>
+                        </div>
+                        <div class="h-[300px] bg-[#000] md:w-[50%] overflow-hidden rounded-xl">
+                            <img src="../assets/product-service1.jpg" w-full h-full object-cover alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="bg-gradient from-[#000] via-[#000] to-[#000] min-h-screen relative">
+            <div class="absolute top-0 bottom-0 right-0 left-0 mix-blend- z-20">
+                <img src="../assets/grid-line.jpg" alt="" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b z-10 from-[#fff] to-transparant"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t z-10 from-[#fff] to-transparant">
+            </div>
+            <div class="min-h-screen relative z-30">
+                <div>
+                    <div class="py-20">
+                        <div class="mb-10 flex justify-center items-center gap-5">
+                            <!-- <h3
+                                    class="text-6xl text-center bg-gradient-to-r from-[#2C3184] to-[#119FE0] bg-clip-text text-transparent tracking-[-5px] flex items-center gap-3 justify-center">
+                                    <span class="text-6xl"><i class="ri-gemini-fill"></i></span>Our Products</h3> -->
+                            <h2 class="text-6xl tracking-[-5px] flex items-center justify-center gap-5 text-reveal">
+                                <span class="text-5xl text-[#01628F] mr-5"><i class="ri-gemini-fill"></i></span>Our
+                                Products
+                            </h2>
+                        </div>
+                        <div class="w-full max-w-[900px] grid grid-cols-2 mx-auto gap-3">
+                            <div
+                                class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+                                <div
+                                    class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                                </div>
+                                <div class="w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                                    <img src="../assets/gmatrix-bg.png" alt="" class="w-full h-full object-cover">
+                                </div>
+        
+                                <div
+                                    class="relative px-2 md:px-10 z-10 flex flex-col justify-center items-center h-full w-full">
+                                    <div class="text-center">
+                                        <h4
+                                            class="text-6xl tracking-[-2px] font-semibold text-center mb-1 bg-gradient-to-r from-[#ffff] via-[#119FE0] py-2 to-[#fff] bg-clip-text text-transparent">
+                                            Gmatrix</h4>
+                                        <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">Individual<span class="block">Micro
+                                            SME</span><span class="block">EBP</span> <span class="block">Enhanced SME</span></span>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                            Plan <span
+                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                    </div>
+                                </div>
+        
+        
+        
+                            </div>
+                            <div
+                                class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tl-[100px] rounded-br-[100px] overflow-hidden">
+                                <div
+                                    class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                                </div>
+                                <div class="w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                                    <img src="../assets/grey-matter-bg.png" alt="" class="w-full h-full object-cover">
+                                </div>
+        
+                                <div
+                                    class="relative px-2 md:px-10 z-10 flex flex-col justify-center items-center h-full w-full">
+                                    <div class="text-center">
+                                        <h4
+                                            class="text-6xl tracking-[-2px] font-semibold text-center mb-1 py-3 bg-gradient-to-r from-[#ffff] via-[#119FE0] to-[#fff] bg-clip-text text-transparent">
+                                            Grey-Matter</h4>
+                                        <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">SME</span>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                            Plan <span
+                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                    </div>
+                                </div>
+        
+        
+        
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                 <div>
+                    <div class="md:flex gap-10 max-w-[1200px] mx-auto px-2">
+                        <div class="md:w-[40%] flex flex-col justify-center">
+                            <div>
+                                <h2 class="text-5xl tracking-[-2px] mb-5">Key Features & Benefits</h2>
+                                <p>GMatrix is a powerful Individual & SME medical quotation and policy administration platform that enables insurers to
+                                    automate underwriting, policy issuance, endorsements, renewals, and reporting.
+                                    The platform processes approximately 30,000 policy issuances per month. Its end-to-end automated workflow completes
+                                    the entire process in under 10 minutes, including policy issuance and member e-card activation.
+                                </p>
+                            </div>
+                            <!-- <div>
+                                <span>Built to simplify every stage of the insurance lifecycle.</span>
+                                <div>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="md:w-[60%] flex flex-col gap-2">
+                            <div class="h-[400px] grid grid-cols-1 md:grid-cols-[1.5fr_2fr] gap-2">
+                                <div class="h-full rounded-3xl overflow-hidden w-full bg-[#000]">
+                                    <div>
+                                        <img src="../assets/key-features.png" class="w-full h-full object-cover" alt="">
+                                    </div>
+                                </div>
+                                <div class="h-full rounded-3xl px-5 py-5 overflow-hidden w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
+                                    <ul class="list-disc px-5 text-white pt-5">
+                                        <li>Instant quotation generation</li>
+                                        <li>Product configuration and management</li>
+                                        <li>Policy administration</li>
+                                        <li>Automated underwriting workflows</li>
+                                        <li>Endorsement and renewal management</li>
+                                        <li>Premium calculation engine</li>
+                                        <li>Document Management with AI Validation</li>
+                                        <li>User and role management</li>
+                                        <li>Regulatory compliance support</li>
+                                        <li>Realtime Integration support with Payer, TPA and Reinsurer</li>
+                                        <li>Real-time reporting and analytics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="h-[250px] grid grid-cols-1 md:grid-cols-[1.5fr_2fr] gap-2">
+                                <div class="h-full rounded-3xl overflow-hidden w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
+                                    <div class="px-5 py-10">
+                                        <h5 class="text-2xl tracking-[-1px] border-b border-dashed border-gray-300 pb-3 text-white mb-3">Built for High Volume</h5>
+                                        <ul class="list-disc px-5 text-gray-200">
+                                            <li>Instant Policy Issuance</li>
+                                            <li>Automated Underwriting Workflow</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="h-full rounded-3xl overflow-hidden w-full bg-[#000]">
+                                    <div >
+                                        <img src="../assets/377.jpg" class="w-full h-full object-cover" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-h-screen max-w-[600px] mx-auto">
+                        <div class="w-full min-h-screen h-full flex flex-col justify-center items-center">
+                            <div class="flex w-full gap-10 justify-center items-center">
+                                <ul class="list-disc">
+                                    <li class="text-nowrap">Reduce operational complexity</li>
+                                    <li class="text-nowrap">Improve processing speed and accuracy</li>
+                                    <li class="text-nowrap">Launch products faster</li>
+                                </ul>
+                                <div class="h-[300px] w-full bg-[#000]">
+                                    <img src="../assets/benefits.png" alt="">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-row-reverse gap-10 justify-center items-center">
+                                <ul class="list-disc text-nowrap">
+                                    <li>Enhance customer and broker experiences</li>
+                                    <li>Increase operational visibility</li>
+                                </ul>
+                                <div class="h-[300px] w-full bg-[#000]">
+                                    <img src="../assets/benefits2.png" class="w-full h-full object-cover" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+
+        <!-- <section class="">
+            <div>
+                <div class="min-h-screen max-w-[560px] mx-auto">
+                    <div class="w-full min-h-screen h-full flex flex-col justify-center items-center">
+                        <div class="flex w-full gap-10 justify-center items-center">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit Sed aliquam</span>
+                            <div class="h-[300px] w-full bg-[#000]"></div>
+                        </div>
+                        <div class="flex w-full flex-row-reverse gap-10 justify-center items-center">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit Sed aliquam</span>
+                            <div class="h-[300px] w-full bg-[#000]"></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section> -->
+
+        
+        <!-- <section class="min-h-screen w-fulla">
             <div>
                 <div>
-                    <div class="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-[300px_1fr] gap-10 place-items-center">
-                        <div class="w-full h-[450px] bg-[#000]">
-                            <div class="w-full h-full">
-                                <img src="../assets/service.png" class="w-full h-full object-cover" alt="Insurance Technology">
-                            </div>
-                        </div>
+                    <div>
                         <div>
-                            <h2 class="text-6xl tracking-[-5px] mb-5">Insurance Technology Consulting</h2>
-                            <p>Our experts help insurers evaluate existing systems, identify operational gaps, and develop strategic technology roadmaps that align with business objectives.</p>
+                            <div class="md:h-[70%] w-full"></div>
+                            <div class="md:h-[30%] w-full"></div>
                         </div>
+                        <div></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
-
-        <section class="mt-24">
-            <div class="">
-                <div class="">
-                    <div class="max-w-[1200px] w-full mx-auto">
-                        <div class="mb-14">
-                            <h2 class="text-6xl tracking-[-5px] text-center">Software Implementation</h2>
-                        </div>
-                        <div class="flex justify-between items-center gap-5">
-                            <div class="md:w-[35%] h-[450px] rounded-3xl overflow-hidden bg-[#000] relative">
-                                <div class="w-full h-full">
-                                    <img src="../assets/software-implementation.png" class="w-full h-full object-cover" alt="">
-                                </div>
-                                <div class="absolute rounded-[25px] bottom-3 left-3 right-3 p-5 backdrop-blur-[6px] bg-[#ffffff38] border-[1px] border-[#ffffff2e]">
-                                    <h3 class="text-white text-2xl tracking-[-1px]">Configuration & Customization</h3>
-                                    <p class="mt-2 text-gray-200">We customize insurance platforms to fit your business needs for a smooth implementation.</p>
-                                </div>
-                            </div>
-                            <div class="md:w-[75%] flex flex-col gap-5 min-h-[450px] justify-between">
-                                <div>
-                                    <p class="text-xl tracking-[-1px]">We ensure the successful deployment of insurance platforms through proven and structured implementation methodologies, enabling a seamless transition with minimal operational disruption while maximizing efficiency, business value, and long term growth.</p>
-                                </div>
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                    <div class="w-full h-[300px] rounded-3xl bg-gradient-to-r from-gray-100 to-gray-200">
-                                        <div class="px-5 py-5">
-                                            <h3 class="text-4xl tracking-[-3px]">Strategic Planning & Deployment</h3>
-                                            <p class="mt-5">We develop structured implementation strategies that ensure smooth deployment, reducing risks while aligning the platform with your business objectives.</p>
-                                        </div>
-                                    </div>
-                                    <div class="w-full h-[300px] rounded-3xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
-                                        <div class="px-5 py-5">
-                                            <h3 class="text-4xl tracking-[-3px] text-white">Training, Support & Optimization</h3>
-                                            <p class="mt-5 text-gray-200">We provide user training, post implementation support, and continuous optimization to maximize adoption, performance, and long term business value.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="mt-24">
-            <div>
-                <div class="max-w-[1200px] mx-auto">
-                    <div>
-                        <div class="flex flex-col justify-center items-center mb-10">
-                            <h2 class="text-6xl tracking-[-5px] mb-5">System Integration</h2>
-                            <p>Connect your insurance ecosystem through seamless integration with existing systems and technologies.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-10">
-                            <div class="flex flex-col gap-3">
-                                <div class="w-full h-[250px] rounded-3xl bg-gray-200">
-                                    <div class="px-5 py-10">
-                                        <h4 class="text-3xl border-b border-black pb-3 border-dashed mb-3 tracking-[-2px]"><span class="mr-3 text-[#119FE0]"><i class="ri-wallet-fill"></i></span>Payment Gateways</h4>
-                                        <p class="">Integrate with secure payment gateways to enable fast, reliable, and compliant premium collections and refunds.</p>
-                                    </div>
-                                </div>
-                                <div class="w-full h-[250px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-3xl overflow-hidden">
-                                    <div class="px-5 py-10">
-                                        <h4 class="text-3xl tracking-[-2px] mb-3 text-[#fff] pb-3 border-b border-dashed border-gray-300"><span class="mr-3"><i class="ri-cpu-line"></i></span>CRM Systems</h4>
-                                        <p class="text-gray-300">Sync with CRM platforms to manage customer interactions, policy information, and communications efficiently.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3">
-                                <div class="w-full h-[350px] relative bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-3xl overflow-hidden">
-                                    <div class="absolute top-0 bottom-0 left-0 right-0">
-                                        <img src="../assets/health-service.png" alt="" class="w-full h-full object-cover">
-                                    </div>
-                                    <div class="absolute h-[250px] bg-gradient-to-t from-[#000] bottom-0 left-0 right-0"></div>
-                                    <div class="px-5 py-10 relative h-full flex flex-col justify-end items-start">
-                                        <h4 class="text-3xl tracking-[-2px] border-b flex items-center text-white border-dashed border-gray-300 pb-3 mb-3"><span class="mr-2 w-[30px] text-black h-[30px] flex justify-center items-center bg-[#fff] rounded-full text-base"><i class="ri-heart-pulse-fill"></i></span>Healthcare Providers</h4>
-                                        <p class="text-gray-300">Enable secure healthcare connectivity for faster verification and claims.</p>
-                                    </div>
-                                </div>
-                                <div class="w-full h-[150px] bg-gray-200 rounded-3xl overflow-hidden">
-                                    <div class="py-5 px-5">
-                                        <h4 class="text-2xl tracking-[-1px] mb-3 pb-3 border-b border-dashed border-gray-900"><span class="mr-3 text-[#119FE0]"><i class="ri-red-packet-fill"></i></span>Financial Systems</h4>
-                                        <p>Connect with banking systems for secure financial operations.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col gap-3">
-                                <div class="w-full h-[300px] bg-gray-200 rounded-3xl overflow-hidden">
-                                    <div class="px-5 py-10">
-                                        <h4 class="text-3xl mb-3 tracking-[-2px] pb-3 border-b border-dashed border-gray-800"><span class="mr-3 text-[#119FE0]"><i class="ri-command-line"></i></span>Third Party Administrators</h4>
-                                        <p class="text-gray-800">Enable seamless collaboration with TPAs for claims processing, document exchange, and workflow automation.</p>
-                                    </div>
-                                </div>
-                                <div class="w-full h-[200px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-3xl overflow-hidden">
-                                    <div class="px-5 py-10">
-                                        <h4 class="text-2xl text-white mb-3 tracking-[-2px] pb-3 border-b border-dashed border-gray-300"><span class="mr-3"><i class="ri-bank-line"></i></span>Government & Regulatory Platforms</h4>
-                                        <p class="text-gray-300">Integrate with government platforms for seamless compliance.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="">
-            <div class="min-h-screen flex flex-col justify-center items-center">
-                <div class="max-w-[1200px] mx-auto w-full">
-                    <div class="relative w-full h-[300px] px-10 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex justify-evenly items-center gap-10">
-                        <div class="md:w-[60%] h-full flex flex-col justify-center">
-                            <h2 class="text-6xl tracking-[-5px] text-[#fff] mb-5">Business Process <span class="md:block">Automation</span></h2>
-                            <p class="text-gray-300">Automate repetitive tasks and streamline workflows to improve productivity, reduce errors, and accelerate service delivery.</p>
-                        </div>
-                        <div class="h-[450px] md:w-[40%] bg-[#000]">
-                            <img src="../assets/business.png" class="w-full h-full object-cover" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="">
-            <div>
-                <div class="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-[300px_1fr] gap-10 place-items-center">
-                    
-                    <div class="h-[450px] w-full bg-[#000]">
-                        <img src="../assets/service_2.png" class="w-full h-full object-cover" alt="">
-                    </div>
-                    <div>
-                        <span class="px-3 py-2 border-[2px] rounded-3xl border-[#114598] tracking-[-1px]">Migration Services</span>
-                        <h2 class="text-6xl tracking-[-5px] mb-5 mt-3">Data Migration</h2>
-                        <p>Safely transition data from legacy systems to modern platforms while ensuring data integrity, security, and business continuity.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="mt-24">
-            <div class="min-h-screen flex flex-col justify-center items-center">
-                <div class="max-w-[1200px] mx-auto w-full bg-[#000] h-full min-h-[90vh] rounded-3xl">
-                    <div class="flex flex-col justify-end w-full h-full mt-auto min-h-[90vh] mb-10 ml-10">
-                        <h2 class="text-[#fff] mb-3 text-6xl tracking-[-5px]">Support & Maintenance</h2>
-                        <p class="text-gray-300">Our dedicated support team provides ongoing assistance, system monitoring, upgrades, and optimization services to ensure peak performance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     
         <!-- Page Transition -->
         <div id="page-transition">
