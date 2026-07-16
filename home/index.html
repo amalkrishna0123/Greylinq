@@ -1,0 +1,2874 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greylinq Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/transition.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
+    <link rel="stylesheet" href="../css/transition.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="prefetch" href="../about/about.html">
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'Kinetica';
+            src: url('../assets/font/kinetika-medium.ttf');
+        }
+    
+        * {
+            font-family: 'Kinetica', sans-serif;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+            z-index: 9999;
+        }
+    
+        .why-section {
+    
+            padding: 120px 0;
+        }
+    
+        .container {
+    
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+    
+        .section-heading {
+    
+            text-align: center;
+            margin-bottom: 70px;
+        }
+    
+        .section-heading h2 {
+    
+            font-size: 60px;
+            font-weight: 700;
+        }
+    
+        .section-heading span {
+    
+            color: #52dae1;
+        }
+    
+        .section-heading p {
+    
+            max-width: 720px;
+            margin: 20px auto 0;
+            color: #8d8d8d;
+        }
+    
+        .why-wrapper {
+    
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+    
+        .why-card {
+    
+            position: sticky;
+            top: 120px;
+    
+            background: #111;
+    
+            border-radius: 24px;
+    
+            overflow: hidden;
+        }
+    
+        .why-card img {
+    
+            width: 100%;
+            display: block;
+        }
+    
+        .card-content {
+    
+            padding: 30px;
+        }
+    
+        .card-content span {
+    
+            color: #888;
+        }
+    
+        .card-content h3 {
+    
+            margin: 15px 0 30px;
+        }
+    
+        .book-btn {
+    
+            display: inline-flex;
+    
+            padding: 14px 28px;
+    
+            border-radius: 50px;
+    
+            background: #52dae1;
+    
+            color: black;
+    
+            text-decoration: none;
+    
+            font-weight: 600;
+        }
+    
+        .accordion {
+    
+            display: flex;
+    
+            flex-direction: column;
+    
+            gap: 18px;
+        }
+    
+        .accordion-item {
+    
+            border-radius: 18px;
+    
+            background: #111;
+    
+            overflow: hidden;
+        }
+    
+        .accordion-item button {
+    
+            width: 100%;
+    
+            display: flex;
+    
+            justify-content: space-between;
+    
+            align-items: center;
+    
+            padding: 15px;
+    
+            border: none;
+    
+            background: none;
+    
+            color: white;
+    
+            cursor: pointer;
+    
+            font-size: 16px;
+        }
+    
+        .accordion-item small {
+    
+            color: #52dae1;
+    
+            margin-right: 15px;
+        }
+    
+        .content {
+    
+            max-height: 0;
+    
+            overflow: hidden;
+    
+            transition: .45s;
+    
+            color: #bdbdbd;
+    
+            padding: 0 0px 0 0;
+        }
+    
+        .accordion-item.active .content {
+    
+            max-height: 200px;
+    
+            padding: 0 28px 28px;
+        }
+    
+    
+        #solutionsTrack {
+            width: max-content;
+            will-change: transform;
+        }
+    
+        .char {
+            display: inline-block;
+            will-change: transform;
+        }
+    
+        .mask-text {
+            overflow: hidden;
+        }
+    
+        .mask-text span {
+            display: block;
+        }
+    
+        .text-reveal .line {
+            display: block;
+            overflow: hidden;
+        }
+    
+        .text-reveal .word-mask {
+            display: inline-block;
+            overflow: hidden;
+            padding-right: 2px;
+            padding-bottom: 2px;
+            vertical-align: top;
+        }
+    
+        .text-reveal .word {
+            display: inline-block;
+            will-change: transform;
+        }
+    
+        /* #solutionsTrack > div{
+    
+        transition:
+            transform .6s cubic-bezier(.19,1,.22,1),
+            box-shadow .6s;
+    
+    }
+    
+    #solutionsTrack > div:hover{
+    
+        transform:
+            translateY(-14px);
+    
+        box-shadow:
+            0 40px 80px rgba(0,0,0,.25);
+    
+    }
+    
+    #solutionsTrack img{
+    
+        transition:
+            transform 1s cubic-bezier(.19,1,.22,1);
+    
+    }
+    
+    #solutionsTrack > div:hover img{
+    
+        transform:scale(1.08);
+    
+    } */
+    </style>
+
+    <style>
+        /* ==========================================
+INDUSTRIES SECTION
+========================================== */
+
+        #industries {
+            position: relative;
+            height: 700vh;
+            /* background:#f8f8f8; */
+
+        }
+
+        #industries .sticky-wrapper {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* ==========================================
+HEADING
+========================================== */
+
+        .industry-heading {
+
+            position: absolute;
+
+            top: 60px;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 200;
+
+        }
+
+        .industry-heading .subtitle {
+
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            color: #0c82c9;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+        }
+
+        .industry-heading h2 {
+
+            font-size: 62px;
+
+            line-height: 1;
+
+            letter-spacing: -4px;
+
+            font-weight: 700;
+
+        }
+
+        .industry-heading h2 span {
+
+            color: #0c82c9;
+
+        }
+
+
+        /* ==========================================
+CARDS
+========================================== */
+
+        .industry-cards {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 100%;
+            background: linear-gradient(45deg, #0c82c9, yellow);
+
+        }
+
+
+        /* ==========================================
+SINGLE CARD
+========================================== */
+
+        .industry-card {
+
+            position: absolute;
+            inset: 0;
+            background: white;
+            border-radius: 32px;
+            padding: 170px 70px 70px;
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+            box-shadow:
+                0 15px 60px rgba(0, 0, 0, .08);
+            will-change: transform;
+        }
+
+
+        /* ==========================================
+NUMBER
+========================================== */
+
+        .industry-no {
+
+            font-size: 90px;
+
+            font-weight: 800;
+
+            line-height: 1;
+
+            color: #d7d7d7;
+
+            letter-spacing: -4px;
+
+        }
+
+
+        /* ==========================================
+RIGHT CONTENT
+========================================== */
+
+        .industry-main {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+        /* ==========================================
+TOP
+========================================== */
+
+        .industry-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 40px;
+
+        }
+
+        .industry-top h3 {
+
+            font-size: 54px;
+
+            line-height: .95;
+
+            letter-spacing: -3px;
+
+            font-weight: 600;
+
+            max-width: 650px;
+
+        }
+
+        .industry-top button {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            border: none;
+
+            background: none;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            font-weight: 500;
+
+        }
+
+        .industry-top button i {
+
+            width: 42px;
+
+            height: 42px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border: 1px solid #dadada;
+
+        }
+
+
+        /* ==========================================
+BODY
+========================================== */
+
+        .industry-body {
+
+            display: grid;
+
+            grid-template-columns: 500px 1fr;
+
+            gap: 50px;
+
+            align-items: start;
+
+        }
+
+
+        /* ==========================================
+IMAGE
+========================================== */
+
+        .industry-image {
+
+            width: 100%;
+
+            height: 320px;
+
+            overflow: hidden;
+
+            border-radius: 22px;
+
+        }
+
+        .industry-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        /* ==========================================
+DESCRIPTION
+========================================== */
+
+        .industry-content {
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            gap: 20px;
+        }
+
+        .industry-content p {
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            color: #555;
+
+        }
+
+
+        /* ==========================================
+INITIAL STATE
+========================================== */
+
+        /* .industry-card {
+
+            transform: translateY(120%);
+
+        }
+
+        .industry-card:first-child {
+
+            transform: translateY(0);
+
+        } */
+
+
+        /* ==========================================
+RESPONSIVE
+========================================== */
+
+        @media(max-width:991px) {
+
+            #industries {
+
+                height: 600vh;
+
+            }
+
+            .industry-card {
+
+                grid-template-columns: 1fr;
+
+                padding: 140px 30px 40px;
+
+                gap: 30px;
+
+            }
+
+            .industry-body {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .industry-top {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+
+            }
+
+            .industry-top h3 {
+
+                font-size: 38px;
+
+            }
+
+            .industry-heading {
+
+                padding: 0 20px;
+
+            }
+
+            .industry-heading h2 {
+
+                font-size: 48px;
+
+            }
+
+            .industry-no {
+
+                font-size: 70px;
+
+            }
+
+        }
+
+        .sticky-card-grid-org {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            column-gap: 30px;
+        }
+
+        .industry-number {
+            color: #fff;
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        /* ==========================================================
+OUR SOLUTIONS
+========================================================== */
+
+        #solutionsSection {
+            position: relative;
+            height: 300vh;
+            background: #fff;
+        }
+
+
+        /* ==========================================================
+STICKY WRAPPER
+========================================================== */
+
+        #solutionsSticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+
+        /* ==========================================================
+RIGHT PANEL
+========================================================== */
+
+        #solutionsCards {
+            width: 100%;
+            will-change: transform;
+        }
+
+
+        /* ==========================================================
+CARD
+========================================================== */
+
+        .solutionCard {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 32px;
+            background: #000;
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, .08);
+
+            will-change:
+                transform,
+                opacity;
+
+            transition:
+                transform .5s ease,
+                box-shadow .5s ease;
+        }
+
+
+        /* ==========================================================
+IMAGE
+========================================================== */
+
+        .solutionCard img {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition:
+                transform 1.2s cubic-bezier(.22, 1, .36, 1);
+
+        }
+
+
+        /* ==========================================================
+HOVER
+========================================================== */
+
+        .solutionCard:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, .18);
+
+        }
+
+        .solutionCard:hover img {
+
+            transform: scale(1.08);
+
+        }
+
+
+        /* ==========================================================
+CONTENT
+========================================================== */
+
+        .solutionCard span {
+
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #8be7ff;
+            text-transform: uppercase;
+
+        }
+
+        .solutionCard h3 {
+
+            color: #fff;
+            margin-top: 12px;
+            font-size: 40px;
+            line-height: 1;
+            letter-spacing: -2px;
+
+        }
+
+
+        /* ==========================================================
+LEFT PANEL
+========================================================== */
+
+        #solutionTitle {
+
+            transition:
+                opacity .4s ease,
+                transform .4s ease;
+
+        }
+
+        #solutionDescription {
+
+            transition:
+                opacity .4s ease,
+                transform .4s ease;
+
+        }
+
+
+        /* ==========================================================
+BUTTON
+========================================================== */
+
+        #solutionsSticky button {
+
+            transition:
+                .35s;
+
+        }
+
+        #solutionsSticky button:hover {
+
+            transform: translateY(-3px);
+
+        }
+
+
+        /* ==========================================================
+PERFORMANCE
+========================================================== */
+
+        #solutionsSticky,
+        #solutionsCards,
+        .solutionCard,
+        .solutionCard img {
+
+            backface-visibility: hidden;
+            transform: translateZ(0);
+
+        }
+
+
+        /* ==========================================================
+RESPONSIVE
+========================================================== */
+
+        @media(max-width:1024px) {
+
+            #solutionsSection {
+
+                height: auto;
+
+            }
+
+            #solutionsSticky {
+
+                position: relative;
+                height: auto;
+                overflow: visible;
+
+            }
+
+            #solutionsCards {
+
+                transform: none !important;
+
+            }
+
+        }
+
+        @media(max-width:768px) {
+
+            #solutionsSticky>.max-w-\[1280px\] {
+
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+
+            }
+
+            #solutionTitle {
+
+                font-size: 44px;
+                letter-spacing: -3px;
+
+            }
+
+            .solutionCard {
+
+                height: 280px;
+
+            }
+
+            .solutionCard h3 {
+
+                font-size: 30px;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header class="hidden" id="header"
+            class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
+            <div class="w-[100px]"> <img src="../assets/logo.png" alt=""> </div>
+
+            <nav id="desktopNav" class="flex items-center transition-all duration-500">
+                <ul class="flex items-center gap-5 font-semibold tracking-[-1px]">
+                    <a href="../about/about.html" class="page-link">
+                        <li>About</li>
+                    </a>
+
+                    <a href="../services/services.html" class="page-link">
+                        <li>Services</li>
+                    </a>
+
+                    <a href="../product/product.html" class="page-link">
+                        <li>Products</li>
+                    </a>
+
+                    <a href="../career/career.html" class="page-link">
+                        <li>Career</li>
+                    </a>
+
+                    <a href="../contact/contact.html" class="page-link">
+                        <li>Contact US</li>
+                    </a>
+                </ul>
+            </nav>
+
+            <div class="flex justify-center items-center gap-5">
+                <div>
+                    <button
+                        class="flex items-center justify-between gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 pr-2 py-2 rounded-3xl font-medium tracking-[-1px] text-[#fff]">Request
+                        a Demo<span
+                            class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
+                                class="ri-arrow-right-up-line"></i></span></button>
+                </div>
+
+                <button id="menuBtn"
+                    class="hidden w-11 h-11 rounded-full border border-gray-300 justify-center items-center text-2xl transition-all duration-300">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </header>
+
+        <div id="mobileMenu" class="fixed inset-0 bg-white z-50 translate-x-full transition-transform duration-500">
+
+            <div class="flex justify-between items-center p-8">
+
+                <img src="../assets/logo.png" class="w-[90px]">
+
+                <button id="closeMenu" class="text-3xl">
+                    <i class="ri-close-line"></i>
+                </button>
+
+            </div>
+
+            <ul class="flex flex-col gap-8 px-8 text-4xl font-semibold">
+
+                <li><a href="">About</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Products</a></li>
+                <li><a href="">Career</a></li>
+                <li><a href="">Contact Us</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Hero -->
+        <!-- <section>
+            <div class="min-h-screen w-full relative">
+                <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-[#fff] to-transparent h-[200px] z-10"></div>
+                <div class="absolute top-0 bottom-0 right-0 left-0 z-0">
+                        <video src="../assets/14684399_3840_2160_30fps.mp4" class="w-full h-full object-cover" muted autoplay loop></video>
+                    </div>
+                <div class="relative min-h-screen w-full max-w-[1200px] mx-auto flex flex-col justify-center items-center">
+                    <div class="flex min-h-screen">
+                        <div class="flex flex-col justify-center">
+                            <h1 class="text-7xl tracking-[-6px] text-[#106fb6]">Intelligent Insurance<span class="">Technology</span></h1>
+                        </div>
+                        <div class="mt-auto mb-[80px] h-full flex flex-col justify-end items-end">
+                            <h1 class="text-7xl tracking-[-5px] leading-tight text-[#106fb6]">for a Digital First
+                                <div class="flex">
+                                    <span class="max-w-[400px] w-full text-[15px] tracking-normal text-[#232323]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis beatae dignissimos sint
+                                        officiis, ducimus eaque atque. Provident nemo autem tempore.</span>
+                                    <span>Future</span>
+                                </div>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- <section class="min-h-screen">
+        <div class="min-h-screen relative">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#106fb6] to-transparent h-[300px] z-10">
+            </div>
+            <div class="absolute top-0 bottom-0 left-0 right-0 z-10">
+                <img src="../assets/gridline2.png" alt="" class="w-full h-full object-cover opacity-40">
+            </div>
+            <div class="absolute top-0 bottom-0 left-0 right-0">
+                <video src="../assets/12686182_3840_2160_30fps.mp4" muted autoplay loop
+                    class="w-full h-full object-cover"></video>
+            </div>
+
+            <div class="absolute top-0 bottom-0 left-0 right-0 mix-blend-overlay">
+                <video src="../assets/intro.mp4" muted autoplay loop class="w-full h-full object-cover z-20"></video>
+            </div>
+            <div class="min-h-screen relative z-20 flex w-full flex-col justify-center items-center">
+                <div>
+                    <h1 class="lg:text-7xl max-w-[1100px] tracking-[-5px] text-center text-reveal">
+                        <div class="line">
+                            <span class="word-mask">
+                                <span class="word">Intelligent</span>
+                                <span class="word">Insurance</span>
+                            </span>
+                        </div>
+                        <span class="">Technology for a</span> <span class="text-[#106fb6]">Digital-First Future</span>
+                    </h1>
+                    <p class="text-center max-w-[900px] mx-auto mt-5 text-[#3c3c3c] text-reveal">GreyLinq empowers
+                        insurance providers with innovative software solutions that streamline operations, enhance
+                        customer experiences, and accelerate business growth. Our technology-driven platforms help
+                        insurers automate processes, manage policies efficiently, and adapt to evolving market demands
+                        with confidence.</p>
+                    <div class="flex justify-center items-center gap-5 mt-10">
+                        <button
+                            class="px-10 py-2 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white tracking-[-1px] font-medium">Explore
+                            More</button>
+                        <div class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-0.5">
+                            <button class="px-10 py-2 bg-white tracking-[-1px] font-medium">Request
+                                a Demo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+        <section class="min-h-screen bg-gradient-to-b from-[#106fb6] to-[#106fb6]">
+            <div class="min-h-screen relative w-full bg-[#fff] rounded-b-[30%] relative z-20 overflow-hidden">
+                <!-- <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#106fb6] to-transparent h-[300px] z-10">
+            </div> -->
+                <!-- <div class="absolute top-0 bottom-0 left-0 right-0 z-10">
+                <img src="../assets/gridline2.png" alt="" class="w-full h-full object-cover opacity-40">
+            </div> -->
+                <!-- <div class="absolute top-0 bottom-0 left-0 right-0 opacity-40">
+                    <video src="../assets/12686182_3840_2160_30fps.mp4" muted autoplay loop
+                        class="w-full h-full object-cover"></video>
+                </div> -->
+
+                <div class="absolute top-0 bottom-0 left-0 right-0 z-0">
+                <img src="../assets/g copy.png" alt="" class="w-full h-full object-contain opacity-10">
+                </div>
+
+                <!-- <div class="absolute top-0 bottom-0 left-0 right-0 mix-blend-overlay">
+                <video src="../assets/intro.mp4" muted autoplay loop class="w-full h-full object-cover z-20"></video>
+            </div> -->
+                <div class="min-h-screen relative z-50 flex w-full flex-col justify-center items-center">
+                    <div>
+                        <h1
+                            class="lg:text-[70px] leading-[80px] max-w-[900px] tracking-[-5px] text-center text-reveal">
+                            Intelligent Insurance
+                            Technology for a <span class="text-[#106fb6]">Digital-First Future</span>
+                        </h1>
+                        <p class="text-center max-w-[900px] mx-auto mt-5 text-[#3c3c3c] text-reveal">GreyLinq empowers insurance providers with innovative software solutions that streamline operations, enhance customer experiences, and accelerate business growth. Our technology-driven platforms help insurers automate processes, manage policies efficiently, and adapt to evolving market demands with confidence.</p>
+                        <!-- <div class="flex justify-center items-center gap-5 mt-10">
+                            <button
+                                class="px-10 py-2 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white tracking-[-1px] font-medium">Explore
+                                More</button>
+                            <div class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-0.5">
+                                <button class="px-10 py-2 bg-white tracking-[-1px] font-medium">Request
+                                    a Demo</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="w-full min-h-screen bg-gradient-to-b from-[#106fb6] via-[#01628F] to-[#119FE0]">
+            <div class="relative w-full min-h-screen flex items-center justify-center">
+                <div class="absolute top-0 bottom-0 left-0 right-0">
+                    <img src="../assets/dot.png" alt="" class="w-full h-full object-contain opacity-50">
+                </div>
+                <div class="flex flex-col justify-center iems-center gap-5 text-center max-w-[1200px] mx-auto">
+                    <h2
+                        class="text-reveal bg-[#fff] max-w-[180px] mx-auto rounded-3xl px-6 py-2 tracking-[-1px] font-medium text-[#000] flex gap-2 items-center justify-center">
+                        <span class=" rounded-[1px] text-[#106fb6]"><i class="ri-info-i"></i></span>
+                        About Greylinq
+                    </h2>
+                    <p
+                        class="text-[45px] tracking-[-2px] font-medium bg-gradient-to-r from-[#d1d1d1] via-[#d1d1d1] to-[#52dae1] bg-clip-text text-transparent leading-tight text-reveal text-white">
+                        GreyLinq is a trusted InsurTech solutions provider specializing in insurance software
+                        development,
+                        policy administration systems, healthcare integration, workflow management,
+                        and
+                        digital transformation solutions for modern insurance businesses.</p>
+                    <div class="relative flex justify-center">
+                        <button
+                            class="px-10 bg-gradient-to-r from-[#fff] to-[#ffffff] py-2 tracking-[-1px] font-medium text-[#464646] flex items-center justify-center gap-2 text-reveal">Driven by Innovation
+                            <span class="text-[#119FE0]">
+                                <!-- <i class="ri-share-forward-fill"></i> -->
+                                 <i class="ri-color-filter-ai-fill"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="w-full min-h-screen">
+                <div class="grid grid-cols-2 w-full min-h-screen h-full max-w-[1200px] mx-auto px-2 py-5">
+                    <div class="w-full h-full flex items-center justify-center">
+                        <img src="../assets/g copy.png" alt="" class="w-full h-[500px] object-contain">
+                    </div>
+                    <div class="flex justify-center items-center flex-col h-full w-full">
+                        <div class="flex flex-col gap-5 mb-5">
+                            <h2 class="text-5xl tracking-[-3px] text-reveal">Transform Insurance Operations Improve
+                                Efficiency Drive Growth.</h2>
+                            <p class="text-reveal">GreyLinq is a trusted InsurTech company delivering innovative
+                                insurance
+                                software solutions for insurers, healthcare providers, brokers, and administrators. We
+                                specialize in policy administration, workflow management, healthcare
+                                integration, and digital transformation, helping organizations improve efficiency,
+                                reduce
+                                operational costs, ensure compliance, and deliver exceptional customer experiences.
+                            </p>
+                        </div>
+                        <div class="flex justify-center items-center gap-2 w-full">
+                            <button
+                                class="bg-gradient-to-r px-6 py-2 from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-tr-3xl rounded-bl-3xl w-full max-w-[150px] text-[#fff] tracking-[-1px] font-medium text-reveal">Explore</button>
+                            <button
+                                class="bg-gradient-to-r px-6 py-2 from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-tl-3xl rounded-br-3xl w-full max-w-[150px] text-[#fff] tracking-[-1px] font-medium text-reveal">Read
+                                More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- OUR SOLUTIONS -->
+
+        <section id="solutionsSection" class="relative h-[500vh] bg-white">
+
+            <!-- Sticky Wrapper -->
+            <div id="solutionsSticky" class="sticky top-0 h-screen overflow-hidden">
+
+                <div class="max-w-[1280px] h-full mx-auto grid grid-cols-2 gap-20 px-6">
+
+                    <!-- =========================
+                     LEFT PANEL
+                ========================== -->
+
+                    <div class="flex flex-col justify-evenly pt-24 py-10 h-screen">
+                        <div class="w-full h-full">
+                            <span class="tracking-[-1px] text-[#01628F] mb-2 text-reveal">--- Our Solutions ---</span>
+                            <h2 class="text-6xl tracking-[-3px] mb-5 text-reveal">Innovative Solutions for Modern Insurance</h2>
+                            <p class="text-reveal">Delivering secure, scalable, and intelligent insurance platforms that simplify complex processes while enhancing efficiency, accuracy, and customer satisfaction.
+                                Discover innovative insurance solutions built to optimize operations, improve customer service, and enable faster.</p>
+                        </div>
+                        <div>
+                            <div>
+                                <ul class="flex items-center gap-[-10px] relative">
+                                    <li class="">
+                                        <span
+                                            class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i
+                                                class="ri-service-fill"></i></span>
+                                    </li>
+                                    <li class="absolute left-[30px]">
+                                        <span
+                                            class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i
+                                                class="ri-shield-cross-fill"></i></span>
+                                    </li>
+                                    <li class="absolute left-[60px]">
+                                        <span
+                                            class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i
+                                                class="ri-stethoscope-line"></i></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-start items-center gap-5 mt-5">
+                                <p class="text-reveal">Unlock Smarter Insurance Solutions</p>
+                                <span
+                                    class="w-[40px] h-[40px] border-[#20202054] border-[1.5px] transition-all ease duration-300 hover:bg-gradient-to-r from-[#000] via-[#000] to-[#000] hover:text-[#fff] rounded-full flex items-center justify-center"><i
+                                        class="ri-arrow-right-up-line"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- =========================
+                     RIGHT PANEL
+                ========================== -->
+
+                    <div class="relative h-full flex items-center">
+
+                        <div id="solutionsCards" class="w-full flex flex-col gap-8 will-change-transform">
+
+                            <!-- CARD -->
+
+                            <article class="solutionCard h-[340px] rounded-[32px] overflow-hidden bg-black relative">
+
+                                <img src="../assets/solution1.jpg" class="absolute inset-0 w-full h-full object-cover">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                                </div>
+
+                                <div class="absolute bottom-0 left-0 p-8">
+
+                                    <span class="text-sm text-cyan-300 uppercase">
+
+                                        Solution 01
+
+                                    </span>
+
+                                    <h3 class="text-4xl tracking-[-2px] text-white mt-3">
+
+                                        Health Insurance Software
+
+                                    </h3>
+
+                                </div>
+
+                            </article>
+
+                            <!-- CARD -->
+
+                            <article class="solutionCard h-[340px] rounded-[32px] overflow-hidden bg-black relative">
+
+                                <img src="../assets/solution2.png" class="absolute inset-0 w-full h-full object-cover">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                                </div>
+
+                                <div class="absolute bottom-0 left-0 p-8">
+
+                                    <span class="text-sm text-cyan-300 uppercase">
+
+                                        Solution 02
+
+                                    </span>
+
+                                    <h3 class="text-4xl tracking-[-2px] text-white mt-3">
+
+                                        Policy Administration
+
+                                    </h3>
+
+                                </div>
+
+                            </article>
+
+                            <!-- CARD -->
+
+                            <article class="solutionCard h-[340px] rounded-[32px] overflow-hidden bg-black relative">
+
+                                <img src="../assets/solution3.png" class="absolute inset-0 w-full h-full object-cover">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                                </div>
+
+                                <div class="absolute bottom-0 left-0 p-8">
+
+                                    <span class="text-sm text-cyan-300 uppercase">
+
+                                        Solution 03
+
+                                    </span>
+
+                                    <h3 class="text-4xl tracking-[-2px] text-white mt-3">
+
+                                        Quotation Management
+
+                                    </h3>
+
+                                </div>
+
+                            </article>
+
+                            <!-- CARD -->
+
+                            <article class="solutionCard h-[340px] rounded-[32px] overflow-hidden bg-black relative">
+
+                                <img src="../assets/solution4.png" class="absolute inset-0 w-full h-full object-cover">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                                </div>
+
+                                <div class="absolute bottom-0 left-0 p-8">
+
+                                    <span class="text-sm text-cyan-300 uppercase">
+
+                                        Solution 04
+
+                                    </span>
+
+                                    <h3 class="text-4xl tracking-[-2px] text-white mt-3">
+
+                                        Travel Insurance
+
+                                    </h3>
+
+                                </div>
+
+                            </article>
+
+                            <!-- CARD -->
+
+                            <article class="solutionCard h-[340px] rounded-[32px] overflow-hidden bg-black relative">
+
+                                <img src="../assets/solution5.png" class="absolute inset-0 w-full h-full object-cover">
+
+                                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                                </div>
+
+                                <div class="absolute bottom-0 left-0 p-8">
+
+                                    <span class="text-sm text-cyan-300 uppercase">
+
+                                        Solution 05
+
+                                    </span>
+
+                                    <h3 class="text-4xl tracking-[-2px] text-white mt-3">
+
+                                        Policy Management
+
+                                    </h3>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- <section class="overflow-hidden">
+        <div>
+            <div class="w-full min-h-screen relative max-w-[1200px] mx-auto">
+                <div class="h-full w-full min-h-screen grid md:grid-cols-2 grid-cols-1 gap-20 px-2 py-5">
+                    <div class="flex flex-col justify-evenly pt-24 py-10 h-screen">
+                        <div class="w-full h-full">
+                            <span class="tracking-[-1px] text-[#01628F] mb-2">--- Our Solutions ---</span>
+                            <h2 class="text-6xl tracking-[-5px] mb-5">Lorem ipsum dolor sit amet dolor sit amet</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident blanditiis sunt quia cumque distinctio
+                                alias nulla consequatur, rem eius libero dolorum sit numquam ullam. Cum eaque est consequuntur eligendi
+                                esse?</p>
+                        </div>
+                        <div>
+                            <div>
+                                <ul class="flex items-center gap-[-10px] relative">
+                                    <li class="">
+                                        <span class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i class="ri-service-fill"></i></span>
+                                    </li>
+                                    <li class="absolute left-[30px]">
+                                        <span class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i class="ri-shield-cross-fill"></i></span>
+                                    </li>
+                                     <li class="absolute left-[60px]">
+                                        <span class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i class="ri-stethoscope-line"></i></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="flex justify-start items-center gap-5 mt-5">
+                                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                                <span class="w-[40px] h-[40px] border-[#20202054] border-[1.5px] transition-all ease duration-300 hover:bg-gradient-to-r from-[#000] via-[#000] to-[#000] hover:text-[#fff] rounded-full flex items-center justify-center"><i class="ri-arrow-right-up-line"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full h-full flex flex-col gap-5 h-screen overflow-auto">
+                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
+                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
+                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
+                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
+                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+        <!-- Products -->
+        <section class="bg-gradient from-[#000] via-[#000] to-[#000] min-h-screen relative">
+            <div class="absolute top-0 bottom-0 right-0 left-0 mix-blend-multiply">
+                <img src="../assets/grid-line.jpg" alt="" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b z-10 from-[#fff] to-transparant"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t z-10 from-[#fff] to-transparant">
+            </div>
+            <div class="min-h-screen relative z-30">
+                <div>
+                    <div class="py-20">
+                        <div class="mb-10 flex justify-center items-center gap-5">
+                            <!-- <h3
+                            class="text-6xl text-center bg-gradient-to-r from-[#2C3184] to-[#119FE0] bg-clip-text text-transparent tracking-[-5px] flex items-center gap-3 justify-center">
+                            <span class="text-6xl"><i class="ri-gemini-fill"></i></span>Our Products</h3> -->
+                            <h2 class="text-6xl tracking-[-5px] flex items-center justify-center gap-5 text-reveal">
+                                <span class="text-5xl text-[#01628F] mr-5"><i class="ri-gemini-fill"></i></span>Our
+                                Products
+                            </h2>
+                        </div>
+                        <div class="w-full max-w-[900px] grid grid-cols-2 mx-auto gap-3">
+                        <div
+                            class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+                            <div class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                            </div>
+                            <div class="w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                                <img src="../assets/gmatrix-bg.png" alt="" class="w-full h-full object-cover">
+                            </div>
+                    
+                            <div class="relative px-2 md:px-10 z-10 flex flex-col justify-center items-center h-full w-full">
+                                <div class="text-center">
+                                    <h4
+                                        class="text-6xl tracking-[-2px] font-semibold text-center mb-1 bg-gradient-to-r from-[#ffff] via-[#119FE0] py-2 to-[#fff] bg-clip-text text-transparent">
+                                        Gmatrix</h4>
+                                    <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">Individual<span class="block">Micro SME</span><span class="block">EBP</span> <span
+                                            class="block">Enhanced SME</span></span>
+                                </div>
+                                <div class="mt-5">
+                                    <button
+                                        class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                        Plan <span
+                                            class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                class="ri-arrow-right-up-line"></i></span></button>
+                                </div>
+                            </div>
+                    
+                    
+                    
+                        </div>
+                        <div
+                            class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tl-[100px] rounded-br-[100px] overflow-hidden">
+                            <div class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                            </div>
+                            <div class="w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                                <img src="../assets/grey-matter-bg.png" alt="" class="w-full h-full object-cover">
+                            </div>
+                    
+                            <div class="relative px-2 md:px-10 z-10 flex flex-col justify-center items-center h-full w-full">
+                                <div class="text-center">
+                                    <h4
+                                        class="text-6xl tracking-[-2px] font-semibold text-center mb-1 py-3 bg-gradient-to-r from-[#ffff] via-[#119FE0] to-[#fff] bg-clip-text text-transparent">
+                                        Grey-Matter</h4>
+                                    <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">SME</span>
+                                </div>
+                                <div class="mt-5">
+                                    <button
+                                        class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                        Plan <span
+                                            class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                class="ri-arrow-right-up-line"></i></span></button>
+                                </div>
+                            </div>
+                    
+                    
+                    
+                        </div>
+                    </div>
+                        <!-- <div class="w-full max-w-[900px] grid grid-cols-2 mx-auto gap-3">
+                            <div
+                                class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+                                <div
+                                    class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                                </div>
+                                <div class="w-full h-full">
+                                    <img src="../assets/gmatrix.png" alt="" class="w-full h-full object-cover">
+                                </div>
+
+                                <div
+                                    class="absolute bottom-10 right-0 px-5 z-10 text-[#fff] flex flex-col gap-2 justify-end items-end">
+                                    <span class="text-2xl font-semibold tracking-[-1px] text-reveal">GMATRIX</span>
+                                    <p class="text-end text-[#cbcbcb] text-reveal">A powerful quotation and policy
+                                        administration platform that enables insurers to automate underwriting, policy
+                                        issuance, endorsements, renewals, and reporting.</p>
+
+                                    <div class="mt-2">
+                                        <button
+                                            class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] px-10 py-2 tracking-[-1px] text-reveal">Get
+                                            Plan</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div
+                                class="relative w-full h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tl-[100px] rounded-br-[100px] overflow-hidden">
+                                <div
+                                    class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                                </div>
+                                <div class="w-full h-full">
+                                    <img src="../assets/gmatrix.png" alt="" class="w-full h-full object-cover">
+                                </div>
+
+                                <div
+                                    class="absolute bottom-10 left-0 px-5 z-10 text-[#fff] flex flex-col gap-2 justify-start items-start">
+                                    <span class="text-2xl font-semibold tracking-[-1px] text-reveal">Grey-Matter</span>
+                                    <p class="text-start text-[#cbcbcb] text-reveal">A specialized health insurance
+                                        management platform designed to optimize healthcare administration, provider
+                                        management, member services, and claims processing.</p>
+
+                                    <div class="mt-2">
+                                        <button
+                                            class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] px-10 py-2 tracking-[-1px] text-reveal">Get
+                                            Plan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section>
+            <div>
+                <div class="w-full max-w-[1200px] mx-auto">
+                    <div class="w-full flex flex-col justify-center items-center gap-3">
+                        <h2 class="text-6xl tracking-[-3px]"><span class="mr-3 text-[#119FE0]"><i class="ri-p2p-fill"></i></span>Industries We Serve</h2>
+                        <p class="max-w-[900px] mx-auto text-center">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Explicabo officia ex consequuntur
+                            cupiditate reprehenderit deserunt exercitationem voluptas neque architecto.</p>
+                    </div>
+                    <div>
+                        <div class="mt-10 flex justify-center items-center gap-5">
+                            <div class="w-full relative md:w-[40%] overflow-hidden h-[400px] bg-[#000] rounded-3xl">
+                                <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full">
+                                    <img src="../assets/health-insurance-providers.jpg" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <div class="h-[300px] w-full absolute bottom-0 right-0 left-0 bg-gradient-to-t from-black">
+
+                                </div>
+                                <div class="relative z-10 h-full ml-auto flex flex-col justify-end">
+                                    <div class="z-10 bottom-5 left-0 right-0 w-full px-5 mb-5">
+                                        <div class="w-full px-5 py-5 h-full bg-[#ffffff5c] backdrop-blur-sm rounded-[20px]">
+                                            <h3 class="text-3xl tracking-[-1px] text-[#fff] border-b pb-3 border-dashed border-[#fff] mb-2">Health
+                                                Insurance Providers</h3>
+                                            <p class="text-gray-200">A specialized health insurance
+                                                management platform designed to optimize healthcare administratio.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-[60%] h-[400px] flex flex-col gap-3">
+                                <div class="w-full h-[50%] bg-gray-200 border px-5 pb-10 rounded-3xl overflow-hidden border">
+                                    <div class="w-full h-full flex flex-col justify-end">
+                                        <span class="text-3xl tracking-[-1px] border-b pb-5 border-dashed border-black">Third-Party Administrators <span class="text-[#119FE0]">(TPAs)</span></span>
+                                        <p class="pt-2">Simplifying Policy administration, provider networks, policy servicing, and customer support through intelligent insurance solutions.</p>
+                                    </div>
+                                </div>
+                                <div class="flex w-full h-[50%] gap-3">
+                                    <div class="w-full px-5 py-5 h-full bg-[#000] rounded-3xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
+                                        <div>
+                                            <h4 class="text-2xl pb-2 border-b border-dashed border-white mb-2 tracking-[-1px] text-white">Brokers and Insurance Agencies</h4>
+                                            <p class="text-gray-300">Empower brokers with faster quotations, policy issuance, customer management, and renewal automation.</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-full overflow-hidden border h-full bg-gray-200 py-5 px-5 rounded-3xl bg-gray-200">
+                                        <!-- <img src="../assets/general_insurance_companies.png" alt="" class="w-full h-full object-cover"> -->
+                                         <h4 class="text-2xl pb-2 border-b border-dashed border-gray-600 mb-2 tracking-[-1px] text-gray-800">General Insurance Companies</h4>
+                                            <p class="text-gray-700">Manage underwriting, policies, claims, and reporting efficiently.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div
+                                class="w-full px-5 py-5 h-[200px] mt-3 bg-[#000] rounded-3xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
+                                <div>
+                                    <h4 class="text-2xl pb-2 border-b border-dashed border-white mb-2 tracking-[-1px] text-white">Healthcare Organizations</h4>
+                                    <p class="text-gray-300">Connect healthcare providers with insurers through secure integrations, eligibility verification, and claims processing.</p>
+                                </div>
+                            </div>
+                            <div class="w-full h-[200px] mt-3 bg-gray-200 px-5 py-10 rounded-3xl">
+                                <div>
+                                    <h4 class="text-2xl pb-2 border-b border-dashed border-gray-600 mb-2 tracking-[-1px] text-gray-800">Travel Insurance Providers</h4>
+                                    <p class="text-gray-700">Simplify travel policy issuance, claims handling, customer servicing, and partner integrations on one platform.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="w-full h-[200px] mt-3 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] px-5 py-10 rounded-3xl">
+                                <div>
+                                    <h4 class="text-2xl pb-2 border-b border-dashed border-gray-200 mb-2 tracking-[-1px] text-white">Corporate Insurance Programs</h4>
+                                    <p class="text-gray-300">Manage employee insurance plans, enrollments, renewals, policy administration, and benefits through a centralized system.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Logo's -->
+        <section class="pt-24 mb-16">
+            <div class="w-full">
+                <div class="flex w-full h-full flex items-center justify-center">
+                    <div
+                        class="grid grid-cols-1 max-w-[1200px] mx-auto md:flex w-full md:justify-center md:items-center gap-10">
+                        <div class="md:w-[30%]">
+                            <h3 class="text-6xl tracking-[-5px] text-reveal leading-tight">Trusted by our major clients
+                            </h3>
+                        </div>
+                        <div class="md:w-[70%] grid grid-cols-2 md:grid-cols-4 gap-5 border-l pl-7 border-[#000]">
+                            <div class="h-auto w-[150px] bg-[#fff]">
+                                <img src="../assets/partner1.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="h-auto w-[150px] bg-[#fff]">
+                                <img src="../assets/partner2.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="h-auto w-[150px] bg-[#fff]">
+                                <img src="../assets/partners3.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="h-auto w-[150px] bg-[#fff]">
+                                <img src="../assets/partners4.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="h-auto w-[150px] bg-[#fff]">
+                                <img src="../assets/partners9.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="h-auto w-[150px] bg-[#fff]">
+                                <img src="../assets/partners6.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                            <div class="h-auto w-[150px] bg-[#fff] flex items-center justify-center text-3xl font-semibold">
+                                <!-- <img src="../assets/partners7.png" alt="" class="w-full h-full object-contain"> -->
+                                 <span class="text-gray-600">LIVA</span>
+                            </div>
+                            <div class="h-auto w-[150px] bg-[#fff]">
+                                <img src="../assets/partners8.png" alt="" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Why Choose Us -->
+        <section class="w-full py-20">
+            <div class="max-w-[900px] mx-auto">
+                <div class="mb-16">
+                    <h2 class="text-6xl tracking-[-5px] text-center flex items-center justify-center gap-3">
+                        <span class="text-5xl text-[#119FE0]">
+                            <i class="ri-chat-smile-ai-fill"></i>
+                        </span>
+                        Why Choose <span>Greylinq</span>
+                    </h2>
+                    <p class="max-w-[800px] mx-auto text-center mt-4 text-reveal">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo officia ex consequuntur
+                        cupiditate reprehenderit deserunt exercitationem voluptas neque architecto.
+                    </p>
+                </div>
+
+                <!-- ROW 1 -->
+
+                <div class="why-row mb-5 border rounded-3xl overflow-hidden">
+                    <div class="grid md:grid-cols-2">
+                        <button
+                            class="why-btn p-7 text-left flex justify-between bg-gray-100 items-center border-b md:border-b-0 md:border-r"
+                            data-target="industry">
+                            <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-building-3-fill"></i></span>Industry Expertise</span>
+                            <i class="ri-add-line text-xl"></i>
+                        </button>
+                        <button class="why-btn p-7 bg-gray-200 text-left flex justify-between items-center" data-target="scalable">
+                            <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-exchange-funds-line"></i></span>Scalable Technology</span>
+                            <i class="ri-add-line text-xl"></i>
+                        </button>
+                    </div>
+
+                    <div class="why-content max-h-0 overflow-hidden transition-all duration-500">
+
+                        <div id="industry" class="why-panel hidden p-8">
+
+                            Our team combines insurance domain knowledge with advanced technology expertise to
+                            deliver solutions tailored to industry requirements.
+
+                        </div>
+
+                        <div id="scalable" class="why-panel hidden p-8">
+
+                            Built to grow with your business, our platforms support expanding operations, new
+                            products and changing customer expectations.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ROW 2 -->
+
+                <div class="why-row mb-5 border rounded-3xl overflow-hidden">
+
+                    <div class="grid md:grid-cols-2">
+
+                        <button
+                            class="why-btn p-7 text-left flex justify-between items-center border-b bg-gray-100 md:border-b-0 md:border-r"
+                            data-target="automation">
+
+                            <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-webhook-fill"></i></span>Process Automation</span>
+
+                            <i class="ri-add-line text-xl"></i>
+
+                        </button>
+
+                        <button class="why-btn p-7 text-left bg-gray-200 flex justify-between items-center"
+                            data-target="experience">
+
+                            <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-customer-service-2-fill"></i></span>Enhanced Customer Experience</span>
+
+                            <i class="ri-add-line text-xl"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="why-content max-h-0 overflow-hidden transition-all duration-500">
+
+                        <div id="automation" class="why-panel hidden p-8">
+
+                            Reduce manual workloads and improve operational accuracy through intelligent
+                            automation and workflow management.
+
+                        </div>
+
+                        <div id="experience" class="why-panel hidden p-8">
+
+                            Deliver seamless digital experiences across policy management and
+                            customer support.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ROW 3 -->
+
+                <div class="why-row border rounded-3xl overflow-hidden">
+
+                    <div class="grid md:grid-cols-2">
+
+                        <button
+                            class="why-btn p-7 text-left flex justify-between items-center bg-gray-100 border-b md:border-b-0 md:border-r"
+                            data-target="secure">
+
+                            <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-shield-check-fill"></i></span>Secure & Compliance</span>
+
+                            <i class="ri-add-line text-xl"></i>
+
+                        </button>
+
+                        <button class="why-btn p-7 text-left bg-gray-200 flex justify-between items-center"
+                            data-target="integration">
+
+                            <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-user-add-fill"></i></span>Integration Ready</span>
+
+                            <i class="ri-add-line text-xl"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="why-content max-h-0 overflow-hidden transition-all duration-500">
+
+                        <div id="secure" class="why-panel hidden p-8">
+
+                            Our solutions prioritize data security, regulatory compliance and operational
+                            reliability.
+
+                        </div>
+
+                        <div id="integration" class="why-panel hidden p-8">
+
+                            Connect with third party systems, payment gateways, healthcare providers and external
+                            partners through flexible integration capabilities.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Connect With Us -->
+        <section class="">
+            <div>
+                <div
+                    class="relative max-w-[1200px] mx-auto bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] px-10 py-20 rounded-3xl">
+                    <div class="absolute top-0 bottom-0 left-0 right-0">
+                        <img src="" alt="">
+                    </div>
+                    <div class="w-full flex relative flex-col justify-center">
+                        <span
+                            class="text-center mb-2 text-sm w-full font-medium tracking-[-1px] text-[#fff] border-[#ffffff57] border rounded-3xl bg-[#ffffff3d] backdrop-blur-[3px] max-w-[150px] px-2 py-2 mx-auto"><span class="mr-2"><i class="ri-usb-fill"></i></span>Connect
+                            With Us</span>
+                        <h3 class="text-6xl text-center tracking-[-3px] text-[#fff]">Ready to Modernize Your Insurance Operations?</h3>
+                        <p class="mt-3 text-center max-w-[900px] mx-auto text-[#edededdd]">Whether you're a health insurer, TPA, broker, or insurance provider, our innovative software solutions help automate workflows, improve operational efficiency, and accelerate your digital transformation.</p>
+                    </div>
+                    <div class="flex justify-center items-center mt-5">
+                        <button class="px-10 py-2 bg-[#fff] tracking-[-1px] font-medium text-[#106fb6]">Connect
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="bg-gradient-to-r from-[#000] via-[#000] to-[#000] mt-10 min-h-[350px] rounded-t-[100px]">
+            <div>
+                <div class="">
+                    <div class="flex justify-between w-full max-w-[1200px] mx-auto pt-10 border-b pb-10">
+                        <div class="flex flex-col">
+                            <div class="h-[100px] w-[200px]">
+                                <img src="../assets/logo.png" alt="" class="h-full w-full object-contain">
+                            </div>
+                            <p class="max-w-[300px] mt-5 text-white">Empowering insurers with intelligent software solutions for seamless, secure, and efficient operations.</p>
+                        </div>
+                        <div class="flex flex-wrap justify-center items-center gap-10">
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>Our Solutions</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Products</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Industries We Serve</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Clients</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Why CHoose Us</li>
+                                    </a>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>About</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Vision</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Mission</li>
+                                    </a>
+                                    <a href="">
+                                        <li>What We Do</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Approach</li>
+                                    </a>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>Gmatrix</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Grey-Matter</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Career</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Mail Us</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Call Us</li>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col justify-end items-end">
+                            <ul class="text-white flex items-center gap-3 mb-5">
+                                <a href="">
+                                    <li><i class="ri-instagram-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-whatsapp-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-linkedin-box-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-facebook-circle-fill"></i></li>
+                                </a>
+                            </ul>
+                            <div>
+                                <button
+                                    class="bg-[#fff] flex items-center justify-between pl-5 py-2 tracking-[-1px] rounded-[2px] pr-2 w-[150px]">Book
+                                    Now <span
+                                        class="w-[30px] h-[30px] rounded-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-2 flex items-center justify-center text-white"><i
+                                            class="ri-arrow-right-up-line"></i></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <h1
+                        class="w-full text-center leading-none uppercase text-[clamp(5rem,22vw,20rem)] tracking-[-0.08em] text-[#f1f1f1] text-reveal border-b border-[#ffffff63] pb-10">
+                        Greylinq
+                    </h1>
+                    <p class="text-white py-3 w-full flex items-center justify-center text-center gap-2">Copyright <i class="ri-copyright-fill"></i> 2026.  All Rights Reserved.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Transition -->
+    <div id="page-transition">
+
+        <svg id="transition-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+
+            <path class="layer layer1"></path>
+
+            <path class="layer layer2"></path>
+
+            <path class="layer layer3"></path>
+
+        </svg>
+
+    </div>
+
+    <script src="../css/transition.js"></script>
+
+    <script>
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+
+                header.classList.remove("w-full", "max-w-[1400px]", "top-5");
+                header.classList.add(
+                    "w-[800px]",
+                    "top-4",
+                    "rounded-full",
+                    "bg-white/90",
+                    "backdrop-blur-xl",
+                    "shadow-2xl",
+                    "px-6",
+                    "py-3"
+                );
+
+            } else {
+
+                header.classList.remove(
+                    "w-[800px]",
+                    "top-4",
+                    "rounded-full",
+                    "bg-white/90",
+                    "backdrop-blur-xl",
+                    "shadow-2xl",
+                    "px-6",
+                    "py-3"
+                );
+
+                header.classList.add(
+                    "w-full",
+                    "max-w-[1400px]",
+                    "top-5"
+                );
+
+            }
+        });
+
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMenu = document.getElementById("closeMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("translate-x-full");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("translate-x-full");
+        });
+
+
+        const rows = document.querySelectorAll(".why-row");
+
+        rows.forEach(row => {
+
+            const buttons = row.querySelectorAll(".why-btn");
+            const content = row.querySelector(".why-content");
+            const panels = row.querySelectorAll(".why-panel");
+
+            buttons.forEach(button => {
+
+                button.addEventListener("click", (e) => {
+
+                    e.stopPropagation();
+
+                    const targetPanel = row.querySelector("#" + button.dataset.target);
+
+                    const isOpen =
+                        content.style.maxHeight &&
+                        content.style.maxHeight !== "0px" &&
+                        !targetPanel.classList.contains("hidden");
+
+                    // Close if same button clicked again
+                    if (isOpen) {
+
+                        content.style.maxHeight = "0px";
+
+                        panels.forEach(panel => panel.classList.add("hidden"));
+
+                        buttons.forEach(btn => {
+                            btn.querySelector("i").className = "ri-add-line text-xl";
+                        });
+
+                        return;
+                    }
+
+                    // Close all other rows
+                    rows.forEach(otherRow => {
+
+                        if (otherRow !== row) {
+
+                            otherRow.querySelector(".why-content").style.maxHeight = "0px";
+
+                            otherRow.querySelectorAll(".why-panel").forEach(panel => {
+                                panel.classList.add("hidden");
+                            });
+
+                            otherRow.querySelectorAll(".why-btn i").forEach(icon => {
+                                icon.className = "ri-add-line text-xl";
+                            });
+
+                        }
+
+                    });
+
+                    // Hide all panels in current row
+                    panels.forEach(panel => panel.classList.add("hidden"));
+
+                    // Show selected panel
+                    targetPanel.classList.remove("hidden");
+
+                    // Expand row
+                    content.style.maxHeight = content.scrollHeight + "px";
+
+                    // Reset icons
+                    buttons.forEach(btn => {
+                        btn.querySelector("i").className = "ri-add-line text-xl";
+                    });
+
+                    // Minus icon
+                    button.querySelector("i").className = "ri-subtract-line text-xl";
+
+                });
+
+            });
+
+        });
+
+        // Close when clicking outside
+        document.addEventListener("click", () => {
+
+            rows.forEach(row => {
+
+                row.querySelector(".why-content").style.maxHeight = "0px";
+
+                row.querySelectorAll(".why-panel").forEach(panel => {
+                    panel.classList.add("hidden");
+                });
+
+                row.querySelectorAll(".why-btn i").forEach(icon => {
+                    icon.className = "ri-add-line text-xl";
+                });
+
+            });
+
+        });
+
+
+
+        const section = document.getElementById("solutionsSection");
+        const track = document.getElementById("solutionsTrack");
+
+        function horizontalScroll() {
+
+            const rect = section.getBoundingClientRect();
+
+            const totalScroll =
+                section.offsetHeight - window.innerHeight;
+
+            let progress = -rect.top;
+
+            progress = Math.max(0, Math.min(progress, totalScroll));
+
+            const maxTranslate =
+                track.scrollWidth - window.innerWidth;
+
+            const x =
+                (progress / totalScroll) * maxTranslate;
+
+            track.style.transform = `translateX(-${x}px)`;
+
+        }
+
+        window.addEventListener("scroll", horizontalScroll);
+
+        window.addEventListener("resize", horizontalScroll);
+    </script>
+
+    <script>
+        gsap.registerPlugin(CustomEase);
+
+        CustomEase.create("fluid", "0.83,0,0.17,1");
+
+        const paths = document.querySelectorAll(".layer");
+        const transition = document.getElementById("page-transition");
+
+        function pathClosed() {
+            return `
+        M0 0
+        L1000 0
+        L1000 1000
+        Q500 1000 0 1000
+        Z
+    `;
+        }
+
+        function pathOpen(offset) {
+            return `
+        M0 0
+        L1000 0
+        L1000 ${offset}
+        Q500 ${offset - 180} 0 ${offset}
+        Z
+    `;
+        }
+
+        paths.forEach(path => {
+            path.setAttribute("d", pathClosed());
+        });
+
+        function reveal(nextPage) {
+
+            transition.style.visibility = "visible";
+            transition.style.pointerEvents = "all";
+
+            gsap.set(paths, {
+                attr: { d: pathOpen(1000) }
+            });
+
+            gsap.timeline({
+
+                defaults: {
+                    ease: "fluid"
+                },
+
+                onComplete() {
+
+                    window.location.href = nextPage;
+
+                }
+
+            })
+
+                .to(paths[0], {
+                    duration: .9,
+                    attr: { d: pathOpen(0) }
+                }, 0)
+
+                .to(paths[1], {
+                    duration: 1,
+                    attr: { d: pathOpen(0) }
+                }, .08)
+
+                .to(paths[2], {
+                    duration: 1.1,
+                    attr: { d: pathOpen(0) }
+                }, .16);
+
+        }
+
+        function enter() {
+
+            transition.style.visibility = "visible";
+
+            gsap.set(paths, {
+                attr: { d: pathOpen(0) }
+            });
+
+            gsap.timeline({
+
+                defaults: {
+                    ease: "fluid"
+                },
+
+                onComplete() {
+
+                    transition.style.visibility = "hidden";
+                    transition.style.pointerEvents = "none";
+
+                    if (window.initTextReveal) {
+
+                        window.initTextReveal();
+
+                    }
+
+                }
+
+            })
+
+                .to(paths[2], {
+                    duration: 1,
+                    attr: { d: pathOpen(1000) }
+                }, 0)
+
+                .to(paths[1], {
+                    duration: .95,
+                    attr: { d: pathOpen(1000) }
+                }, .08)
+
+                .to(paths[0], {
+                    duration: .9,
+                    attr: { d: pathOpen(1000) }
+                }, .16);
+
+        }
+
+        window.addEventListener("load", enter);
+
+        window.onpageshow = enter;
+
+        document.querySelectorAll(".page-link").forEach(link => {
+
+            link.addEventListener("click", e => {
+
+                e.preventDefault();
+
+                reveal(link.href);
+
+            });
+
+        });
+    </script>
+
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        window.initTextReveal = function () {
+
+            document.querySelectorAll(".text-reveal").forEach(text => {
+
+                if (text.dataset.revealed) return;
+
+                text.dataset.revealed = true;
+
+                const split = new SplitType(text, {
+                    types: "lines,words"
+                });
+
+                split.lines.forEach(line => {
+
+                    line.style.display = "block";
+                    line.style.overflow = "hidden";
+
+                });
+
+                split.words.forEach(word => {
+
+                    const mask = document.createElement("span");
+
+                    mask.className = "word-mask";
+
+                    word.parentNode.insertBefore(mask, word);
+
+                    mask.appendChild(word);
+
+                });
+
+                gsap.set(split.words, {
+                    yPercent: 120
+                });
+
+                const hero = text.closest("section") === document.querySelector("section");
+
+                if (hero) {
+
+                    gsap.to(split.words, {
+                        yPercent: 0,
+                        stagger: .035,
+                        duration: 1,
+                        ease: "power4.out"
+                    });
+
+                } else {
+
+                    gsap.to(split.words, {
+
+                        yPercent: 0,
+                        stagger: .035,
+                        duration: 1,
+                        ease: "power4.out",
+
+                        scrollTrigger: {
+                            trigger: text,
+                            start: "top 85%",
+                            once: true
+                        }
+
+                    });
+
+                }
+
+            });
+
+        };
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const cards = gsap.utils.toArray(".industry-card");
+        const numCards = cards.length;
+
+        // Initial state
+        gsap.set(cards, {
+            yPercent: 110,
+            scale: 1,
+            opacity: 1,
+            zIndex: (i) => i + 1
+        });
+
+        gsap.set(cards[0], {
+            yPercent: 0
+        });
+
+        // Hide inner content initially
+        cards.forEach((card, index) => {
+
+            gsap.set(card.querySelector(".industry-number"), {
+                x: -60,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector("h2"), {
+                y: 50,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector(".industry-image"), {
+                y: 100,
+                scale: 1.15,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector(".industry-content"), {
+                y: 40,
+                opacity: 0
+            });
+
+            const btn = card.querySelector("button");
+            if (btn) {
+                gsap.set(btn, {
+                    x: 30,
+                    opacity: 0
+                });
+            }
+
+        });
+
+        // Reveal first card immediately
+        gsap.to(cards[0].querySelector(".industry-number"), {
+            x: 0,
+            opacity: 1,
+            duration: .8
+        });
+
+        gsap.to(cards[0].querySelector("h2"), {
+            y: 0,
+            opacity: 1,
+            duration: .8,
+            delay: .1
+        });
+
+        gsap.to(cards[0].querySelector(".industry-image"), {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: .8,
+            delay: .15
+        });
+
+        gsap.to(cards[0].querySelector(".industry-content"), {
+            y: 0,
+            opacity: 1,
+            duration: .8,
+            delay: .2
+        });
+
+        if (cards[0].querySelector("button")) {
+            gsap.to(cards[0].querySelector("button"), {
+                x: 0,
+                opacity: 1,
+                duration: .8,
+                delay: .25
+            });
+        }
+
+        // Main timeline — scroll length scales with number of cards
+        const tl = gsap.timeline({
+
+            scrollTrigger: {
+
+                // trigger: "#industries",
+                trigger: ".sticky-wrapper",
+                pin: ".sticky-wrapper",
+
+                start: "top top",
+
+                end: () => "+=" + (window.innerHeight * (numCards + 1)),
+
+                // pin: true,
+
+                scrub: 1.2,
+
+                anticipatePin: 1,
+
+                invalidateOnRefresh: true
+
+            }
+
+        });
+
+        cards.forEach((card, i) => {
+
+            if (i === 0) return;
+
+            // Stack ALL previously revealed cards down/back, not just the immediate previous one
+            for (let j = 0; j < i; j++) {
+
+                tl.to(cards[j], {
+
+                    scale: 1 - (i - j) * 0.035,
+
+                    y: -((i - j) * 22),
+
+                    opacity: 1,
+
+                    duration: 1,
+
+                    ease: "power2.out"
+
+                }, "<");
+
+            }
+
+            // New card slides in
+            tl.to(card, {
+
+                yPercent: 0,
+
+                duration: 1,
+
+                ease: "power4.out"
+
+            }, i === 1 ? "<" : "-=0.85");
+
+            // Number
+            tl.to(card.querySelector(".industry-number"), {
+
+                x: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.15");
+
+            // Title
+            tl.to(card.querySelector("h2"), {
+
+                y: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.05");
+
+            // Image
+            tl.to(card.querySelector(".industry-image"), {
+
+                y: 0,
+
+                scale: 1,
+
+                opacity: 1,
+
+                duration: .8,
+
+                ease: "power3.out"
+
+            }, "<0.1");
+
+            // Paragraph
+            tl.to(card.querySelector(".industry-content"), {
+
+                y: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.15");
+
+            // Button
+            const btn = card.querySelector("button");
+            if (btn) {
+                tl.to(btn, {
+
+                    x: 0,
+
+                    opacity: 1,
+
+                    duration: .5
+
+                }, "<0.2");
+            }
+
+        });
+
+        // Hold on final stacked state briefly before section ends
+        tl.to({}, { duration: 0.5 });
+
+    </script>
+
+    <style>
+        [data-greylinq-industries-stack-root] {
+            height: auto !important;
+            min-height: 100vh;
+            isolation: isolate;
+        }
+
+        [data-greylinq-industries-stack-stage] {
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        [data-greylinq-industries-stack-item] {
+            backface-visibility: hidden;
+            transform-origin: 50% 8%;
+            will-change: transform;
+        }
+    </style>
+
+    <script>
+        (() => {
+            const greylinqIndustriesStackRootNode = document.querySelector("[data-greylinq-industries-stack-root]");
+            const greylinqIndustriesStackStageNode = document.querySelector("[data-greylinq-industries-stack-stage]");
+            const greylinqIndustriesStackDeckItems = gsap.utils.toArray("[data-greylinq-industries-stack-item]");
+
+            if (!greylinqIndustriesStackRootNode || !greylinqIndustriesStackStageNode || greylinqIndustriesStackDeckItems.length < 2) {
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.getAll().forEach((greylinqIndustriesStackRetiredAnchorCandidate) => {
+                const greylinqIndustriesStackRetiredVars = greylinqIndustriesStackRetiredAnchorCandidate.vars || {};
+
+                if (
+                    greylinqIndustriesStackRetiredAnchorCandidate.vars.id !== "greylinqIndustriesPremiumStackScrollTrigger" &&
+                    greylinqIndustriesStackRetiredVars.trigger === ".sticky-wrapper" &&
+                    greylinqIndustriesStackRetiredVars.pin === ".sticky-wrapper"
+                ) {
+                    greylinqIndustriesStackRetiredAnchorCandidate.disable(true);
+                }
+            });
+
+            const greylinqIndustriesStackMotionEaseName = "power3.out";
+            const greylinqIndustriesStackDepthGapValue = 18;
+            const greylinqIndustriesStackScaleStepValue = 0.035;
+            const greylinqIndustriesStackScrollLength = () => window.innerHeight * (greylinqIndustriesStackDeckItems.length + 0.85);
+            const greylinqIndustriesStackDepthScale = (greylinqIndustriesStackActiveSlot, greylinqIndustriesStackItemSlot) =>
+                1 - Math.min((greylinqIndustriesStackActiveSlot - greylinqIndustriesStackItemSlot) * greylinqIndustriesStackScaleStepValue, 0.18);
+            const greylinqIndustriesStackDepthLift = (greylinqIndustriesStackActiveSlot, greylinqIndustriesStackItemSlot) =>
+                -Math.min((greylinqIndustriesStackActiveSlot - greylinqIndustriesStackItemSlot) * greylinqIndustriesStackDepthGapValue, 96);
+
+            gsap.set(greylinqIndustriesStackDeckItems, {
+                yPercent: 112,
+                y: 0,
+                x: 0,
+                scale: 1,
+                rotation: 0,
+                opacity: 1,
+                force3D: true,
+                zIndex: (greylinqIndustriesStackSlot) => greylinqIndustriesStackSlot + 20
+            });
+
+            gsap.set(greylinqIndustriesStackDeckItems[0], {
+                yPercent: 0,
+                zIndex: 30
+            });
+
+            const greylinqIndustriesStackSequence = gsap.timeline({
+                defaults: {
+                    ease: greylinqIndustriesStackMotionEaseName,
+                    duration: 1
+                },
+                scrollTrigger: {
+                    id: "greylinqIndustriesPremiumStackScrollTrigger",
+                    trigger: greylinqIndustriesStackRootNode,
+                    start: "top top",
+                    end: greylinqIndustriesStackScrollLength,
+                    scrub: 1.15,
+                    pin: greylinqIndustriesStackStageNode,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true
+                }
+            });
+
+            greylinqIndustriesStackDeckItems.forEach((greylinqIndustriesStackIncomingItem, greylinqIndustriesStackIncomingSlot) => {
+                if (greylinqIndustriesStackIncomingSlot === 0) {
+                    return;
+                }
+
+                const greylinqIndustriesStackArrivalLabelName = `greylinqIndustriesStackArrival${String(greylinqIndustriesStackIncomingSlot + 1).padStart(2, "0")}`;
+
+                greylinqIndustriesStackSequence.add(greylinqIndustriesStackArrivalLabelName, greylinqIndustriesStackIncomingSlot - 0.08);
+
+                for (let greylinqIndustriesStackPriorSlot = 0; greylinqIndustriesStackPriorSlot < greylinqIndustriesStackIncomingSlot; greylinqIndustriesStackPriorSlot += 1) {
+                    greylinqIndustriesStackSequence.to(greylinqIndustriesStackDeckItems[greylinqIndustriesStackPriorSlot], {
+                        yPercent: 0,
+                        y: greylinqIndustriesStackDepthLift(greylinqIndustriesStackIncomingSlot, greylinqIndustriesStackPriorSlot),
+                        scale: greylinqIndustriesStackDepthScale(greylinqIndustriesStackIncomingSlot, greylinqIndustriesStackPriorSlot),
+                        zIndex: 30 + greylinqIndustriesStackPriorSlot
+                    }, greylinqIndustriesStackArrivalLabelName);
+                }
+
+                greylinqIndustriesStackSequence.to(greylinqIndustriesStackIncomingItem, {
+                    yPercent: 0,
+                    y: 0,
+                    scale: 1,
+                    zIndex: 80 + greylinqIndustriesStackIncomingSlot,
+                    duration: 1.08,
+                    ease: "power4.out"
+                }, greylinqIndustriesStackArrivalLabelName);
+            });
+
+            greylinqIndustriesStackSequence.to(greylinqIndustriesStackDeckItems[greylinqIndustriesStackDeckItems.length - 1], {
+                y: -24,
+                scale: 0.985,
+                duration: 0.45,
+                ease: "power2.inOut"
+            });
+
+            window.addEventListener("load", () => {
+                if (greylinqIndustriesStackSequence.scrollTrigger) {
+                    greylinqIndustriesStackSequence.scrollTrigger.refresh();
+                }
+            }, { once: true });
+        })();
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        /*=============================
+          CONTENT
+        =============================*/
+
+        const solutions = [
+            {
+                title: "Health Insurance Software",
+                description:
+                    "Streamline healthcare insurance administration through intelligent policy management, provider integration, member services and automated."
+            },
+            {
+                title: "Policy Administration System",
+                description:
+                    "Manage the complete policy lifecycle including underwriting, issuance, endorsements, renewals and reporting through one centralized platform."
+            },
+            {
+                title: "Insurance Quotation Management",
+                description:
+                    "Generate accurate insurance quotations instantly using configurable rating engines, business rules and automated pricing workflows."
+            },
+            {
+                title: "Travel Insurance Solutions",
+                description:
+                    "Offer digital travel insurance products with automated issuance, online purchasing, policy management and integrated support."
+            },
+            {
+                title: "Policy Management System",
+                description:
+                    "Accelerate claim processing through automated validation, fraud detection, document management and real time claim tracking."
+            }
+        ];
+
+        const solutionCards = gsap.utils.toArray(".solutionCard");
+
+        const cardsWrapper = document.querySelector("#solutionsCards");
+
+        const title = document.querySelector("#solutionTitle");
+
+        const description = document.querySelector("#solutionDescription");
+
+        // const cards = gsap.utils.toArray(".industry-card")
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#industries"
+            }
+        })
+
+        /*=============================
+          DISTANCE
+        =============================*/
+
+        let moveDistance =
+            cardsWrapper.scrollHeight - window.innerHeight + 120;
+
+        /*=============================
+          MAIN SCROLL
+        =============================*/
+
+        gsap.to(cardsWrapper, {
+
+            y: () => -moveDistance,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: "#solutionsSection",
+
+                start: "top top",
+
+                end: () => "+=" + moveDistance,
+
+                pin: "#solutionsSticky",
+
+                scrub: 1.3,
+
+                anticipatePin: 1,
+
+                invalidateOnRefresh: true
+
+            }
+
+        });
+
+        /*=============================
+          ACTIVE CARD
+        =============================*/
+
+        cards.forEach((card, index) => {
+
+            ScrollTrigger.create({
+
+                trigger: card,
+
+                start: "top center",
+
+                end: "bottom center",
+
+                containerAnimation: null,
+
+                onEnter: () => changeContent(index),
+
+                onEnterBack: () => changeContent(index)
+
+            });
+
+        });
+
+        /*=============================
+          CHANGE LEFT CONTENT
+        =============================*/
+
+        function changeContent(index) {
+
+            gsap.timeline()
+
+                .to([title, description], {
+
+                    opacity: 0,
+
+                    y: 25,
+
+                    duration: .25
+
+                })
+
+                .add(() => {
+
+                    title.textContent =
+                        solutions[index].title;
+
+                    description.textContent =
+                        solutions[index].description;
+
+                })
+
+                .to([title, description], {
+
+                    opacity: 1,
+
+                    y: 0,
+
+                    duration: .45,
+
+                    stagger: .05
+
+                });
+
+        }
+
+        /*=============================
+          CARD EFFECT
+        =============================*/
+
+        cards.forEach(card => {
+
+            ScrollTrigger.create({
+
+                trigger: card,
+
+                start: "top center",
+
+                end: "bottom center",
+
+                onUpdate: self => {
+
+                    const progress = self.progress;
+
+                    gsap.to(card, {
+
+                        scale: 1 - (Math.abs(progress - .5) * 0.12),
+
+                        opacity: 1 - (Math.abs(progress - .5) * 0.35),
+
+                        duration: .2,
+
+                        overwrite: true
+
+                    });
+
+                }
+
+            });
+
+        });
+
+        /*=============================
+          REFRESH
+        =============================*/
+
+        window.addEventListener("resize", () => {
+
+            moveDistance =
+                cardsWrapper.scrollHeight - window.innerHeight + 120;
+
+            ScrollTrigger.refresh();
+
+        });
+    </script>
+</body>
+
+</html>
+

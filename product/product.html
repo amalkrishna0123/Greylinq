@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/transition.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
+    <link rel="stylesheet" href="../css/transition.css">
+    <link rel="prefetch" href="../about/about.html">
+</head>
+
+<style>
+    @font-face {
+        font-family: 'Kinetica';
+        src: url('../assets/font/kinetika-medium.ttf');
+    }
+
+    *{
+        font-family: 'Kinetica', sans-serif;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .why-section {
+
+        padding: 120px 0;
+    }
+
+    .container {
+
+        width: min(1200px, 90%);
+        margin: auto;
+    }
+
+    .section-heading {
+
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .section-heading h2 {
+
+        font-size: 60px;
+        font-weight: 700;
+    }
+
+    .section-heading span {
+
+        color: #52dae1;
+    }
+
+    .section-heading p {
+
+        max-width: 720px;
+        margin: 20px auto 0;
+        color: #8d8d8d;
+    }
+
+    .why-wrapper {
+
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .why-card {
+
+        position: sticky;
+        top: 120px;
+
+        background: #111;
+
+        border-radius: 24px;
+
+        overflow: hidden;
+    }
+
+    .why-card img {
+
+        width: 100%;
+        display: block;
+    }
+
+    .card-content {
+
+        padding: 30px;
+    }
+
+    .card-content span {
+
+        color: #888;
+    }
+
+    .card-content h3 {
+
+        margin: 15px 0 30px;
+    }
+
+    .book-btn {
+
+        display: inline-flex;
+
+        padding: 14px 28px;
+
+        border-radius: 50px;
+
+        background: #52dae1;
+
+        color: black;
+
+        text-decoration: none;
+
+        font-weight: 600;
+    }
+
+    .accordion {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .accordion-item {
+
+        border-radius: 18px;
+
+        background: #111;
+
+        overflow: hidden;
+    }
+
+    .accordion-item button {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 15px;
+
+        border: none;
+
+        background: none;
+
+        color: white;
+
+        cursor: pointer;
+
+        font-size: 16px;
+    }
+
+    .accordion-item small {
+
+        color: #52dae1;
+
+        margin-right: 15px;
+    }
+
+    .content {
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition: .45s;
+
+        color: #bdbdbd;
+
+        padding: 0 0px 0 0;
+    }
+
+    .accordion-item.active .content {
+
+        max-height: 200px;
+
+        padding: 0 28px 28px;
+    }
+
+
+    #solutionsTrack {
+        width: max-content;
+        will-change: transform;
+    }
+
+    .char {
+        display: inline-block;
+        will-change: transform;
+    }
+
+    .mask-text {
+        overflow: hidden;
+    }
+
+    .mask-text span {
+        display: block;
+    }
+
+    .text-reveal .line {
+        display: block;
+        overflow: hidden;
+    }
+
+    .text-reveal .word-mask {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+    .text-reveal .word {
+        display: inline-block;
+        will-change: transform;
+    }
+</style>
+<body>
+    <div>
+        <header class="hidden" id="header"
+            class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
+            <a href="../home/index.html">
+                <div class="w-[100px]">
+                    <img src="../assets/logo.png" alt="">
+                </div>
+            </a>
+    
+            <nav id="desktopNav" class="flex items-center transition-all duration-500">
+                <ul class="flex items-center gap-5 font-semibold tracking-[-1px]">
+                    <a href="../about/about.html" class="page-link">
+                        <li>About</li>
+                    </a>
+    
+                    <a href="../services/services.html" class="page-link">
+                        <li>Services</li>
+                    </a>
+    
+                    <a href="../product/product.html" class="page-link">
+                        <li>Products</li>
+                    </a>
+    
+                    <a href="../career/career.html" class="page-link">
+                        <li>Career</li>
+                    </a>
+    
+                    <a href="../contact/contact.html" class="page-link">
+                        <li>Contact US</li>
+                    </a>
+                </ul>
+            </nav>
+    
+            <div class="flex justify-center items-center gap-5">
+                <div>
+                    <button
+                        class="flex items-center justify-between gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 pr-2 py-2 rounded-3xl font-medium tracking-[-1px] text-[#fff]">Request
+                        a Demo<span
+                            class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
+                                class="ri-arrow-right-up-line"></i></span></button>
+                </div>
+    
+                <button id="menuBtn"
+                    class="hidden w-11 h-11 rounded-full border border-gray-300 justify-center items-center text-2xl transition-all duration-300">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </header>
+    
+    
+        <section class="min-h-screen mb-20 w-full flex justify-center items-center">
+            <div class="h-full w-full flex justify-center items-center flex-col">
+                <div class="h-full pt-32 w-full max-w-[1200px] mx-auto">
+                    <!-- <h2 class="text-6xl tracking-[-5px] mb-10 text-center">Insurance Technology Solutions<span class="md:block">Designed for Growth</span></h2> -->
+                    <div class="grid md:grid-cols-2 gap-x-3 h-[500px] w-full">
+                        <div class="h-full w-full bg-gray-100">
+                            <div class="h-full flex flex-col justify-center items-center px-5">
+                                <div class="w-full flex flex-col justify-center items-center mb-10">
+                                    <span class="px-6 py-2 rounded-3xl border border-gray-400 mb-3">Our Products</span>
+                                    <h3 class="text-6xl text-gray-800 tracking-[-4px] text-center">Insurance Technology Solutions
+                                        Designed for Growth
+                                    </h3>
+                                    <p class="text-center mt-3">Building secure and scalable insurance platforms that help organizations operate smarter and serve customers better.</p>
+                                </div>
+                                <div class="mb-5">
+                                    <button class="text bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 rounded-3xl min-w-[160px] text-white tracking-[-1px] py-2 pr-2 flex items-center gap-2 justify-between">Explore More <span class="w-[30px] flex items-center bg-white justify-center h-[30px] text-[#000] rounded-full"><i class="ri-arrow-right-up-line"></i></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-full w-full bg-[#000]">
+                            <div class="w-full h-full">
+                                <img src="../assets/product-hero.png" class="w-full h-full object-cover" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="pt-24">
+          <div>
+            <div>
+                <div class="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="flex justify-between items-center gap-3">
+                        <div class="md:w-[40%] rounded-xl h-[300px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex flex-col justify-center items-center">
+                            <div class="px-3 flex flex-col justify-evenly h-full">
+                                <h4 class="text-2xl tracking-[-1px] text-[#fff]">Empowering Digital Insurance Transformation</h4>
+                                <div class="">
+                                    <button class="flex items-center gap-3 bg-[#fff] tracking-[-1px] pl-3 pr-2 py-2 rounded-3xl">Explore Products <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white"><i class="ri-arrow-right-up-line"></i></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-[25%] h-[300px] flex flex-col gap-3">
+                            <div class="md:h-[50%] w-full bg-[#000] rounded-xl overflow-hidden">
+                                <div class="w-full h-full">
+                                    <img src="https://i.pinimg.com/736x/74/ff/66/74ff66dc91415dd71437662824d37032.jpg" class="w-full h-full object-cover" alt="">
+                                </div>
+                            </div>
+                            <div class="md:h-[50%] w-full bg-[#000] overflow-hidden rounded-xl">
+                                <div class="w-full h-full">
+                                    <img src="https://i.pinimg.com/736x/04/81/b4/0481b4085bd90e7b70c9d5440470a3ae.jpg" class="w-full h-full object-cover" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-[35%] bg-[#000] h-[300px] rounded-xl overflow-hidden">
+                            <img src="../assets/products-img1.png" class="w-full h-full object-cover" alt="">
+                        </div>
+                    </div>
+                    <div class="w-full flex justify-center items-center gap-3">
+                        <div class="h-[300px] md:w-[50%] bg-gray-100 rounded-xl px-5 py-5">
+                            <span class="text-3xl tracking-[-2px] text-gray-800x-col gap-2">
+                                Implementation <span class=" block">Success <i class="ri-verified-badge-fill text-[#119FE0]"></i></span></span>
+                            <p class="mt-5 pt-3 border-t border-dashed border-gray-700">GreyLinq products are designed to help organizations embrace digital transformation while maintaining operational excellence, compliance, and customer satisfaction.</p>
+                        </div>
+                        <div class="h-[300px] bg-[#000] md:w-[50%] overflow-hidden rounded-xl">
+                            <img src="../assets/product-service1.jpg" w-full h-full object-cover alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="bg-gradient from-[#000] via-[#000] to-[#000] min-h-screen relative">
+            <div class="absolute top-0 bottom-0 right-0 left-0 mix-blend- z-20">
+                <img src="../assets/grid-line.jpg" alt="" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="absolute top-0 left-0 right-0 h-[100px] bg-gradient-to-b z-10 from-[#fff] to-transparant"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-t z-10 from-[#fff] to-transparant">
+            </div>
+            <div class="min-h-screen relative z-30">
+                <div>
+                    <div class="py-20">
+                        <div class="mb-10 flex justify-center items-center gap-5">
+                            <!-- <h3
+                                    class="text-6xl text-center bg-gradient-to-r from-[#2C3184] to-[#119FE0] bg-clip-text text-transparent tracking-[-5px] flex items-center gap-3 justify-center">
+                                    <span class="text-6xl"><i class="ri-gemini-fill"></i></span>Our Products</h3> -->
+                            <h2 class="text-6xl tracking-[-5px] flex items-center justify-center gap-5 text-reveal">
+                                <span class="text-5xl text-[#01628F] mr-5"><i class="ri-gemini-fill"></i></span>Our
+                                Products
+                            </h2>
+                        </div>
+                        <div class="w-full max-w-[900px] grid grid-cols-2 mx-auto gap-3">
+                            <div
+                                class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
+                                <div
+                                    class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                                </div>
+                                <div class="w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                                    <img src="../assets/gmatrix-bg.png" alt="" class="w-full h-full object-cover">
+                                </div>
+        
+                                <div
+                                    class="relative px-2 md:px-10 z-10 flex flex-col justify-center items-center h-full w-full">
+                                    <div class="text-center">
+                                        <h4
+                                            class="text-6xl tracking-[-2px] font-semibold text-center mb-1 bg-gradient-to-r from-[#ffff] via-[#119FE0] py-2 to-[#fff] bg-clip-text text-transparent">
+                                            Gmatrix</h4>
+                                        <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">Individual<span class="block">Micro
+                                            SME</span><span class="block">EBP</span> <span class="block">Enhanced SME</span></span>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                            Plan <span
+                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                    </div>
+                                </div>
+        
+        
+        
+                            </div>
+                            <div
+                                class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tl-[100px] rounded-br-[100px] overflow-hidden">
+                                <div
+                                    class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
+                                </div>
+                                <div class="w-full h-full absolute top-0 bottom-0 left-0 right-0">
+                                    <img src="../assets/grey-matter-bg.png" alt="" class="w-full h-full object-cover">
+                                </div>
+        
+                                <div
+                                    class="relative px-2 md:px-10 z-10 flex flex-col justify-center items-center h-full w-full">
+                                    <div class="text-center">
+                                        <h4
+                                            class="text-6xl tracking-[-2px] font-semibold text-center mb-1 py-3 bg-gradient-to-r from-[#ffff] via-[#119FE0] to-[#fff] bg-clip-text text-transparent">
+                                            Grey-Matter</h4>
+                                        <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">SME</span>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                            Plan <span
+                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                    </div>
+                                </div>
+        
+        
+        
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                 <div>
+                    <div class="md:flex gap-10 max-w-[1200px] mx-auto px-2">
+                        <div class="md:w-[40%] flex flex-col justify-center">
+                            <div>
+                                <h2 class="text-5xl tracking-[-2px] mb-5">Key Features & Benefits</h2>
+                                <p>GMatrix is a powerful Individual & SME medical quotation and policy administration platform that enables insurers to
+                                    automate underwriting, policy issuance, endorsements, renewals, and reporting.
+                                    The platform processes approximately 30,000 policy issuances per month. Its end-to-end automated workflow completes
+                                    the entire process in under 10 minutes, including policy issuance and member e-card activation.
+                                </p>
+                            </div>
+                            <!-- <div>
+                                <span>Built to simplify every stage of the insurance lifecycle.</span>
+                                <div>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="md:w-[60%] flex flex-col gap-2">
+                            <div class="h-[400px] grid grid-cols-1 md:grid-cols-[1.5fr_2fr] gap-2">
+                                <div class="h-full rounded-3xl overflow-hidden w-full bg-[#000]">
+                                    <div>
+                                        <img src="../assets/key-features.png" class="w-full h-full object-cover" alt="">
+                                    </div>
+                                </div>
+                                <div class="h-full rounded-3xl px-5 py-5 overflow-hidden w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
+                                    <ul class="list-disc px-5 text-white pt-5">
+                                        <li>Instant quotation generation</li>
+                                        <li>Product configuration and management</li>
+                                        <li>Policy administration</li>
+                                        <li>Automated underwriting workflows</li>
+                                        <li>Endorsement and renewal management</li>
+                                        <li>Premium calculation engine</li>
+                                        <li>Document Management with AI Validation</li>
+                                        <li>User and role management</li>
+                                        <li>Regulatory compliance support</li>
+                                        <li>Realtime Integration support with Payer, TPA and Reinsurer</li>
+                                        <li>Real-time reporting and analytics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="h-[250px] grid grid-cols-1 md:grid-cols-[1.5fr_2fr] gap-2">
+                                <div class="h-full rounded-3xl overflow-hidden w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
+                                    <div class="px-5 py-10">
+                                        <h5 class="text-2xl tracking-[-1px] border-b border-dashed border-gray-300 pb-3 text-white mb-3">Built for High Volume</h5>
+                                        <ul class="list-disc px-5 text-gray-200">
+                                            <li>Instant Policy Issuance</li>
+                                            <li>Automated Underwriting Workflow</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="h-full rounded-3xl overflow-hidden w-full bg-[#000]">
+                                    <div >
+                                        <img src="../assets/377.jpg" class="w-full h-full object-cover" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="min-h-screen max-w-[600px] mx-auto">
+                        <div class="w-full min-h-screen h-full flex flex-col justify-center items-center">
+                            <div class="flex w-full gap-10 justify-center items-center">
+                                <ul class="list-disc">
+                                    <li class="text-nowrap">Reduce operational complexity</li>
+                                    <li class="text-nowrap">Improve processing speed and accuracy</li>
+                                    <li class="text-nowrap">Launch products faster</li>
+                                </ul>
+                                <div class="h-[300px] w-full bg-[#000]">
+                                    <img src="../assets/benefits.png" alt="">
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-row-reverse gap-10 justify-center items-center">
+                                <ul class="list-disc text-nowrap">
+                                    <li>Enhance customer and broker experiences</li>
+                                    <li>Increase operational visibility</li>
+                                </ul>
+                                <div class="h-[300px] w-full bg-[#000]">
+                                    <img src="../assets/benefits2.png" class="w-full h-full object-cover" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+
+        <!-- <section class="">
+            <div>
+                <div class="min-h-screen max-w-[560px] mx-auto">
+                    <div class="w-full min-h-screen h-full flex flex-col justify-center items-center">
+                        <div class="flex w-full gap-10 justify-center items-center">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit Sed aliquam</span>
+                            <div class="h-[300px] w-full bg-[#000]"></div>
+                        </div>
+                        <div class="flex w-full flex-row-reverse gap-10 justify-center items-center">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit Sed aliquam</span>
+                            <div class="h-[300px] w-full bg-[#000]"></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section> -->
+
+        
+        <!-- <section class="min-h-screen w-fulla">
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div class="md:h-[70%] w-full"></div>
+                            <div class="md:h-[30%] w-full"></div>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+    
+        <!-- Page Transition -->
+        <div id="page-transition">
+    
+            <svg id="transition-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+    
+                <path class="layer layer1"></path>
+    
+                <path class="layer layer2"></path>
+    
+                <path class="layer layer3"></path>
+    
+            </svg>
+    
+        </div>
+    
+        <script src="../css/transition.js"></script>
+    
+        <script>
+
+            const header = document.getElementById("header");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 100) {
+
+                    header.classList.remove("w-full", "max-w-[1400px]", "top-5");
+                    header.classList.add(
+                        "w-[800px]",
+                        "top-4",
+                        "rounded-full",
+                        "bg-white/90",
+                        "backdrop-blur-xl",
+                        "shadow-2xl",
+                        "px-6",
+                        "py-3"
+                    );
+
+                } else {
+
+                    header.classList.remove(
+                        "w-[800px]",
+                        "top-4",
+                        "rounded-full",
+                        "bg-white/90",
+                        "backdrop-blur-xl",
+                        "shadow-2xl",
+                        "px-6",
+                        "py-3"
+                    );
+
+                    header.classList.add(
+                        "w-full",
+                        "max-w-[1400px]",
+                        "top-5"
+                    );
+
+                }
+            });
+
+            const mobileMenu = document.getElementById("mobileMenu");
+            const closeMenu = document.getElementById("closeMenu");
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.remove("translate-x-full");
+            });
+
+            closeMenu.addEventListener("click", () => {
+                mobileMenu.classList.add("translate-x-full");
+            });
+
+
+            const rows = document.querySelectorAll(".why-row");
+
+            rows.forEach(row => {
+
+                const buttons = row.querySelectorAll(".why-btn");
+                const content = row.querySelector(".why-content");
+                const panels = row.querySelectorAll(".why-panel");
+
+                buttons.forEach(button => {
+
+                    button.addEventListener("click", (e) => {
+
+                        e.stopPropagation();
+
+                        const targetPanel = row.querySelector("#" + button.dataset.target);
+
+                        const isOpen =
+                            content.style.maxHeight &&
+                            content.style.maxHeight !== "0px" &&
+                            !targetPanel.classList.contains("hidden");
+
+                        // Close if same button clicked again
+                        if (isOpen) {
+
+                            content.style.maxHeight = "0px";
+
+                            panels.forEach(panel => panel.classList.add("hidden"));
+
+                            buttons.forEach(btn => {
+                                btn.querySelector("i").className = "ri-add-line text-xl";
+                            });
+
+                            return;
+                        }
+
+                        // Close all other rows
+                        rows.forEach(otherRow => {
+
+                            if (otherRow !== row) {
+
+                                otherRow.querySelector(".why-content").style.maxHeight = "0px";
+
+                                otherRow.querySelectorAll(".why-panel").forEach(panel => {
+                                    panel.classList.add("hidden");
+                                });
+
+                                otherRow.querySelectorAll(".why-btn i").forEach(icon => {
+                                    icon.className = "ri-add-line text-xl";
+                                });
+
+                            }
+
+                        });
+
+                        // Hide all panels in current row
+                        panels.forEach(panel => panel.classList.add("hidden"));
+
+                        // Show selected panel
+                        targetPanel.classList.remove("hidden");
+
+                        // Expand row
+                        content.style.maxHeight = content.scrollHeight + "px";
+
+                        // Reset icons
+                        buttons.forEach(btn => {
+                            btn.querySelector("i").className = "ri-add-line text-xl";
+                        });
+
+                        // Minus icon
+                        button.querySelector("i").className = "ri-subtract-line text-xl";
+
+                    });
+
+                });
+
+            });
+
+            // Close when clicking outside
+            document.addEventListener("click", () => {
+
+                rows.forEach(row => {
+
+                    row.querySelector(".why-content").style.maxHeight = "0px";
+
+                    row.querySelectorAll(".why-panel").forEach(panel => {
+                        panel.classList.add("hidden");
+                    });
+
+                    row.querySelectorAll(".why-btn i").forEach(icon => {
+                        icon.className = "ri-add-line text-xl";
+                    });
+
+                });
+
+            });
+
+
+
+            const section = document.getElementById("solutionsSection");
+            const track = document.getElementById("solutionsTrack");
+
+            function horizontalScroll() {
+
+                const rect = section.getBoundingClientRect();
+
+                const totalScroll =
+                    section.offsetHeight - window.innerHeight;
+
+                let progress = -rect.top;
+
+                progress = Math.max(0, Math.min(progress, totalScroll));
+
+                const maxTranslate =
+                    track.scrollWidth - window.innerWidth;
+
+                const x =
+                    (progress / totalScroll) * maxTranslate;
+
+                track.style.transform = `translateX(-${x}px)`;
+
+            }
+
+            window.addEventListener("scroll", horizontalScroll);
+
+            window.addEventListener("resize", horizontalScroll);
+        </script>
+    
+        <script>
+            gsap.registerPlugin(CustomEase);
+
+            CustomEase.create("fluid", "0.83,0,0.17,1");
+
+            const paths = document.querySelectorAll(".layer");
+            const transition = document.getElementById("page-transition");
+
+            function pathClosed() {
+                return `
+                M0 0
+                L1000 0
+                L1000 1000
+                Q500 1000 0 1000
+                Z
+            `;
+            }
+
+            function pathOpen(offset) {
+                return `
+                M0 0
+                L1000 0
+                L1000 ${offset}
+                Q500 ${offset - 180} 0 ${offset}
+                Z
+            `;
+            }
+
+            paths.forEach(path => {
+                path.setAttribute("d", pathClosed());
+            });
+
+            function reveal(nextPage) {
+
+                transition.style.visibility = "visible";
+                transition.style.pointerEvents = "all";
+
+                gsap.set(paths, {
+                    attr: { d: pathOpen(1000) }
+                });
+
+                gsap.timeline({
+
+                    defaults: {
+                        ease: "fluid"
+                    },
+
+                    onComplete() {
+
+                        window.location.href = nextPage;
+
+                    }
+
+                })
+
+                    .to(paths[0], {
+                        duration: .9,
+                        attr: { d: pathOpen(0) }
+                    }, 0)
+
+                    .to(paths[1], {
+                        duration: 1,
+                        attr: { d: pathOpen(0) }
+                    }, .08)
+
+                    .to(paths[2], {
+                        duration: 1.1,
+                        attr: { d: pathOpen(0) }
+                    }, .16);
+
+            }
+
+            function enter() {
+
+                transition.style.visibility = "visible";
+
+                gsap.set(paths, {
+                    attr: { d: pathOpen(0) }
+                });
+
+                gsap.timeline({
+
+                    defaults: {
+                        ease: "fluid"
+                    },
+
+                    onComplete() {
+
+                        transition.style.visibility = "hidden";
+                        transition.style.pointerEvents = "none";
+
+                        if (window.initTextReveal) {
+
+                            window.initTextReveal();
+
+                        }
+
+                    }
+
+                })
+
+                    .to(paths[2], {
+                        duration: 1,
+                        attr: { d: pathOpen(1000) }
+                    }, 0)
+
+                    .to(paths[1], {
+                        duration: .95,
+                        attr: { d: pathOpen(1000) }
+                    }, .08)
+
+                    .to(paths[0], {
+                        duration: .9,
+                        attr: { d: pathOpen(1000) }
+                    }, .16);
+
+            }
+
+            window.addEventListener("load", enter);
+
+            window.onpageshow = enter;
+
+            document.querySelectorAll(".page-link").forEach(link => {
+
+                link.addEventListener("click", e => {
+
+                    e.preventDefault();
+
+                    reveal(link.href);
+
+                });
+
+            });
+        </script>
+    
+        <script>
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            window.initTextReveal = function () {
+
+                document.querySelectorAll(".text-reveal").forEach(text => {
+
+                    if (text.dataset.revealed) return;
+
+                    text.dataset.revealed = true;
+
+                    const split = new SplitType(text, {
+                        types: "lines,words"
+                    });
+
+                    split.lines.forEach(line => {
+
+                        line.style.display = "block";
+                        line.style.overflow = "hidden";
+
+                    });
+
+                    split.words.forEach(word => {
+
+                        const mask = document.createElement("span");
+
+                        mask.className = "word-mask";
+
+                        word.parentNode.insertBefore(mask, word);
+
+                        mask.appendChild(word);
+
+                    });
+
+                    gsap.set(split.words, {
+                        yPercent: 120
+                    });
+
+                    const hero = text.closest("section") === document.querySelector("section");
+
+                    if (hero) {
+
+                        gsap.to(split.words, {
+                            yPercent: 0,
+                            stagger: .035,
+                            duration: 1,
+                            ease: "power4.out"
+                        });
+
+                    } else {
+
+                        gsap.to(split.words, {
+
+                            yPercent: 0,
+                            stagger: .035,
+                            duration: 1,
+                            ease: "power4.out",
+
+                            scrollTrigger: {
+                                trigger: text,
+                                start: "top 85%",
+                                once: true
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            };
+        </script>
+    </div>
+</body>
+</html>

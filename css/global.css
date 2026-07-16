@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Kinetica';
+    src: url('../assets/font/kinetika-medium.ttf');
+}
+
+*{
+    font-family: 'Kinetica', sans-serif;
+}

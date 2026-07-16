@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/transition.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
+    <link rel="stylesheet" href="../css/transition.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="prefetch" href="../about/about.html">
+</head>
+
+<style>
+    @font-face {
+        font-family: 'Kinetica';
+        src: url('../assets/font/kinetika-medium.ttf');
+    }
+
+    *{
+        font-family: 'Kinetica', sans-serif;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .why-section {
+
+        padding: 120px 0;
+    }
+
+    .container {
+
+        width: min(1200px, 90%);
+        margin: auto;
+    }
+
+    .section-heading {
+
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .section-heading h2 {
+
+        font-size: 60px;
+        font-weight: 700;
+    }
+
+    .section-heading span {
+
+        color: #52dae1;
+    }
+
+    .section-heading p {
+
+        max-width: 720px;
+        margin: 20px auto 0;
+        color: #8d8d8d;
+    }
+
+    .why-wrapper {
+
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .why-card {
+
+        position: sticky;
+        top: 120px;
+
+        background: #111;
+
+        border-radius: 24px;
+
+        overflow: hidden;
+    }
+
+    .why-card img {
+
+        width: 100%;
+        display: block;
+    }
+
+    .card-content {
+
+        padding: 30px;
+    }
+
+    .card-content span {
+
+        color: #888;
+    }
+
+    .card-content h3 {
+
+        margin: 15px 0 30px;
+    }
+
+    .book-btn {
+
+        display: inline-flex;
+
+        padding: 14px 28px;
+
+        border-radius: 50px;
+
+        background: #52dae1;
+
+        color: black;
+
+        text-decoration: none;
+
+        font-weight: 600;
+    }
+
+    .accordion {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .accordion-item {
+
+        border-radius: 18px;
+
+        background: #111;
+
+        overflow: hidden;
+    }
+
+    .accordion-item button {
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 15px;
+
+        border: none;
+
+        background: none;
+
+        color: white;
+
+        cursor: pointer;
+
+        font-size: 16px;
+    }
+
+    .accordion-item small {
+
+        color: #52dae1;
+
+        margin-right: 15px;
+    }
+
+    .content {
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition: .45s;
+
+        color: #bdbdbd;
+
+        padding: 0 0px 0 0;
+    }
+
+    .accordion-item.active .content {
+
+        max-height: 200px;
+
+        padding: 0 28px 28px;
+    }
+
+
+    #solutionsTrack {
+        width: max-content;
+        will-change: transform;
+    }
+
+    .char {
+        display: inline-block;
+        will-change: transform;
+    }
+
+    .mask-text {
+        overflow: hidden;
+    }
+
+    .mask-text span {
+        display: block;
+    }
+
+    .text-reveal .line {
+        display: block;
+        overflow: hidden;
+    }
+
+    .text-reveal .word-mask {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+    .text-reveal .word {
+        display: inline-block;
+        will-change: transform;
+    }
+</style>
+<body>
+    <div>
+        <header id="header"
+            class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
+            <a href="../home/index.html">
+                <div class="w-[100px]">
+                    <img src="../assets/logo.png" alt="">
+                </div>
+            </a>
+    
+            <nav id="desktopNav" class="flex items-center transition-all duration-500">
+                <ul class="flex items-center gap-5 font-semibold tracking-[-1px]">
+                    <a href="../about/about.html" class="page-link">
+                        <li>About</li>
+                    </a>
+    
+                    <a href="../services/services.html" class="page-link">
+                        <li>Services</li>
+                    </a>
+    
+                    <a href="../product/product.html" class="page-link">
+                        <li>Products</li>
+                    </a>
+    
+                    <a href="../career/career.html" class="page-link">
+                        <li>Career</li>
+                    </a>
+    
+                    <a href="../contact/contact.html" class="page-link">
+                        <li>Contact US</li>
+                    </a>
+                </ul>
+            </nav>
+    
+            <div class="flex justify-center items-center gap-5">
+                <div>
+                    <button
+                        class="flex items-center justify-between gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 pr-2 py-2 rounded-3xl font-medium tracking-[-1px] text-[#fff]">Request
+                        a Demo<span
+                            class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
+                                class="ri-arrow-right-up-line"></i></span></button>
+                </div>
+    
+                <button id="menuBtn"
+                    class="hidden w-11 h-11 rounded-full border border-gray-300 justify-center items-center text-2xl transition-all duration-300">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </header>
+
+        
+        <section class="w-full flex justify-center items-center">
+            <div class="w-full pt-36">
+                <div class="w-full max-w-[1200px] mx-auto h-full">
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="w-full h-[500px] relative bg-gray-200 rounded-3xl overflow-hidden px-10 py-10 flex flex-col justify-between">
+                            <div class="absolute top-0 bottom-0 right-0 left-0 z-0">
+                                <img src="../assets/dot.png" class="w-full h-full object-cover" alt="">
+                            </div>
+                            <div class="flex flex-col gap-3 relative">
+                                <span class="text-gray-800 tracking-[-1px] font-medium border border-[#01628F] max-w-[130px] flex justify-center items-center px-3 py-2 rounded-3xl bg-[#fff]">Let's Connect</span>
+                                <h1 class="text-6xl tracking-[-3px] text-gray-800">Start Your <span class="text-[#01628F]">Digital Insurance</span> Transformation Today</h1>
+                            </div>
+                            <div class="relative"> 
+                                <button class="text-white bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 pr-2 py-2 rounded-3xl tracking-[-1px] flex items-center gap-3">Schedule a Free Consultation<span class="w-[30px] h-[30px] flex items-center justify-center bg-[#fff] text-black rounded-full"><i class="ri-arrow-right-up-line"></i></span></button>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col gap-3">
+                            <div class="relative overflow-hidden relative w-full h-[240px] rounded-3xl">
+                                <div class="absolute top-0 bottom-0 right-0 left-0 z-0">
+                                    <img src="../assets/dot.png" class="w-full h-full object-cover" alt="">
+                                </div>
+                                <div class="w-full relative z-20 h-full flex flex-col justify-between py-5 px-3 gap-3 text-[#fff]">
+                                    <span class="ml-auto w-[30px] h-[30px] rounded-full bg-[#fff] flex items-center justify-center text-[#000]"><i class="ri-arrow-right-up-line"></i></span>
+                                    <span class="text-4xl tracking-[-2px]">Talk to Our Experts</span>
+                                </div>
+                                <div class="absolute top-0 bottom-0 left-0 right-0">
+                                    <img src="../assets/connect-us.png" alt="">
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <div class="h-[240px] relative w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-3xl flex flex-col justify-between py-5 px-3">
+                                    <div class="absolute top-0 -rotate-90 bottom- right-[-30px] z-0">
+                                        <img src="../assets/dot.png" class="w-full h-full object-cover" alt="">
+                                    </div>
+                                    <div class="flex justify-between items-center relative  text-white gap-5">
+                                        <div class="tracking-[-1px] rounded-3xl px-3 py-2 border bg-[#fff] text-gray-800 flex items-center gap-2"><span class="text-[#01628F]"><i class="ri-mail-ai-fill"></i></span>Email Us</div>
+                                        <div class="ml-auto w-[30px] h-[30px] rounded-full bg-[#fff] flex items-center justify-center text-[#000]"><i class="ri-arrow-right-up-line"></i></div>
+                                    </div>
+                                    <span class="text-white text-4xl tracking-[-2px]">Email Our Experts</span>
+                                </div>
+                                <div class="h-[240px] relative w-full bg-gray-200 rounded-3xl flex flex-col justify-between py-5 px-3">
+                                    <div class="absolute top-0 -rotate-90 bottom- right-[-30px] z-0">
+                                        <img src="../assets/dot.png" class="w-full h-full object-cover" alt="">
+                                    </div>
+                                    <div class="flex relative justify-between items-center  text-white gap-5">
+                                        <div class="tracking-[-1px] rounded-3xl px-3 py-2 border bg-[#fff] text-gray-800 flex items-center gap-2"><span class="text-[#01628F]"><i class="ri-phone-fill"></i></span>Call Us</div>
+                                        <div class="ml-auto w-[30px] h-[30px] rounded-full bg-[#fff] flex items-center justify-center text-[#000]"><i class="ri-arrow-right-up-line"></i></div>
+                                    </div>
+                                    <span class="text-gray-900 text-4xl tracking-[-2px]">Let's Build Together</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full pt-20 relative pb-20 flex justify-center items-center bg-[#f5f5f5]">
+            <div>
+                <div class="">
+                    <div class="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-b from-[#fff] to-transparent z-0"></div>
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 relative max-w-[1200px] mx-auto">
+                        <div class="px-10 py-10 flex flex-col gap-3">
+                            <span class="tracking-[-1px] text-[#106fb6]">--- Get in Touch ---</span>
+                            <h3 class="text-6xl tracking-[-3px]">Let's Start<span> the Conversation</span></h3>
+                            <p>Whether you have a question, need product guidance, or want to discuss your business goals, our specialists are ready to provide the right solutions for your insurance technology needs.</p>
+                            <div class="mt-2 grid grid-cols-1 gap-3">
+                                <div class="px-3 py-3 border items-start justify-between border-[#fff] rounded-xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex gap-3 items-start">
+                                    <div class="flex gap-3">
+                                        <div class="text- mt-[-5px] w-[30px] h-[30px] flex items-center justify-center bg-[#000] rounded-full text-white"><i class="ri-mail-ai-line"></i></div>
+                                        <div class="flex flex-col">
+                                            <span class="text-xs tracking-[-1px] text-gray-300">E-mail</span>
+                                            <span class="tracking-[-1px] text-[#fff] mt-2">info@greylinq.com</span>
+                                        </div>
+                                    </div>
+                                    <span class="w-[30px] h-[30px] flex items-center justify-center bg-[#000] rounded-full text-white"><i class="ri-arrow-right-up-line"></i></span>
+                                </div>
+                                <div class="px-3 py-3 border items-start justify-between border-[#fff] rounded-xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex gap-3 items-start">
+                                    <div class="flex gap-3">
+                                        <div class="text- mt-[-5px] w-[30px] h-[30px] flex items-center justify-center bg-[#000] rounded-full text-white"><i class="ri-phone-line"></i></div>
+                                        <div class="flex flex-col">
+                                            <span class="text-xs tracking-[-1px] text-gray-300">Phone No</span>
+                                            <span class="tracking-[-1px] text-[#fff] mt-2">00971 50 959 6896</span>
+                                        </div>
+                                    </div>
+                                    <span class="w-[30px] h-[30px] flex items-center justify-center bg-[#000] rounded-full text-white"><i class="ri-arrow-right-up-line"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full bg-[#fff] box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; rounded-3xl border border-[#fff]">
+                            <form action="" class="px-10 py-14 flex flex-col gap-5">
+                                <div class="flex flex-col gap-2">
+                                    <label for="" class="tracking-[-1px]">Name</label>
+                                    <input type="text" class="px-3 py-2 bg-[#f9f9f9] rounded-[4px] outline-none border-none" placeholder="Your Name" id="name">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label for="" class="tracking-[-1px]">E-mail</label>
+                                    <input type="text" class="px-3 py-2 bg-[#f9f9f9] rounded-[4px] outline-none border-none" placeholder="Your Name" id="name">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label for="" class="tracking-[-1px]">Industry</label>
+                                    <input type="text" class="px-3 py-2 bg-[#f9f9f9] rounded-[4px] outline-none border-none" placeholder="Your Name" id="name">
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <label for="" class="tracking-[-1px]">Message</label>
+                                    <textarea class="px-3 py-2 bg-[#f9f9f9] rounded-[4px] outline-none border-none" placeholder="Your Message" id="message"></textarea>
+                                </div>
+
+                                <div class="flex justify-center">
+                                    <button class="tracking-[-1px] flex justify-between w-[150px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex text-white py-2 pr-2 pl-5 rounded-3xl hover:bg-[#333] transition-colors duration-300">Submit <span class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-[#fff] text-black"><i class="ri-arrow-right-up-line"></i></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full mb-10 bg-gray-100">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3120.2806623016695!2d55.4526621!3d25.41912499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f925866c326b%3A0x2c398d47d0c3e390!2sAjman%20Media%20City!5e1!3m2!1sen!2sin!4v1782992088089!5m2!1sen!2sin"
+                        width="100%" height="500" style="border:0;" loading="lazy" allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    
+        <!-- Page Transition -->
+        <div id="page-transition">
+    
+            <svg id="transition-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+    
+                <path class="layer layer1"></path>
+    
+                <path class="layer layer2"></path>
+    
+                <path class="layer layer3"></path>
+    
+            </svg>
+    
+        </div>
+    
+        <script src="../css/transition.js"></script>
+    
+        <script>
+
+            const header = document.getElementById("header");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 100) {
+
+                    header.classList.remove("w-full", "max-w-[1400px]", "top-5");
+                    header.classList.add(
+                        "w-[800px]",
+                        "top-4",
+                        "rounded-full",
+                        "bg-white/90",
+                        "backdrop-blur-xl",
+                        "shadow-2xl",
+                        "px-6",
+                        "py-3"
+                    );
+
+                } else {
+
+                    header.classList.remove(
+                        "w-[800px]",
+                        "top-4",
+                        "rounded-full",
+                        "bg-white/90",
+                        "backdrop-blur-xl",
+                        "shadow-2xl",
+                        "px-6",
+                        "py-3"
+                    );
+
+                    header.classList.add(
+                        "w-full",
+                        "max-w-[1400px]",
+                        "top-5"
+                    );
+
+                }
+            });
+
+            const mobileMenu = document.getElementById("mobileMenu");
+            const closeMenu = document.getElementById("closeMenu");
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.remove("translate-x-full");
+            });
+
+            closeMenu.addEventListener("click", () => {
+                mobileMenu.classList.add("translate-x-full");
+            });
+
+
+            const rows = document.querySelectorAll(".why-row");
+
+            rows.forEach(row => {
+
+                const buttons = row.querySelectorAll(".why-btn");
+                const content = row.querySelector(".why-content");
+                const panels = row.querySelectorAll(".why-panel");
+
+                buttons.forEach(button => {
+
+                    button.addEventListener("click", (e) => {
+
+                        e.stopPropagation();
+
+                        const targetPanel = row.querySelector("#" + button.dataset.target);
+
+                        const isOpen =
+                            content.style.maxHeight &&
+                            content.style.maxHeight !== "0px" &&
+                            !targetPanel.classList.contains("hidden");
+
+                        // Close if same button clicked again
+                        if (isOpen) {
+
+                            content.style.maxHeight = "0px";
+
+                            panels.forEach(panel => panel.classList.add("hidden"));
+
+                            buttons.forEach(btn => {
+                                btn.querySelector("i").className = "ri-add-line text-xl";
+                            });
+
+                            return;
+                        }
+
+                        // Close all other rows
+                        rows.forEach(otherRow => {
+
+                            if (otherRow !== row) {
+
+                                otherRow.querySelector(".why-content").style.maxHeight = "0px";
+
+                                otherRow.querySelectorAll(".why-panel").forEach(panel => {
+                                    panel.classList.add("hidden");
+                                });
+
+                                otherRow.querySelectorAll(".why-btn i").forEach(icon => {
+                                    icon.className = "ri-add-line text-xl";
+                                });
+
+                            }
+
+                        });
+
+                        // Hide all panels in current row
+                        panels.forEach(panel => panel.classList.add("hidden"));
+
+                        // Show selected panel
+                        targetPanel.classList.remove("hidden");
+
+                        // Expand row
+                        content.style.maxHeight = content.scrollHeight + "px";
+
+                        // Reset icons
+                        buttons.forEach(btn => {
+                            btn.querySelector("i").className = "ri-add-line text-xl";
+                        });
+
+                        // Minus icon
+                        button.querySelector("i").className = "ri-subtract-line text-xl";
+
+                    });
+
+                });
+
+            });
+
+            // Close when clicking outside
+            document.addEventListener("click", () => {
+
+                rows.forEach(row => {
+
+                    row.querySelector(".why-content").style.maxHeight = "0px";
+
+                    row.querySelectorAll(".why-panel").forEach(panel => {
+                        panel.classList.add("hidden");
+                    });
+
+                    row.querySelectorAll(".why-btn i").forEach(icon => {
+                        icon.className = "ri-add-line text-xl";
+                    });
+
+                });
+
+            });
+
+
+
+            const section = document.getElementById("solutionsSection");
+            const track = document.getElementById("solutionsTrack");
+
+            function horizontalScroll() {
+
+                const rect = section.getBoundingClientRect();
+
+                const totalScroll =
+                    section.offsetHeight - window.innerHeight;
+
+                let progress = -rect.top;
+
+                progress = Math.max(0, Math.min(progress, totalScroll));
+
+                const maxTranslate =
+                    track.scrollWidth - window.innerWidth;
+
+                const x =
+                    (progress / totalScroll) * maxTranslate;
+
+                track.style.transform = `translateX(-${x}px)`;
+
+            }
+
+            window.addEventListener("scroll", horizontalScroll);
+
+            window.addEventListener("resize", horizontalScroll);
+        </script>
+    
+        <script>
+            gsap.registerPlugin(CustomEase);
+
+            CustomEase.create("fluid", "0.83,0,0.17,1");
+
+            const paths = document.querySelectorAll(".layer");
+            const transition = document.getElementById("page-transition");
+
+            function pathClosed() {
+                return `
+                M0 0
+                L1000 0
+                L1000 1000
+                Q500 1000 0 1000
+                Z
+            `;
+            }
+
+            function pathOpen(offset) {
+                return `
+                M0 0
+                L1000 0
+                L1000 ${offset}
+                Q500 ${offset - 180} 0 ${offset}
+                Z
+            `;
+            }
+
+            paths.forEach(path => {
+                path.setAttribute("d", pathClosed());
+            });
+
+            function reveal(nextPage) {
+
+                transition.style.visibility = "visible";
+                transition.style.pointerEvents = "all";
+
+                gsap.set(paths, {
+                    attr: { d: pathOpen(1000) }
+                });
+
+                gsap.timeline({
+
+                    defaults: {
+                        ease: "fluid"
+                    },
+
+                    onComplete() {
+
+                        window.location.href = nextPage;
+
+                    }
+
+                })
+
+                    .to(paths[0], {
+                        duration: .9,
+                        attr: { d: pathOpen(0) }
+                    }, 0)
+
+                    .to(paths[1], {
+                        duration: 1,
+                        attr: { d: pathOpen(0) }
+                    }, .08)
+
+                    .to(paths[2], {
+                        duration: 1.1,
+                        attr: { d: pathOpen(0) }
+                    }, .16);
+
+            }
+
+            function enter() {
+
+                transition.style.visibility = "visible";
+
+                gsap.set(paths, {
+                    attr: { d: pathOpen(0) }
+                });
+
+                gsap.timeline({
+
+                    defaults: {
+                        ease: "fluid"
+                    },
+
+                    onComplete() {
+
+                        transition.style.visibility = "hidden";
+                        transition.style.pointerEvents = "none";
+
+                        if (window.initTextReveal) {
+
+                            window.initTextReveal();
+
+                        }
+
+                    }
+
+                })
+
+                    .to(paths[2], {
+                        duration: 1,
+                        attr: { d: pathOpen(1000) }
+                    }, 0)
+
+                    .to(paths[1], {
+                        duration: .95,
+                        attr: { d: pathOpen(1000) }
+                    }, .08)
+
+                    .to(paths[0], {
+                        duration: .9,
+                        attr: { d: pathOpen(1000) }
+                    }, .16);
+
+            }
+
+            window.addEventListener("load", enter);
+
+            window.onpageshow = enter;
+
+            document.querySelectorAll(".page-link").forEach(link => {
+
+                link.addEventListener("click", e => {
+
+                    e.preventDefault();
+
+                    reveal(link.href);
+
+                });
+
+            });
+        </script>
+    
+        <script>
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            window.initTextReveal = function () {
+
+                document.querySelectorAll(".text-reveal").forEach(text => {
+
+                    if (text.dataset.revealed) return;
+
+                    text.dataset.revealed = true;
+
+                    const split = new SplitType(text, {
+                        types: "lines,words"
+                    });
+
+                    split.lines.forEach(line => {
+
+                        line.style.display = "block";
+                        line.style.overflow = "hidden";
+
+                    });
+
+                    split.words.forEach(word => {
+
+                        const mask = document.createElement("span");
+
+                        mask.className = "word-mask";
+
+                        word.parentNode.insertBefore(mask, word);
+
+                        mask.appendChild(word);
+
+                    });
+
+                    gsap.set(split.words, {
+                        yPercent: 120
+                    });
+
+                    const hero = text.closest("section") === document.querySelector("section");
+
+                    if (hero) {
+
+                        gsap.to(split.words, {
+                            yPercent: 0,
+                            stagger: .035,
+                            duration: 1,
+                            ease: "power4.out"
+                        });
+
+                    } else {
+
+                        gsap.to(split.words, {
+
+                            yPercent: 0,
+                            stagger: .035,
+                            duration: 1,
+                            ease: "power4.out",
+
+                            scrollTrigger: {
+                                trigger: text,
+                                start: "top 85%",
+                                once: true
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            };
+        </script>
+    </div>
+</body>
+</html>
