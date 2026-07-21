@@ -370,6 +370,92 @@
                 height: 54px;
             }
         }
+
+        /* Mobile Header */
+
+        .mobile-header {
+            height: 0;
+            min-height: 0;
+            pointer-events: none;
+            visibility: hidden;
+            will-change: height, border-radius;
+            border-bottom-left-radius: 38px;
+            border-bottom-right-radius: 38px;
+        }
+
+        .mobile-header.is-open {
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        body.mobile-menu-open {
+            overflow: hidden;
+        }
+
+        .mobile-menu-item {
+            will-change: transform, opacity, filter;
+        }
+
+        .mobile-header__inner {
+            overflow-y: auto;
+            overscroll-behavior: contain;
+        }
+
+        @media(max-width:640px) {
+            .whatsapp-widget {
+                right: 16px;
+                bottom: 16px;
+            }
+
+            .whatsapp-toggle {
+                width: 54px;
+                height: 54px;
+            }
+
+            .mobile-menu-content {
+                padding-top: 170px;
+                bottom: 32px;
+            }
+
+            .mobile-menu-section {
+                gap: 34px;
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .mobile-menu-section:first-child a {
+                font-size: clamp(2.45rem, 13vw, 3rem);
+                line-height: 0.98;
+            }
+
+            .mobile-menu-section:last-child {
+                padding-top: 48px;
+            }
+
+            .mobile-menu-section:last-child a {
+                font-size: clamp(1.35rem, 7vw, 1.65rem);
+                line-height: 1.12;
+            }
+        }
+
+        @media(max-height:720px) and (max-width:640px) {
+            .mobile-menu-content {
+                padding-top: 130px;
+                bottom: 24px;
+            }
+
+            .mobile-menu-section:first-child a {
+                font-size: clamp(2.1rem, 11vw, 2.55rem);
+            }
+
+            .mobile-menu-section:last-child {
+                padding-top: 32px;
+            }
+
+            .mobile-menu-section:last-child a {
+                font-size: clamp(1.18rem, 6vw, 1.42rem);
+            }
+        }
     </style>
 </style>
 <body>
@@ -387,50 +473,93 @@
             <i class="ri-whatsapp-fill"></i>
         </button>
     </div>
+    <!-- Mobile Header -->
+    <div id="mobileHeader" class="mobile-header fixed md:hidden top-0 left-0 right-0 z-[999999] overflow-hidden bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]" aria-hidden="true">
+        <div class="mobile-header__inner py-5 px-5 absolute inset-0">
+            <div class="flex w-full justify-between items-center">
+                <div class="mobile-menu-item w-[50px] rounded-full p-1 bg-[#fff]">
+                    <img src="../assets/g-logo.png" alt="">
+                </div>
+                <div>
+                    <button id="mobileCloseBtn" type="button" class="mobile-menu-item text-white text-[50px] leading-none" aria-label="Close mobile menu"><i class="ri-close-line"></i></button>
+                </div>
+            </div>
+            <div class="mobile-menu-content absolute pt-[250px] bottom-10 left-0 right-0 flex flex-col justify-end">
+                <div class="mobile-menu-section flex w-full justify-start px-10 gap-20">
+                    <span class="mobile-menu-item text-gray-300 text-lg">Discover</span>
+                    <nav>
+                        <ul class="flex flex-col gap-1">
+                            <a href="../home/index.html" class="mobile-menu-item text-5xl tracking-[-1px] font-semibold text-gray-200">Home</a>
+                            <a href="../about/index.html" class="mobile-menu-item text-5xl tracking-[-1px] font-semibold text-gray-200">About</a>
+                            <a href="../services/index.html" class="mobile-menu-item text-5xl tracking-[-1px] font-semibold text-gray-200">Services</a>
+                            <a href="../product/index.html" class="mobile-menu-item text-5xl tracking-[-1px] font-semibold text-gray-200">Products</a>
+                            <a href="../career/index.html" class="mobile-menu-item text-5xl tracking-[-1px] font-semibold text-gray-200">Career</a>
+                            <a href="../contact/index.html" class="mobile-menu-item text-5xl tracking-[-1px] font-semibold text-gray-200">Contact</a>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mobile-menu-section flex pt-20 w-full justify-start px-10 gap-20">
+                    <span class="mobile-menu-item text-gray-300 text-lg">Connect</span>
+                    <nav>
+                        <ul class="flex flex-col gap-1">
+                            <a href="mailto:info@greylinq.com" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Mail Us</a>
+                            <a href="tel" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Call Us</a>
+                            <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Whatsapp</a>
+                            <a href="../product/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Instagram</a>
+                            <a href="../career/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">LinkedIn</a>
+                            <a href="../contact/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Contact</a>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <div>
         <header id="header"
-            class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
-            <a href="../home/index.html">
+            class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-2 md:px-8 py-3 md:py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
+            <a href="./home/index.html">
                 <div class="w-[100px]">
                     <img src="../assets/logo.png" alt="">
                 </div>
             </a>
-    
-            <nav id="desktopNav" class="flex items-center transition-all duration-500">
+
+            <nav id="desktopNav" class="hidden md:flex items-center transition-all duration-500">
                 <ul class="flex items-center gap-5 font-semibold tracking-[-1px]">
                     <a href="../about/index.html" class="page-link">
                         <li>About</li>
                     </a>
-    
+
                     <a href="../services/index.html" class="page-link">
                         <li>Services</li>
                     </a>
-    
+
                     <a href="../product/index.html" class="page-link">
                         <li>Products</li>
                     </a>
-    
+
                     <a href="../career/index.html" class="page-link">
                         <li>Career</li>
                     </a>
-    
+
                     <a href="../contact/index.html" class="page-link">
                         <li>Contact US</li>
                     </a>
                 </ul>
             </nav>
-    
+
             <div class="flex justify-center items-center gap-5">
-                <div>
+                <div class="hidden md:block">
                     <button
-                        class="flex items-center justify-between gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 pr-2 py-2 rounded-3xl font-medium tracking-[-1px] text-[#fff]">Request
+                        class="flex items-center justify-between gap-3 md:gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-3 md:pl-5 pr-2 py-2 rounded-3xl font-medium md:tracking-[-1px] text-xs md:text-base text-[#fff]">Request
                         a Demo<span
                             class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
                                 class="ri-arrow-right-up-line"></i></span></button>
                 </div>
-    
+
                 <button id="menuBtn"
-                    class="hidden w-11 h-11 rounded-full border border-gray-300 justify-center items-center text-2xl transition-all duration-300">
+                    class="flex md:hidden w-11 h-11 rounded-full border border-gray-300 justify-center items-center text-2xl transition-all duration-300 bg-white/80 backdrop-blur">
                     <i class="ri-menu-line"></i>
                 </button>
             </div>
@@ -644,7 +773,7 @@
             <div class="md:min-h-screen flex flex-col justify-center items-center">
                 <div id="supportSection" class="max-w-[1200px] relative mx-auto w-full bg-[#000] h-full overflow-hidden min-h-[90vh] rounded-3xl">
                     <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full">
-                        <img src="../assets/support.png" alt="">
+                        <img src="../assets/support.png" class="w-full h-full object-cover" alt="">
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 h-[300px] bg-gradient-to-t from-[#000] to-transparent"></div>
                     <div class="flex relative flex-col justify-end w-full h-full mt-auto min-h-[90vh] mb-10 px-3 md:ml-10">
@@ -819,7 +948,7 @@
 
                 header.classList.remove(
                     "w-[800px]",
-                    "w-[98%]",
+                    "w-[92%]",
                     "top-4",
                     "rounded-full",
                     "bg-white/90",
@@ -841,8 +970,87 @@
         window.addEventListener("scroll", updateHeader);
         window.addEventListener("resize", updateHeader);
 
-        const mobileMenu = document.getElementById("mobileMenu");
-        const closeMenu = document.getElementById("closeMenu");
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileHeader = document.getElementById("mobileHeader");
+        const mobileCloseBtn = document.getElementById("mobileCloseBtn");
+        const mobileMenuItems = gsap.utils.toArray(".mobile-menu-item");
+        let mobileHeaderTimeline;
+
+        if (mobileHeader && menuBtn && mobileCloseBtn) {
+            if (window.CustomEase) {
+                gsap.registerPlugin(CustomEase);
+                CustomEase.create("mobileMenuFluid", "M0,0 C0.16,0 0.08,1 1,1");
+            }
+
+            gsap.set(mobileHeader, {
+                height: 0,
+                visibility: "hidden",
+                borderBottomLeftRadius: 42,
+                borderBottomRightRadius: 42
+            });
+
+            gsap.set(mobileMenuItems, {
+                y: 46,
+                opacity: 0,
+                filter: "blur(10px)"
+            });
+
+            mobileHeaderTimeline = gsap.timeline({
+                paused: true,
+                defaults: {
+                    ease: window.CustomEase ? "mobileMenuFluid" : "power4.inOut"
+                },
+                onStart: () => {
+                    mobileHeader.classList.add("is-open");
+                    mobileHeader.setAttribute("aria-hidden", "false");
+                    menuBtn.setAttribute("aria-expanded", "true");
+                    document.body.classList.add("mobile-menu-open");
+                },
+                onReverseComplete: () => {
+                    mobileHeader.classList.remove("is-open");
+                    mobileHeader.setAttribute("aria-hidden", "true");
+                    menuBtn.setAttribute("aria-expanded", "false");
+                    document.body.classList.remove("mobile-menu-open");
+                }
+            });
+
+            mobileHeaderTimeline
+                .to(mobileHeader, {
+                    height: "100%",
+                    visibility: "visible",
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
+                    duration: 1.05
+                })
+                .to(mobileMenuItems, {
+                    y: 0,
+                    opacity: 1,
+                    filter: "blur(0px)",
+                    duration: 0.9,
+                    stagger: {
+                        each: 0.045,
+                        from: "start"
+                    }
+                }, "-=0.62");
+
+            function openMobileHeader() {
+                mobileHeaderTimeline.timeScale(1).play();
+            }
+
+            function closeMobileHeader() {
+                mobileHeaderTimeline.timeScale(1.15).reverse();
+            }
+
+            menuBtn.setAttribute("aria-controls", "mobileHeader");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute("aria-label", "Open mobile menu");
+            menuBtn.addEventListener("click", openMobileHeader);
+            mobileCloseBtn.addEventListener("click", closeMobileHeader);
+
+            mobileHeader.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", closeMobileHeader);
+            });
+        }
 
         const whatsappWidget = document.getElementById("whatsappWidget");
         const whatsappToggle = document.getElementById("whatsappToggle");
@@ -875,15 +1083,10 @@
         document.addEventListener("keydown", (event) => {
             if (event.key === "Escape") {
                 closeWhatsappPopup();
+                if (mobileHeaderTimeline && mobileHeaderTimeline.progress() > 0) {
+                    mobileHeaderTimeline.timeScale(1.15).reverse();
+                }
             }
-        });
-
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.remove("translate-x-full");
-        });
-
-        closeMenu.addEventListener("click", () => {
-            mobileMenu.classList.add("translate-x-full");
         });
 
 
