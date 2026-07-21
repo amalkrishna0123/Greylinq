@@ -657,7 +657,7 @@ OUR SOLUTIONS
 
         #solutionsSection {
             position: relative;
-            height: 300vh;
+            height: auto;
             background: #fff;
         }
 
@@ -882,16 +882,137 @@ RESPONSIVE
             }
 
         }
+
+        .logo-reveal{
+            overflow:hidden;
+            position:relative;
+        }
+
+        .logo-reveal img,
+        .logo-reveal span{
+            display:block;
+            will-change:transform;
+        }
+
+        .whatsapp-widget {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 14px;
+        }
+
+        .whatsapp-popup {
+            width: min(320px, calc(100vw - 32px));
+            padding: 18px;
+            border: 1px solid rgba(17, 159, 224, 0.14);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+            color: #111827;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(14px) scale(0.96);
+            transform-origin: bottom right;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .whatsapp-widget.is-open .whatsapp-popup {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .whatsapp-popup p {
+            margin-top: 6px;
+            color: #4b5563;
+            line-height: 1.45;
+            font-size: 14px;
+        }
+
+        .whatsapp-popup__button {
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 11px 14px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #2C3184, #01628F, #119FE0);
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .whatsapp-toggle {
+            width: 58px;
+            height: 58px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25D366;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 16px 34px rgba(37, 211, 102, 0.38);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .whatsapp-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 42px rgba(37, 211, 102, 0.45);
+        }
+
+        .whatsapp-toggle i {
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        @media(max-width:640px) {
+            .whatsapp-widget {
+                right: 16px;
+                bottom: 16px;
+            }
+
+            .whatsapp-toggle {
+                width: 54px;
+                height: 54px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- WhatsApp Quick Contact -->
+    <div class="whatsapp-widget" id="whatsappWidget">
+        <div class="whatsapp-popup" id="whatsappPopup" aria-hidden="true">
+            <span class="text-sm font-semibold text-[#01628F]">Talk to Greylinq</span>
+            <p>Have a question about insurance software or digital transformation? Start a WhatsApp chat with our team.</p>
+            <a class="whatsapp-popup__button" id="whatsappMessageLink" href="#" target="_blank" rel="noopener">
+                <i class="ri-whatsapp-line"></i>
+                Message on WhatsApp
+            </a>
+        </div>
+        <button class="whatsapp-toggle" id="whatsappToggle" type="button" aria-label="Open WhatsApp contact popup" aria-expanded="false" aria-controls="whatsappPopup">
+            <i class="ri-whatsapp-fill"></i>
+        </button>
+    </div>
     <div>
         <header id="header"
-            class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
-            <div class="w-[100px]"> <img src="../assets/logo.png" alt=""> </div>
+            class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-2 md:px-8 py-3 md:py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
+            <a href="./home/index.html">
+                <div class="w-[100px]">
+                    <img src="../assets/logo.png" alt="">
+                </div>
+            </a>
 
-            <nav id="desktopNav" class="flex items-center transition-all duration-500">
+            <nav id="desktopNav" class="hidden md:flex items-center transition-all duration-500">
                 <ul class="flex items-center gap-5 font-semibold tracking-[-1px]">
                     <a href="../about/index.html" class="page-link">
                         <li>About</li>
@@ -918,7 +1039,7 @@ RESPONSIVE
             <div class="flex justify-center items-center gap-5">
                 <div>
                     <button
-                        class="flex items-center justify-between gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 pr-2 py-2 rounded-3xl font-medium tracking-[-1px] text-[#fff]">Request
+                        class="flex items-center justify-between gap-3 md:gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-3 md:pl-5 pr-2 py-2 rounded-3xl font-medium md:tracking-[-1px] text-xs md:text-base text-[#fff]">Request
                         a Demo<span
                             class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
                                 class="ri-arrow-right-up-line"></i></span></button>
@@ -955,77 +1076,6 @@ RESPONSIVE
 
         </div>
 
-        <!-- Hero -->
-        <!-- <section>
-            <div class="min-h-screen w-full relative">
-                <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-[#fff] to-transparent h-[200px] z-10"></div>
-                <div class="absolute top-0 bottom-0 right-0 left-0 z-0">
-                        <video src="../assets/14684399_3840_2160_30fps.mp4" class="w-full h-full object-cover" muted autoplay loop></video>
-                    </div>
-                <div class="relative min-h-screen w-full max-w-[1200px] mx-auto flex flex-col justify-center items-center">
-                    <div class="flex min-h-screen">
-                        <div class="flex flex-col justify-center">
-                            <h1 class="text-7xl tracking-[-6px] text-[#106fb6]">Intelligent Insurance<span class="">Technology</span></h1>
-                        </div>
-                        <div class="mt-auto mb-[80px] h-full flex flex-col justify-end items-end">
-                            <h1 class="text-7xl tracking-[-5px] leading-tight text-[#106fb6]">for a Digital First
-                                <div class="flex">
-                                    <span class="max-w-[400px] w-full text-[15px] tracking-normal text-[#232323]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis beatae dignissimos sint
-                                        officiis, ducimus eaque atque. Provident nemo autem tempore.</span>
-                                    <span>Future</span>
-                                </div>
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <section class="min-h-screen">
-        <div class="min-h-screen relative">
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#106fb6] to-transparent h-[300px] z-10">
-            </div>
-            <div class="absolute top-0 bottom-0 left-0 right-0 z-10">
-                <img src="../assets/gridline2.png" alt="" class="w-full h-full object-cover opacity-40">
-            </div>
-            <div class="absolute top-0 bottom-0 left-0 right-0">
-                <video src="../assets/12686182_3840_2160_30fps.mp4" muted autoplay loop
-                    class="w-full h-full object-cover"></video>
-            </div>
-
-            <div class="absolute top-0 bottom-0 left-0 right-0 mix-blend-overlay">
-                <video src="../assets/intro.mp4" muted autoplay loop class="w-full h-full object-cover z-20"></video>
-            </div>
-            <div class="min-h-screen relative z-20 flex w-full flex-col justify-center items-center">
-                <div>
-                    <h1 class="lg:text-7xl max-w-[1100px] tracking-[-5px] text-center text-reveal">
-                        <div class="line">
-                            <span class="word-mask">
-                                <span class="word">Intelligent</span>
-                                <span class="word">Insurance</span>
-                            </span>
-                        </div>
-                        <span class="">Technology for a</span> <span class="text-[#106fb6]">Digital-First Future</span>
-                    </h1>
-                    <p class="text-center max-w-[900px] mx-auto mt-5 text-[#3c3c3c] text-reveal">GreyLinq empowers
-                        insurance providers with innovative software solutions that streamline operations, enhance
-                        customer experiences, and accelerate business growth. Our technology-driven platforms help
-                        insurers automate processes, manage policies efficiently, and adapt to evolving market demands
-                        with confidence.</p>
-                    <div class="flex justify-center items-center gap-5 mt-10">
-                        <button
-                            class="px-10 py-2 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white tracking-[-1px] font-medium">Explore
-                            More</button>
-                        <div class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-0.5">
-                            <button class="px-10 py-2 bg-white tracking-[-1px] font-medium">Request
-                                a Demo</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
         <section class="min-h-screen bg-gradient-to-b from-[#106fb6] to-[#106fb6]">
             <div class="min-h-screen relative w-full bg-[#fff] rounded-b-[30%] relative z-20 overflow-hidden">
                 <!-- <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#106fb6] to-transparent h-[300px] z-10">
@@ -1039,27 +1089,28 @@ RESPONSIVE
                 </div> -->
 
                 <div class="absolute top-0 bottom-0 left-0 right-0 z-0">
-                <img src="../assets/g copy.png" alt="" class="w-full h-full object-contain opacity-10">
+                    <img src="../assets/g copy.png" alt="" class="w-full h-full object-contain opacity-10">
                 </div>
 
                 <!-- <div class="absolute top-0 bottom-0 left-0 right-0 mix-blend-overlay">
                 <video src="../assets/intro.mp4" muted autoplay loop class="w-full h-full object-cover z-20"></video>
             </div> -->
-                <div class="min-h-screen relative z-50 flex w-full flex-col justify-center items-center">
+                <div class="min-h-screen pt-20 md:pt-0 px-2 relative z-50 flex w-full flex-col justify-center items-center">
                     <div>
                         <h1
-                            class="lg:text-[70px] leading-[80px] max-w-[900px] tracking-[-5px] text-center text-reveal">
+                            class="text-[44px] md:text-[55px] lg:text-[70px] leading-tight md:leading-[80px] max-w-[900px] tracking-[-2px] md:tracking-[-5px] text-center text-reveal">
                             Intelligent Insurance
                             Technology for a <span class="text-[#106fb6]">Digital-First Future</span>
                         </h1>
                         <p class="text-center max-w-[900px] mx-auto mt-5 text-[#3c3c3c] text-reveal">GreyLinq empowers insurance providers with innovative software solutions that streamline operations, enhance customer experiences, and accelerate business growth. Our technology-driven platforms help insurers automate processes, manage policies efficiently, and adapt to evolving market demands with confidence.</p>
-                        <div class="flex justify-center items-center gap-5 mt-10">
+                        <div class="grid grid-cols-1 place-items-center md:flex justify-center items-center gap-5 mt-10">
                             <button
-                                class="px-10 py-2 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white tracking-[-1px] font-medium">Explore
+                                class="px-10 text-reveal py-2 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white tracking-[-1px] font-medium">Explore
                                 More</button>
                             <div class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-0.5">
-                                <button class="px-10 py-2 bg-white tracking-[-1px] font-medium">Request
-                                    a Demo</button>
+                                <button class="px-10 text-reveal py-2 bg-white tracking-[-1px] font-medium">
+                                    Request a Demo
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1080,12 +1131,9 @@ RESPONSIVE
                         About Greylinq
                     </h2>
                     <p
-                        class="text-[45px] tracking-[-2px] font-medium bg-gradient-to-r from-[#d1d1d1] via-[#d1d1d1] to-[#52dae1] bg-clip-text text-transparent leading-tight text-reveal text-white">
-                        GreyLinq is a trusted InsurTech solutions provider specializing in insurance software
-                        development,
-                        policy administration systems, healthcare integration, workflow management,
-                        and
-                        digital transformation solutions for modern insurance businesses.</p>
+                        class="text-[29px] px-2 md:text-[40px] md:tracking-[-2px] font-medium bg-gradient-to-r from-[#d1d1d1] via-[#d1d1d1] to-[#52dae1] bg-clip-text text-transparent leading-tight text-reveal text-white">
+                        GreyLinq is a trusted InsurTech solutions provider specializing in insurance software development, policy administration systems, healthcare integration, workflow management, and digital  transformation administrations for modern insurance businesses.
+                        </p>
                     <div class="relative flex justify-center">
                         <button
                             class="px-10 bg-gradient-to-r from-[#fff] to-[#ffffff] py-2 tracking-[-1px] font-medium text-[#464646] flex items-center justify-center gap-2 text-reveal">Read More
@@ -1101,13 +1149,13 @@ RESPONSIVE
 
         <section>
             <div class="w-full min-h-screen">
-                <div class="grid grid-cols-2 w-full min-h-screen h-full max-w-[1200px] mx-auto px-2 py-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 w-full min-h-screen h-full max-w-[1200px] mx-auto px-2 py-5">
                     <div class="w-full h-full flex items-center justify-center">
                         <img src="../assets/g copy.png" alt="" class="w-full h-[500px] object-contain">
                     </div>
                     <div class="flex justify-center items-center flex-col h-full w-full">
                         <div class="flex flex-col gap-5 mb-5">
-                            <h2 class="text-5xl tracking-[-3px] text-reveal">Transform Insurance Operations Improve
+                            <h2 class="text-4xl tracking-[-1.5px] md:text-5xl md:tracking-[-3px] text-reveal">Transform Insurance Operations Improve
                                 Efficiency Drive Growth.</h2>
                             <p class="text-reveal">GreyLinq is a trusted InsurTech company delivering innovative
                                 insurance
@@ -1133,12 +1181,12 @@ RESPONSIVE
 
         <!-- OUR SOLUTIONS -->
 
-        <section id="solutionsSection" class="relative h-[500vh] bg-white">
+        <section id="solutionsSection" class="relative bg-white">
 
             <!-- Sticky Wrapper -->
             <div id="solutionsSticky" class="sticky top-0 h-screen overflow-hidden">
 
-                <div class="max-w-[1280px] h-full mx-auto grid grid-cols-2 gap-20 px-6">
+                <div class="max-w-[1280px] h-full mx-auto grid grid-cols-2 gap-10 md:gap-20 px-6">
 
                     <!-- =========================
                      LEFT PANEL
@@ -1147,11 +1195,11 @@ RESPONSIVE
                     <div class="flex flex-col justify-evenly pt-24 py-10 h-screen">
                         <div class="w-full h-full">
                             <span class="tracking-[-1px] text-[#01628F] mb-2 text-reveal">--- Our Solutions ---</span>
-                            <h2 class="text-6xl tracking-[-3px] mb-5 text-reveal">Innovative Solutions for Modern Insurance</h2>
+                            <h2 class="text-4xl tracking-[-1.5px] md:text-6xl md:tracking-[-3px] mb-5 text-reveal">Innovative Solutions for Modern Insurance</h2>
                             <p class="text-reveal">Delivering secure, scalable, and intelligent insurance platforms that simplify complex processes while enhancing efficiency, accuracy, and customer satisfaction.
                                 Discover innovative insurance solutions built to optimize operations, improve customer service, and enable faster.</p>
                         </div>
-                        <div>
+                        <div class="pt-10 md:pt-0">
                             <div>
                                 <ul class="flex items-center gap-[-10px] relative">
                                     <li class="">
@@ -1333,50 +1381,6 @@ RESPONSIVE
 
         </section>
 
-        <!-- <section class="overflow-hidden">
-        <div>
-            <div class="w-full min-h-screen relative max-w-[1200px] mx-auto">
-                <div class="h-full w-full min-h-screen grid md:grid-cols-2 grid-cols-1 gap-20 px-2 py-5">
-                    <div class="flex flex-col justify-evenly pt-24 py-10 h-screen">
-                        <div class="w-full h-full">
-                            <span class="tracking-[-1px] text-[#01628F] mb-2">--- Our Solutions ---</span>
-                            <h2 class="text-6xl tracking-[-5px] mb-5">Lorem ipsum dolor sit amet dolor sit amet</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident blanditiis sunt quia cumque distinctio
-                                alias nulla consequatur, rem eius libero dolorum sit numquam ullam. Cum eaque est consequuntur eligendi
-                                esse?</p>
-                        </div>
-                        <div>
-                            <div>
-                                <ul class="flex items-center gap-[-10px] relative">
-                                    <li class="">
-                                        <span class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i class="ri-service-fill"></i></span>
-                                    </li>
-                                    <li class="absolute left-[30px]">
-                                        <span class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i class="ri-shield-cross-fill"></i></span>
-                                    </li>
-                                     <li class="absolute left-[60px]">
-                                        <span class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-[#fff] rounded-full flex items-center justify-center"><i class="ri-stethoscope-line"></i></span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="flex justify-start items-center gap-5 mt-5">
-                                <p>Lorem ipsum dolor sit amet consectetur.</p>
-                                <span class="w-[40px] h-[40px] border-[#20202054] border-[1.5px] transition-all ease duration-300 hover:bg-gradient-to-r from-[#000] via-[#000] to-[#000] hover:text-[#fff] rounded-full flex items-center justify-center"><i class="ri-arrow-right-up-line"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-full h-full flex flex-col gap-5 h-screen overflow-auto">
-                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
-                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
-                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
-                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
-                        <div class="h-[250px] w-full bg-[#000] flex-shrink-0"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
         <!-- Products -->
         <section class="bg-gradient from-[#000] via-[#000] to-[#000] min-h-screen relative">
             <div class="absolute top-0 bottom-0 right-0 left-0 mix-blend-multiply">
@@ -1392,12 +1396,12 @@ RESPONSIVE
                             <!-- <h3
                             class="text-6xl text-center bg-gradient-to-r from-[#2C3184] to-[#119FE0] bg-clip-text text-transparent tracking-[-5px] flex items-center gap-3 justify-center">
                             <span class="text-6xl"><i class="ri-gemini-fill"></i></span>Our Products</h3> -->
-                            <h2 class="text-6xl tracking-[-5px] flex items-center justify-center gap-5 text-reveal">
-                                <span class="text-5xl text-[#01628F] mr-5"><i class="ri-gemini-fill"></i></span>Our
+                            <h2 class="text-4xl tracking-[-1.5px] md:text-6xl md:tracking-[-5px] flex items-center justify-center gap-5 text-reveal">
+                                <span class="md:text-5xl text-3xl text-[#01628F] mr-5"><i class="ri-gemini-fill"></i></span>Our
                                 Products
                             </h2>
                         </div>
-                        <div class="w-full max-w-[900px] grid grid-cols-2 mx-auto gap-3">
+                        <div class="w-full px-2 max-w-[900px] grid grid-cols-1 md:grid-cols-2 mx-auto gap-3">
                         <div
                             class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
                             <div class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
@@ -1510,19 +1514,18 @@ RESPONSIVE
         </section>
 
 
-
         <section>
             <div>
                 <div class="w-full max-w-[1200px] mx-auto">
                     <div class="w-full flex flex-col justify-center items-center gap-3">
-                        <h2 class="text-6xl tracking-[-3px]"><span class="mr-3 text-[#119FE0]"><i class="ri-p2p-fill"></i></span>Industries We Serve</h2>
+                        <h2 class="text-4xl tracking-[-1.5px] md:text-6xl md:tracking-[-3px]"><span class="mr-3 text-[#119FE0]"><i class="ri-p2p-fill"></i></span>Industries We Serve</h2>
                         <p class="max-w-[900px] mx-auto text-center">Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Explicabo officia ex consequuntur
                             cupiditate reprehenderit deserunt exercitationem voluptas neque architecto.</p>
                     </div>
                     <div>
-                        <div class="mt-10 flex justify-center items-center gap-5">
-                            <div class="w-full relative md:w-[40%] overflow-hidden h-[400px] bg-[#000] rounded-3xl">
+                        <div class="mt-10 md:flex px-2 justify-center items-center grid grid-cols-1 gap-3 md:gap-5">
+                            <div class="w-full industry-reveal relative md:w-[40%] overflow-hidden h-[400px] bg-[#000] rounded-3xl">
                                 <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full">
                                     <img src="../assets/health-insurance-providers.jpg" class="w-full h-full object-cover" alt="">
                                 </div>
@@ -1540,14 +1543,14 @@ RESPONSIVE
                                     </div>
                                 </div>
                             </div>
-                            <div class="w-full md:w-[60%] h-[400px] flex flex-col gap-3">
-                                <div class="w-full h-[50%] bg-gray-200 border px-5 pb-10 rounded-3xl overflow-hidden border">
+                            <div class="w-full md:w-[60%] md:h-[400px] flex flex-col gap-3">
+                                <div class="industry-reveal w-full md:h-[50%] bg-gray-200 border px-5 pb-10 rounded-3xl overflow-hidden border p-3">
                                     <div class="w-full h-full flex flex-col justify-end">
                                         <span class="text-3xl tracking-[-1px] border-b pb-5 border-dashed border-black">Third-Party Administrators <span class="text-[#119FE0]">(TPAs)</span></span>
                                         <p class="pt-2">Simplifying Policy administration, provider networks, policy servicing, and customer support through intelligent insurance solutions.</p>
                                     </div>
                                 </div>
-                                <div class="flex w-full h-[50%] gap-3">
+                                <div class="industry-reveal grid grid-cols-1 md:flex w-full md:h-[50%] gap-3">
                                     <div class="w-full px-5 py-5 h-full bg-[#000] rounded-3xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
                                         <div>
                                             <h4 class="text-2xl pb-2 border-b border-dashed border-white mb-2 tracking-[-1px] text-white">Brokers and Insurance Agencies</h4>
@@ -1562,22 +1565,22 @@ RESPONSIVE
                                 </div>
                             </div>
                         </div>
-                        <div class="flex gap-3">
+                        <div class="grid grid-cols-1 md:flex gap-1 md:gap-3">
                             <div
-                                class="w-full px-5 py-5 h-[200px] mt-3 bg-[#000] rounded-3xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
+                                class="industry-reveal w-full px-5 py-5 h-[200px] mt-3 bg-[#000] rounded-3xl bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
                                 <div>
                                     <h4 class="text-2xl pb-2 border-b border-dashed border-white mb-2 tracking-[-1px] text-white">Healthcare Organizations</h4>
                                     <p class="text-gray-300">Connect healthcare providers with insurers through secure integrations, eligibility verification, and claims processing.</p>
                                 </div>
                             </div>
-                            <div class="w-full h-[200px] mt-3 bg-gray-200 px-5 py-10 rounded-3xl">
+                            <div class="industry-reveal w-full h-[200px] mt-3 bg-gray-200 px-5 py-10 rounded-3xl">
                                 <div>
                                     <h4 class="text-2xl pb-2 border-b border-dashed border-gray-600 mb-2 tracking-[-1px] text-gray-800">Travel Insurance Providers</h4>
                                     <p class="text-gray-700">Simplify travel policy issuance, claims handling, customer servicing, and partner integrations on one platform.</p>
                                 </div>
                             </div>
                             
-                            <div class="w-full h-[200px] mt-3 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] px-5 py-10 rounded-3xl">
+                            <div class="industry-reveal w-full h-[200px] mt-3 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] px-5 py-10 rounded-3xl">
                                 <div>
                                     <h4 class="text-2xl pb-2 border-b border-dashed border-gray-200 mb-2 tracking-[-1px] text-white">Corporate Insurance Programs</h4>
                                     <p class="text-gray-300">Manage employee insurance plans, enrollments, renewals, policy administration, and benefits through a centralized system.</p>
@@ -1595,35 +1598,35 @@ RESPONSIVE
             <div class="w-full">
                 <div class="flex w-full h-full flex items-center justify-center">
                     <div
-                        class="grid grid-cols-1 max-w-[1200px] mx-auto md:flex w-full md:justify-center md:items-center gap-10">
+                        class="grid px-2 grid-cols-1 max-w-[1200px] mx-auto md:flex w-full md:justify-center md:items-center gap-10">
                         <div class="md:w-[30%]">
-                            <h3 class="text-6xl tracking-[-5px] text-reveal leading-tight">Trusted by our major clients
+                            <h3 class="text-4xl tracking-[-1.5px] text-center md:text-start md:text-6xl md:tracking-[-5px] text-reveal leading-tight">Trusted by our major clients
                             </h3>
                         </div>
                         <div class="md:w-[70%] grid grid-cols-2 md:grid-cols-4 gap-5 border-l pl-7 border-[#000]">
-                            <div class="h-auto w-[150px] bg-[#fff]">
+                            <div class="logo-reveal h-auto w-[150px] bg-[#fff]">
                                 <img src="../assets/partner1.png" alt="" class="w-full h-full object-contain">
                             </div>
-                            <div class="h-auto w-[150px] bg-[#fff]">
+                            <div class="logo-reveal h-auto w-[150px] bg-[#fff]">
                                 <img src="../assets/partner2.png" alt="" class="w-full h-full object-contain">
                             </div>
-                            <div class="h-auto w-[150px] bg-[#fff]">
+                            <div class="logo-reveal h-auto w-[150px] bg-[#fff]">
                                 <img src="../assets/partners3.png" alt="" class="w-full h-full object-contain">
                             </div>
-                            <div class="h-auto w-[150px] bg-[#fff]">
+                            <div class="logo-reveal h-auto w-[150px] bg-[#fff]">
                                 <img src="../assets/partners4.png" alt="" class="w-full h-full object-contain">
                             </div>
-                            <div class="h-auto w-[150px] bg-[#fff]">
+                            <div class="logo-reveal h-auto w-[150px] bg-[#fff]">
                                 <img src="../assets/partners9.png" alt="" class="w-full h-full object-contain">
                             </div>
-                            <div class="h-auto w-[150px] bg-[#fff]">
+                            <div class="logo-reveal h-auto w-[150px] bg-[#fff]">
                                 <img src="../assets/partners6.png" alt="" class="w-full h-full object-contain">
                             </div>
-                            <div class="h-auto w-[150px] bg-[#fff] flex items-center justify-center text-3xl font-semibold">
-                                <!-- <img src="../assets/partners7.png" alt="" class="w-full h-full object-contain"> -->
-                                 <span class="text-gray-600">LIVA</span>
+                            <div class="logo-reveal h-auto w-[130px] md:w-[130px] pl-10 bg-[#fff] flex items-center justify-center text-3xl font-semibold">
+                                <img src="../assets/partner10.jpeg" alt="" class="w-full h-full object-contain">
+                                 <!-- <span class="text-gray-600">LIVA</span> -->
                             </div>
-                            <div class="h-auto w-[150px] bg-[#fff]">
+                            <div class="logo-reveal h-auto w-[150px] bg-[#fff]">
                                 <img src="../assets/partners8.png" alt="" class="w-full h-full object-contain">
                             </div>
                         </div>
@@ -1636,12 +1639,12 @@ RESPONSIVE
         <!-- Why Choose Us -->
         <section class="w-full py-20">
             <div class="max-w-[900px] mx-auto">
-                <div class="mb-16">
-                    <h2 class="text-6xl tracking-[-5px] text-center flex items-center justify-center gap-3">
-                        <span class="text-5xl text-[#119FE0]">
+                <div class="mb-16 px-2">
+                    <h2 class="text-4xl tracking-[-1.5px] md:text-6xl md:tracking-[-5px] text-center items-center justify-center mx-auto gap-3">
+                        <span class="md:text-5xl items-center justify-center mx-auto text-center text-3xl text-[#119FE0]">
                             <i class="ri-chat-smile-ai-fill"></i>
                         </span>
-                        Why Choose <span>Greylinq</span>
+                        Why Choose Greylinq
                     </h2>
                     <p class="max-w-[800px] mx-auto text-center mt-4 text-reveal">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo officia ex consequuntur
@@ -1651,7 +1654,7 @@ RESPONSIVE
 
                 <!-- ROW 1 -->
 
-                <div class="why-row mb-5 border rounded-3xl overflow-hidden">
+                <div class="why-row mb-5 px-2 border rounded-3xl overflow-hidden">
                     <div class="grid md:grid-cols-2">
                         <button
                             class="why-btn p-7 text-left flex justify-between bg-gray-100 items-center border-b md:border-b-0 md:border-r"
@@ -1793,13 +1796,13 @@ RESPONSIVE
                     </div>
                     <div class="w-full flex relative flex-col justify-center">
                         <span
-                            class="text-center mb-2 text-sm w-full font-medium tracking-[-1px] text-[#fff] border-[#ffffff57] border rounded-3xl bg-[#ffffff3d] backdrop-blur-[3px] max-w-[150px] px-2 py-2 mx-auto"><span class="mr-2"><i class="ri-usb-fill"></i></span>Connect
+                            class="text-center text-reveal mb-2 text-sm w-full font-medium tracking-[-1px] text-[#fff] border-[#ffffff57] border rounded-3xl bg-[#ffffff3d] backdrop-blur-[3px] max-w-[150px] px-2 py-2 mx-auto"><span class="mr-2"><i class="ri-usb-fill"></i></span>Connect
                             With Us</span>
-                        <h3 class="text-6xl text-center tracking-[-3px] text-[#fff]">Ready to Modernize Your Insurance Operations?</h3>
-                        <p class="mt-3 text-center max-w-[900px] mx-auto text-[#edededdd]">Whether you're a health insurer, TPA, broker, or insurance provider, our innovative software solutions help automate workflows, improve operational efficiency, and accelerate your digital transformation.</p>
+                        <h3 class="text-4xl tracking-[-1.5px] md:text-6xl text-center md:tracking-[-3px] text-[#fff] text-reveal">Ready to Modernize Your Insurance Operations?</h3>
+                        <p class="mt-3 text-center max-w-[900px] mx-auto text-[#edededdd] text-reveal">Whether you're a health insurer, TPA, broker, or insurance provider, our innovative software solutions help automate workflows, improve operational efficiency, and accelerate your digital transformation.</p>
                     </div>
                     <div class="flex justify-center items-center mt-5">
-                        <button class="px-10 py-2 bg-[#fff] tracking-[-1px] font-medium text-[#106fb6]">Connect
+                        <button class="px-10 py-2 text-reveal bg-[#fff] tracking-[-1px] font-medium text-[#106fb6]">Connect
                             Now</button>
                     </div>
                 </div>
@@ -1807,15 +1810,15 @@ RESPONSIVE
         </section>
 
         <!-- Footer -->
-        <section class="bg-gradient-to-r from-[#000] via-[#000] to-[#000] mt-10 min-h-[350px] rounded-t-[100px]">
+        <section id="footerSection" class="bg-gradient-to-r from-[#000] via-[#000] to-[#000] mt-10 min-h-[350px] rounded-t-[100px]">
             <div>
                 <div class="">
-                    <div class="flex justify-between w-full max-w-[1200px] mx-auto pt-10 border-b pb-10">
-                        <div class="flex flex-col">
+                    <div class="grid grid-cols-1 place-items-center gap-20 md:flex justify-between w-full max-w-[1200px] mx-auto pt-10 border-b pb-10">
+                        <div class="flex flex-col justify-center items-center md:justify-start md:items-start">
                             <div class="h-[100px] w-[200px]">
                                 <img src="../assets/logo.png" alt="" class="h-full w-full object-contain">
                             </div>
-                            <p class="max-w-[300px] mt-5 text-white">Empowering insurers with intelligent software solutions for seamless, secure, and efficient operations.</p>
+                            <p class="max-w-[300px] mt-5 text-white text-center md:text-start">Empowering insurers with intelligent software solutions for seamless, secure, and efficient operations.</p>
                         </div>
                         <div class="flex flex-wrap justify-center items-center gap-10">
                             <div>
@@ -1877,7 +1880,7 @@ RESPONSIVE
                             </div>
                         </div>
 
-                        <div class="flex flex-col justify-end items-end">
+                        <div class="flex flex-col justify-center items-center md:justify-end md:items-end">
                             <ul class="text-white flex items-center gap-3 mb-5">
                                 <a href="">
                                     <li><i class="ri-instagram-fill"></i></li>
@@ -1935,30 +1938,48 @@ RESPONSIVE
 
         const header = document.getElementById("header");
 
-        window.addEventListener("scroll", () => {
+        function updateHeader() {
+            const isMobile = window.innerWidth < 1024; // Tailwind lg breakpoint
+
             if (window.scrollY > 100) {
 
                 header.classList.remove("w-full", "max-w-[1400px]", "top-5");
-                header.classList.add(
-                    "w-[800px]",
-                    "top-4",
-                    "rounded-full",
-                    "bg-white/90",
-                    "backdrop-blur-xl",
-                    "shadow-2xl",
-                    "px-6",
-                    "py-3"
-                );
+
+                if (isMobile) {
+                    header.classList.add(
+                        "w-[92%]",          // or w-[95%]
+                        "top-4",
+                        "rounded-full",
+                        "bg-white/90",
+                        "backdrop-blur-xl",
+                        "shadow-2xl",
+                        "px-4",
+                        "py-3"
+                    );
+                } else {
+                    header.classList.add(
+                        "w-[800px]",
+                        "top-4",
+                        "rounded-full",
+                        "bg-white/90",
+                        "backdrop-blur-xl",
+                        "shadow-2xl",
+                        "px-6",
+                        "py-3"
+                    );
+                }
 
             } else {
 
                 header.classList.remove(
                     "w-[800px]",
+                    "w-[98%]",
                     "top-4",
                     "rounded-full",
                     "bg-white/90",
                     "backdrop-blur-xl",
                     "shadow-2xl",
+                    "px-4",
                     "px-6",
                     "py-3"
                 );
@@ -1968,12 +1989,48 @@ RESPONSIVE
                     "max-w-[1400px]",
                     "top-5"
                 );
-
             }
-        });
+        }
+
+        window.addEventListener("scroll", updateHeader);
+        window.addEventListener("resize", updateHeader);
 
         const mobileMenu = document.getElementById("mobileMenu");
         const closeMenu = document.getElementById("closeMenu");
+
+        const whatsappWidget = document.getElementById("whatsappWidget");
+        const whatsappToggle = document.getElementById("whatsappToggle");
+        const whatsappPopup = document.getElementById("whatsappPopup");
+        const whatsappMessageLink = document.getElementById("whatsappMessageLink");
+        const whatsappPhoneNumber = "971509596896";
+        const whatsappMessage = "Hello Greylinq, I would like to know more about your insurance technology solutions.";
+
+        whatsappMessageLink.href = `https://wa.me/${whatsappPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        function closeWhatsappPopup() {
+            whatsappWidget.classList.remove("is-open");
+            whatsappPopup.setAttribute("aria-hidden", "true");
+            whatsappToggle.setAttribute("aria-expanded", "false");
+            whatsappToggle.setAttribute("aria-label", "Open WhatsApp contact popup");
+        }
+
+        function toggleWhatsappPopup(event) {
+            event.stopPropagation();
+            const isOpen = whatsappWidget.classList.toggle("is-open");
+
+            whatsappPopup.setAttribute("aria-hidden", String(!isOpen));
+            whatsappToggle.setAttribute("aria-expanded", String(isOpen));
+            whatsappToggle.setAttribute("aria-label", isOpen ? "Close WhatsApp contact popup" : "Open WhatsApp contact popup");
+        }
+
+        whatsappToggle.addEventListener("click", toggleWhatsappPopup);
+        whatsappWidget.addEventListener("click", (event) => event.stopPropagation());
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeWhatsappPopup();
+            }
+        });
 
         menuBtn.addEventListener("click", () => {
             mobileMenu.classList.remove("translate-x-full");
@@ -2063,6 +2120,7 @@ RESPONSIVE
 
         // Close when clicking outside
         document.addEventListener("click", () => {
+            closeWhatsappPopup();
 
             rows.forEach(row => {
 
@@ -2867,6 +2925,148 @@ RESPONSIVE
             ScrollTrigger.refresh();
 
         });
+    </script>
+
+    <script>
+        gsap.config({
+                force3D: true
+            });
+        gsap.registerPlugin(ScrollTrigger);
+
+            gsap.set(".industry-reveal", {
+                y: 140,
+                opacity: 0,
+                scale: 0.96,
+                filter: "blur(4px)",
+                transformOrigin: "bottom center",
+                willChange: "transform, opacity"
+            });
+
+            CustomEase.create(
+                    "industrySmooth",
+                    "M0,0 C0.12,0 0.18,1 1,1"
+                );
+
+            ScrollTrigger.batch(".industry-reveal", {
+
+                start: "top 88%",
+
+                once: true,
+
+                onEnter: batch => {
+
+                    gsap.to(batch, {
+
+                        y: 0,
+
+                        opacity: 1,
+
+                        scale: 1,
+
+                        filter: "blur(0px)",
+
+                        duration: 1.4,
+
+                        ease: "expo.out",
+
+                        stagger: {
+                            each: 0.12,
+                            from: "start"
+                        }
+
+                    });
+
+                }
+
+            });
+
+
+            // Logo reveal
+            gsap.registerPlugin(ScrollTrigger);
+
+                gsap.utils.toArray(".logo-reveal").forEach((logo, index) => {
+
+                    const target = logo.querySelector("img, span");
+
+                    gsap.set(target, {
+                        yPercent: 120,
+                        opacity: 0.15
+                    });
+
+                    gsap.to(target, {
+
+                        yPercent: 0,
+
+                        opacity: 1,
+
+                        duration: 1.2,
+
+                        ease: "power4.out",
+
+                        delay: index * 0.04,
+
+                        scrollTrigger: {
+                            trigger: logo,
+                            start: "top 90%",
+                            toggleActions: "play none none none",
+                            once: true
+                        }
+
+                    });
+
+                });
+
+
+
+                // Footer
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                    gsap.fromTo(
+                        "footer, section:last-of-type",
+                        {
+                            borderTopLeftRadius: 100,
+                            borderTopRightRadius: 100
+                        },
+                        {
+                            borderTopLeftRadius: 0,
+                            borderTopRightRadius: 0,
+
+                            ease: "power2.out",
+
+                            scrollTrigger: {
+                                trigger: "footer, section:last-of-type",
+                                start: "top 90%",
+                                end: "top 15%",
+                                scrub: 1.2
+                            }
+                        }
+                    );
+
+                
+                gsap.fromTo(
+                        "#footerSection",
+                        {
+                            borderTopLeftRadius: 100,
+                            borderTopRightRadius: 100,
+                            y: 80
+                        },
+                        {
+                            borderTopLeftRadius: 0,
+                            borderTopRightRadius: 0,
+                            y: 0,
+
+                            ease: "none",
+
+                            scrollTrigger: {
+                                trigger: "#footerSection",
+                                start: "top bottom",
+                                end: "top center",
+                                scrub: 1.5
+                            }
+                        }
+                    );
+
     </script>
 </body>
 

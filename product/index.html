@@ -3,248 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Greylinq Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/transition.css">
-    <link rel="stylesheet" href="../css/global.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
     <link rel="stylesheet" href="../css/transition.css">
+    <link rel="stylesheet" href="../css/global.css">
     <link rel="prefetch" href="../about/about.html">
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
 </head>
 
 <style>
-    @font-face {
-        font-family: 'Kinetica';
-        src: url('../assets/font/kinetika-medium.ttf');
-    }
-
-    *{
-        font-family: 'Kinetica', sans-serif;
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        align-items: center;
-        z-index: 9999;
-    }
-
-    .why-section {
-
-        padding: 120px 0;
-    }
-
-    .container {
-
-        width: min(1200px, 90%);
-        margin: auto;
-    }
-
-    .section-heading {
-
-        text-align: center;
-        margin-bottom: 70px;
-    }
-
-    .section-heading h2 {
-
-        font-size: 60px;
-        font-weight: 700;
-    }
-
-    .section-heading span {
-
-        color: #52dae1;
-    }
-
-    .section-heading p {
-
-        max-width: 720px;
-        margin: 20px auto 0;
-        color: #8d8d8d;
-    }
-
-    .why-wrapper {
-
-        display: grid;
-        grid-template-columns: 380px 1fr;
-        gap: 40px;
-        align-items: start;
-    }
-
-    .why-card {
-
-        position: sticky;
-        top: 120px;
-
-        background: #111;
-
-        border-radius: 24px;
-
-        overflow: hidden;
-    }
-
-    .why-card img {
-
-        width: 100%;
-        display: block;
-    }
-
-    .card-content {
-
-        padding: 30px;
-    }
-
-    .card-content span {
-
-        color: #888;
-    }
-
-    .card-content h3 {
-
-        margin: 15px 0 30px;
-    }
-
-    .book-btn {
-
-        display: inline-flex;
-
-        padding: 14px 28px;
-
-        border-radius: 50px;
-
-        background: #52dae1;
-
-        color: black;
-
-        text-decoration: none;
-
-        font-weight: 600;
-    }
-
-    .accordion {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 18px;
-    }
-
-    .accordion-item {
-
-        border-radius: 18px;
-
-        background: #111;
-
-        overflow: hidden;
-    }
-
-    .accordion-item button {
-
-        width: 100%;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        padding: 15px;
-
-        border: none;
-
-        background: none;
-
-        color: white;
-
-        cursor: pointer;
-
-        font-size: 16px;
-    }
-
-    .accordion-item small {
-
-        color: #52dae1;
-
-        margin-right: 15px;
-    }
-
-    .content {
-
-        max-height: 0;
-
-        overflow: hidden;
-
-        transition: .45s;
-
-        color: #bdbdbd;
-
-        padding: 0 0px 0 0;
-    }
-
-    .accordion-item.active .content {
-
-        max-height: 200px;
-
-        padding: 0 28px 28px;
-    }
-
-
-    #solutionsTrack {
-        width: max-content;
-        will-change: transform;
-    }
-
-    .char {
-        display: inline-block;
-        will-change: transform;
-    }
-
-    .mask-text {
-        overflow: hidden;
-    }
-
-    .mask-text span {
-        display: block;
-    }
-
-    .text-reveal .line {
-        display: block;
-        overflow: hidden;
-    }
-
-    .text-reveal .word-mask {
-        display: inline-block;
-        overflow: hidden;
-        vertical-align: top;
-    }
-
-    .text-reveal .word {
-        display: inline-block;
-        will-change: transform;
-    }
-</style>
+        @font-face {
+            font-family: 'Kinetica';
+            src: url('../assets/font/kinetika-medium.ttf');
+        }
+    
+        * {
+            font-family: 'Kinetica', sans-serif;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+            z-index: 9999;
+        }
+    
+        .why-section {
+    
+            padding: 120px 0;
+        }
+    
+        .container {
+    
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+    
+        .section-heading {
+    
+            text-align: center;
+            margin-bottom: 70px;
+        }
+    
+        .section-heading h2 {
+    
+            font-size: 60px;
+            font-weight: 700;
+        }
+    
+        .section-heading span {
+    
+            color: #52dae1;
+        }
+    
+        .section-heading p {
+    
+            max-width: 720px;
+            margin: 20px auto 0;
+            color: #8d8d8d;
+        }
+    
+        .why-wrapper {
+    
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+    
+        .why-card {
+    
+            position: sticky;
+            top: 120px;
+    
+            background: #111;
+    
+            border-radius: 24px;
+    
+            overflow: hidden;
+        }
+    
+        .why-card img {
+    
+            width: 100%;
+            display: block;
+        }
+    
+        .card-content {
+    
+            padding: 30px;
+        }
+    
+        .card-content span {
+    
+            color: #888;
+        }
+    
+        .card-content h3 {
+    
+            margin: 15px 0 30px;
+        }
+    
+        .book-btn {
+    
+            display: inline-flex;
+    
+            padding: 14px 28px;
+    
+            border-radius: 50px;
+    
+            background: #52dae1;
+    
+            color: black;
+    
+            text-decoration: none;
+    
+            font-weight: 600;
+        }
+    
+        .accordion {
+    
+            display: flex;
+    
+            flex-direction: column;
+    
+            gap: 18px;
+        }
+    
+        .accordion-item {
+    
+            border-radius: 18px;
+    
+            background: #111;
+    
+            overflow: hidden;
+        }
+    
+        .accordion-item button {
+    
+            width: 100%;
+    
+            display: flex;
+    
+            justify-content: space-between;
+    
+            align-items: center;
+    
+            padding: 15px;
+    
+            border: none;
+    
+            background: none;
+    
+            color: white;
+    
+            cursor: pointer;
+    
+            font-size: 16px;
+        }
+    
+        .accordion-item small {
+    
+            color: #52dae1;
+    
+            margin-right: 15px;
+        }
+    
+        .content {
+    
+            max-height: 0;
+    
+            overflow: hidden;
+    
+            transition: .45s;
+    
+            color: #bdbdbd;
+    
+            padding: 0 0px 0 0;
+        }
+    
+        .accordion-item.active .content {
+    
+            max-height: 200px;
+    
+            padding: 0 28px 28px;
+        }
+    
+    
+        #solutionsTrack {
+            width: max-content;
+            will-change: transform;
+        }
+    
+        .char {
+            display: inline-block;
+            will-change: transform;
+        }
+    
+        .mask-text {
+            overflow: hidden;
+        }
+    
+        .mask-text span {
+            display: block;
+        }
+    
+        .text-reveal .line {
+            display: block;
+            overflow: hidden;
+        }
+    
+        .text-reveal .word-mask {
+            display: inline-block;
+            overflow: hidden;
+            padding-right: 2px;
+            padding-bottom: 4px;
+            vertical-align: top;
+        }
+    
+        .text-reveal .word {
+            display: inline-block;
+            will-change: transform;
+        }
+
+        .product-name {
+            color: #01628F;
+        }
+
+        .whatsapp-widget {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 14px;
+        }
+
+        .whatsapp-popup {
+            width: min(320px, calc(100vw - 32px));
+            padding: 18px;
+            border: 1px solid rgba(17, 159, 224, 0.14);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+            color: #111827;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(14px) scale(0.96);
+            transform-origin: bottom right;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .whatsapp-widget.is-open .whatsapp-popup {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .whatsapp-popup p {
+            margin-top: 6px;
+            color: #4b5563;
+            line-height: 1.45;
+            font-size: 14px;
+        }
+
+        .whatsapp-popup__button {
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 11px 14px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #2C3184, #01628F, #119FE0);
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .whatsapp-toggle {
+            width: 58px;
+            height: 58px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25D366;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 16px 34px rgba(37, 211, 102, 0.38);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .whatsapp-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 42px rgba(37, 211, 102, 0.45);
+        }
+
+        .whatsapp-toggle i {
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        @media(max-width:640px) {
+            .whatsapp-widget {
+                right: 16px;
+                bottom: 16px;
+            }
+
+            .whatsapp-toggle {
+                width: 54px;
+                height: 54px;
+            }
+        }
+    </style>
 <body>
+     <!-- WhatsApp Quick Contact -->
+    <div class="whatsapp-widget" id="whatsappWidget">
+        <div class="whatsapp-popup" id="whatsappPopup" aria-hidden="true">
+            <span class="text-sm font-semibold text-[#01628F]">Talk to Greylinq</span>
+            <p>Have a question about insurance software or digital transformation? Start a WhatsApp chat with our team.</p>
+            <a class="whatsapp-popup__button" id="whatsappMessageLink" href="#" target="_blank" rel="noopener">
+                <i class="ri-whatsapp-line"></i>
+                Message on WhatsApp
+            </a>
+        </div>
+        <button class="whatsapp-toggle" id="whatsappToggle" type="button" aria-label="Open WhatsApp contact popup" aria-expanded="false" aria-controls="whatsappPopup">
+            <i class="ri-whatsapp-fill"></i>
+        </button>
+    </div>
     <div>
-        <header class="hidden" id="header"
+        <header id="header"
             class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
-            <a href="index.html">
+            <a href="../home/index.html">
                 <div class="w-[100px]">
                     <img src="../assets/logo.png" alt="">
                 </div>
@@ -300,10 +418,10 @@
                             <div class="h-full flex flex-col justify-center items-center px-5">
                                 <div class="w-full flex flex-col justify-center items-center mb-10">
                                     <span class="px-6 py-2 rounded-3xl border border-gray-400 mb-3">Our Products</span>
-                                    <h3 class="text-6xl text-gray-800 tracking-[-4px] text-center">Insurance Technology Solutions
+                                    <h3 class="text-4xl md:text-5xl text-gray-800 tracking-[-2px] md:tracking-[-4px] text-center text-reveal">Insurance Technology Solutions
                                         Designed for Growth
                                     </h3>
-                                    <p class="text-center mt-3">Building secure and scalable insurance platforms that help organizations operate smarter and serve customers better.</p>
+                                    <p class="text-center mt-3 text-reveal text-lg leading-tight">Building secure and scalable insurance platforms that help organizations operate smarter and serve customers better.</p>
                                 </div>
                                 <div class="mb-5">
                                     <button class="text bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 rounded-3xl min-w-[160px] text-white tracking-[-1px] py-2 pr-2 flex items-center gap-2 justify-between">Explore More <span class="w-[30px] flex items-center bg-white justify-center h-[30px] text-[#000] rounded-full"><i class="ri-arrow-right-up-line"></i></span></button>
@@ -326,37 +444,37 @@
             <div>
                 <div class="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div class="flex justify-between items-center gap-3">
-                        <div class="md:w-[40%] rounded-xl h-[300px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex flex-col justify-center items-center">
+                        <div class="md:w-[40%] industry-reveal rounded-xl h-[300px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex flex-col justify-center items-center">
                             <div class="px-3 flex flex-col justify-evenly h-full">
-                                <h4 class="text-2xl tracking-[-1px] text-[#fff]">Empowering Digital Insurance Transformation</h4>
+                                <h4 class="text-2xl tracking-[-1px] text-[#fff] text-reveal">Empowering Digital Insurance Transformation</h4>
                                 <div class="">
                                     <button class="flex items-center gap-3 bg-[#fff] tracking-[-1px] pl-3 pr-2 py-2 rounded-3xl">Explore Products <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white"><i class="ri-arrow-right-up-line"></i></span></button>
                                 </div>
                             </div>
                         </div>
                         <div class="md:w-[25%] h-[300px] flex flex-col gap-3">
-                            <div class="md:h-[50%] w-full bg-[#000] rounded-xl overflow-hidden">
+                            <div class="md:h-[50%] industry-reveal w-full bg-[#000] rounded-xl overflow-hidden">
                                 <div class="w-full h-full">
                                     <img src="https://i.pinimg.com/736x/74/ff/66/74ff66dc91415dd71437662824d37032.jpg" class="w-full h-full object-cover" alt="">
                                 </div>
                             </div>
-                            <div class="md:h-[50%] w-full bg-[#000] overflow-hidden rounded-xl">
+                            <div class="md:h-[50%] industry-reveal w-full bg-[#000] overflow-hidden rounded-xl">
                                 <div class="w-full h-full">
                                     <img src="https://i.pinimg.com/736x/04/81/b4/0481b4085bd90e7b70c9d5440470a3ae.jpg" class="w-full h-full object-cover" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="md:w-[35%] bg-[#000] h-[300px] rounded-xl overflow-hidden">
+                        <div class="md:w-[35%] bg-[#000] h-[300px] industry-reveal rounded-xl overflow-hidden">
                             <img src="../assets/products-img1.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
                     <div class="w-full flex justify-center items-center gap-3">
-                        <div class="h-[300px] md:w-[50%] bg-gray-100 rounded-xl px-5 py-5">
-                            <span class="text-3xl tracking-[-2px] text-gray-800x-col gap-2">
+                        <div class="h-[300px] industry-reveal md:w-[50%] bg-gray-100 rounded-xl px-5 py-5">
+                            <span class="text-3xl text-reveal tracking-[-2px] text-gray-800x-col gap-2">
                                 Implementation <span class=" block">Success <i class="ri-verified-badge-fill text-[#119FE0]"></i></span></span>
-                            <p class="mt-5 pt-3 border-t border-dashed border-gray-700">GreyLinq products are designed to help organizations embrace digital transformation while maintaining operational excellence, compliance, and customer satisfaction.</p>
+                            <p class="mt-5 pt-3 border-t border-dashed border-gray-700 text-reveal leading-tight">GreyLinq products are designed to help organizations embrace digital transformation while maintaining operational excellence, compliance, and customer satisfaction.</p>
                         </div>
-                        <div class="h-[300px] bg-[#000] md:w-[50%] overflow-hidden rounded-xl">
+                        <div class="h-[300px] industry-reveal bg-[#000] md:w-[50%] overflow-hidden rounded-xl">
                             <img src="../assets/product-service1.jpg" w-full h-full object-cover alt="">
                         </div>
                     </div>
@@ -386,7 +504,7 @@
                             </h2>
                         </div>
                         <div class="w-full max-w-[900px] grid grid-cols-2 mx-auto gap-3">
-                            <div
+                            <div data-product-card="gmatrix"
                                 class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tr-[100px] rounded-bl-[100px] overflow-hidden">
                                 <div
                                     class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
@@ -405,8 +523,8 @@
                                             SME</span><span class="block">EBP</span> <span class="block">Enhanced SME</span></span>
                                     </div>
                                     <div class="mt-5">
-                                        <button
-                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                        <button data-product-trigger="gmatrix"
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-revea">Choose the right
                                             Plan <span
                                                 class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
                                                     class="ri-arrow-right-up-line"></i></span></button>
@@ -416,7 +534,7 @@
         
         
                             </div>
-                            <div
+                            <div data-product-card="greymatter"
                                 class="w-full relative h-[500px] bg-gradient-to-b from-[#106fb6] to-[#106fb6] rounded-tl-[100px] rounded-br-[100px] overflow-hidden">
                                 <div
                                     class="absolute bottom-0 right-0 h-[400px] w-full bg-gradient-to-t from-[#000] to-transparent">
@@ -434,8 +552,8 @@
                                         <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">SME</span>
                                     </div>
                                     <div class="mt-5">
-                                        <button
-                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Choose the right
+                                        <button data-product-trigger="greymatter"
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-revea">Choose the right
                                             Plan <span
                                                 class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
                                                     class="ri-arrow-right-up-line"></i></span></button>
@@ -451,12 +569,12 @@
                 </div>
 
                 <!-- Product Details -->
-                 <div>
+                 <div id="productDetails">
                     <div class="md:flex gap-10 max-w-[1200px] mx-auto px-2">
                         <div class="md:w-[40%] flex flex-col justify-center">
                             <div>
-                                <h2 class="text-5xl tracking-[-2px] mb-5">Key Features & Benefits</h2>
-                                <p>GMatrix is a powerful Individual & SME medical quotation and policy administration platform that enables insurers to
+                                <h2 data-product-title class="text-5xl text-reveal tracking-[-2px] mb-5"><span class="text-[#01628F]">Gmatrix</span>Key Features & Benefits</h2>
+                                <p data-product-description class="">Gmatrix is a powerful Individual & SME medical quotation and policy administration platform that enables insurers to
                                     automate underwriting, policy issuance, endorsements, renewals, and reporting.
                                     The platform processes approximately 30,000 policy issuances per month. Its end-to-end automated workflow completes
                                     the entire process in under 10 minutes, including policy issuance and member e-card activation.
@@ -478,7 +596,7 @@
                                     </div>
                                 </div>
                                 <div class="h-full rounded-3xl px-5 py-5 overflow-hidden w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
-                                    <ul class="list-disc px-5 text-white pt-5">
+                                    <ul data-product-feature-list class="list-disc px-5 text-white pt-5">
                                         <li>Instant quotation generation</li>
                                         <li>Product configuration and management</li>
                                         <li>Policy administration</li>
@@ -496,8 +614,8 @@
                             <div class="h-[250px] grid grid-cols-1 md:grid-cols-[1.5fr_2fr] gap-2">
                                 <div class="h-full rounded-3xl overflow-hidden w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
                                     <div class="px-5 py-10">
-                                        <h5 class="text-2xl tracking-[-1px] border-b border-dashed border-gray-300 pb-3 text-white mb-3">Built for High Volume</h5>
-                                        <ul class="list-disc px-5 text-gray-200">
+                                        <h5 data-product-benefit-heading class="text-2xl tracking-[-1px] border-b border-dashed border-gray-300 pb-3 text-white mb-3">Built for High Volume</h5>
+                                        <ul data-product-benefit-list-main class="list-disc px-5 text-gray-200">
                                             <li>Instant Policy Issuance</li>
                                             <li>Automated Underwriting Workflow</li>
                                         </ul>
@@ -515,21 +633,21 @@
                     <div class="min-h-screen max-w-[600px] mx-auto">
                         <div class="w-full min-h-screen h-full flex flex-col justify-center items-center">
                             <div class="flex w-full gap-10 justify-center items-center">
-                                <ul class="list-disc">
+                                <ul data-product-benefit-list-one class="list-disc">
                                     <li class="text-nowrap">Reduce operational complexity</li>
                                     <li class="text-nowrap">Improve processing speed and accuracy</li>
                                     <li class="text-nowrap">Launch products faster</li>
                                 </ul>
-                                <div class="h-[300px] w-full bg-[#000]">
-                                    <img src="../assets/benefits.png" alt="">
+                                <div class="h-[300px] w-full max-w-[250px] bg-[#000]">
+                                    <img src="../assets/benefits.png" w-full h-full object-cover alt="">
                                 </div>
                             </div>
                             <div class="flex w-full flex-row-reverse gap-10 justify-center items-center">
-                                <ul class="list-disc text-nowrap">
+                                <ul data-product-benefit-list-two class="list-disc text-nowrap">
                                     <li>Enhance customer and broker experiences</li>
                                     <li>Increase operational visibility</li>
                                 </ul>
-                                <div class="h-[300px] w-full bg-[#000]">
+                                <div class="h-[300px] w-full max-w-[250px] bg-[#000]">
                                     <img src="../assets/benefits2.png" class="w-full h-full object-cover" alt="">
                                 </div>
                             </div>
@@ -574,6 +692,113 @@
             </div>
         </section> -->
 
+        <!-- Footer -->
+        <section id="footerSection" class="bg-gradient-to-r from-[#000] via-[#000] to-[#000] mt-10 min-h-[350px] rounded-t-[100px]">
+            <div>
+                <div class="">
+                    <div class="grid grid-cols-1 place-items-center gap-20 md:flex justify-between w-full max-w-[1200px] mx-auto pt-10 border-b pb-10">
+                        <div class="flex flex-col justify-center items-center md:justify-start md:items-start">
+                            <div class="h-[100px] w-[200px]">
+                                <img src="../assets/logo.png" alt="" class="h-full w-full object-contain">
+                            </div>
+                            <p class="max-w-[300px] mt-5 text-white text-center md:text-start">Empowering insurers with intelligent software solutions for seamless, secure, and efficient operations.</p>
+                        </div>
+                        <div class="flex flex-wrap justify-center items-center gap-10">
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>Our Solutions</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Products</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Industries We Serve</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Clients</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Why CHoose Us</li>
+                                    </a>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>About</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Vision</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Mission</li>
+                                    </a>
+                                    <a href="">
+                                        <li>What We Do</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Approach</li>
+                                    </a>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>Gmatrix</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Grey-Matter</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Career</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Mail Us</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Call Us</li>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col justify-center items-center md:justify-end md:items-end">
+                            <ul class="text-white flex items-center gap-3 mb-5">
+                                <a href="">
+                                    <li><i class="ri-instagram-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-whatsapp-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-linkedin-box-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-facebook-circle-fill"></i></li>
+                                </a>
+                            </ul>
+                            <div>
+                                <button
+                                    class="bg-[#fff] flex items-center justify-between pl-5 py-2 tracking-[-1px] rounded-[2px] pr-2 w-[150px]">Book
+                                    Now <span
+                                        class="w-[30px] h-[30px] rounded-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-2 flex items-center justify-center text-white"><i
+                                            class="ri-arrow-right-up-line"></i></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <h1
+                        class="w-full text-center leading-none uppercase text-[clamp(5rem,22vw,20rem)] tracking-[-0.08em] text-[#f1f1f1] text-reveal border-b border-[#ffffff63] pb-10">
+                        Greylinq
+                    </h1>
+                    <p class="text-white py-3 w-full flex items-center justify-center text-center gap-2">Copyright <i class="ri-copyright-fill"></i> 2026.  All Rights Reserved.</p>
+                </div>
+            </div>
+        </section>
+
     
         <!-- Page Transition -->
         <div id="page-transition">
@@ -594,26 +819,28 @@
     
         <script>
 
-            const header = document.getElementById("header");
+        const header = document.getElementById("header");
 
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 100) {
+        function updateHeader() {
+            const isMobile = window.innerWidth < 1024; // Tailwind lg breakpoint
 
-                    header.classList.remove("w-full", "max-w-[1400px]", "top-5");
+            if (window.scrollY > 100) {
+
+                header.classList.remove("w-full", "max-w-[1400px]", "top-5");
+
+                if (isMobile) {
                     header.classList.add(
-                        "w-[800px]",
+                        "w-[92%]",          // or w-[95%]
                         "top-4",
                         "rounded-full",
                         "bg-white/90",
                         "backdrop-blur-xl",
                         "shadow-2xl",
-                        "px-6",
+                        "px-4",
                         "py-3"
                     );
-
                 } else {
-
-                    header.classList.remove(
+                    header.classList.add(
                         "w-[800px]",
                         "top-4",
                         "rounded-full",
@@ -623,363 +850,1277 @@
                         "px-6",
                         "py-3"
                     );
-
-                    header.classList.add(
-                        "w-full",
-                        "max-w-[1400px]",
-                        "top-5"
-                    );
-
                 }
-            });
 
-            const mobileMenu = document.getElementById("mobileMenu");
-            const closeMenu = document.getElementById("closeMenu");
+            } else {
 
-            menuBtn.addEventListener("click", () => {
-                mobileMenu.classList.remove("translate-x-full");
-            });
+                header.classList.remove(
+                    "w-[800px]",
+                    "w-[98%]",
+                    "top-4",
+                    "rounded-full",
+                    "bg-white/90",
+                    "backdrop-blur-xl",
+                    "shadow-2xl",
+                    "px-4",
+                    "px-6",
+                    "py-3"
+                );
 
-            closeMenu.addEventListener("click", () => {
-                mobileMenu.classList.add("translate-x-full");
-            });
+                header.classList.add(
+                    "w-full",
+                    "max-w-[1400px]",
+                    "top-5"
+                );
+            }
+        }
+
+        window.addEventListener("scroll", updateHeader);
+        window.addEventListener("resize", updateHeader);
+
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMenu = document.getElementById("closeMenu");
+
+        const whatsappWidget = document.getElementById("whatsappWidget");
+        const whatsappToggle = document.getElementById("whatsappToggle");
+        const whatsappPopup = document.getElementById("whatsappPopup");
+        const whatsappMessageLink = document.getElementById("whatsappMessageLink");
+        const whatsappPhoneNumber = "971509596896";
+        const whatsappMessage = "Hello Greylinq, I would like to know more about your insurance technology solutions.";
+
+        whatsappMessageLink.href = `https://wa.me/${whatsappPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        function closeWhatsappPopup() {
+            whatsappWidget.classList.remove("is-open");
+            whatsappPopup.setAttribute("aria-hidden", "true");
+            whatsappToggle.setAttribute("aria-expanded", "false");
+            whatsappToggle.setAttribute("aria-label", "Open WhatsApp contact popup");
+        }
+
+        function toggleWhatsappPopup(event) {
+            event.stopPropagation();
+            const isOpen = whatsappWidget.classList.toggle("is-open");
+
+            whatsappPopup.setAttribute("aria-hidden", String(!isOpen));
+            whatsappToggle.setAttribute("aria-expanded", String(isOpen));
+            whatsappToggle.setAttribute("aria-label", isOpen ? "Close WhatsApp contact popup" : "Open WhatsApp contact popup");
+        }
+
+        whatsappToggle.addEventListener("click", toggleWhatsappPopup);
+        whatsappWidget.addEventListener("click", (event) => event.stopPropagation());
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeWhatsappPopup();
+            }
+        });
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("translate-x-full");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("translate-x-full");
+        });
 
 
-            const rows = document.querySelectorAll(".why-row");
+        const rows = document.querySelectorAll(".why-row");
 
-            rows.forEach(row => {
+        rows.forEach(row => {
 
-                const buttons = row.querySelectorAll(".why-btn");
-                const content = row.querySelector(".why-content");
-                const panels = row.querySelectorAll(".why-panel");
+            const buttons = row.querySelectorAll(".why-btn");
+            const content = row.querySelector(".why-content");
+            const panels = row.querySelectorAll(".why-panel");
 
-                buttons.forEach(button => {
+            buttons.forEach(button => {
 
-                    button.addEventListener("click", (e) => {
+                button.addEventListener("click", (e) => {
 
-                        e.stopPropagation();
+                    e.stopPropagation();
 
-                        const targetPanel = row.querySelector("#" + button.dataset.target);
+                    const targetPanel = row.querySelector("#" + button.dataset.target);
 
-                        const isOpen =
-                            content.style.maxHeight &&
-                            content.style.maxHeight !== "0px" &&
-                            !targetPanel.classList.contains("hidden");
+                    const isOpen =
+                        content.style.maxHeight &&
+                        content.style.maxHeight !== "0px" &&
+                        !targetPanel.classList.contains("hidden");
 
-                        // Close if same button clicked again
-                        if (isOpen) {
+                    // Close if same button clicked again
+                    if (isOpen) {
 
-                            content.style.maxHeight = "0px";
+                        content.style.maxHeight = "0px";
 
-                            panels.forEach(panel => panel.classList.add("hidden"));
-
-                            buttons.forEach(btn => {
-                                btn.querySelector("i").className = "ri-add-line text-xl";
-                            });
-
-                            return;
-                        }
-
-                        // Close all other rows
-                        rows.forEach(otherRow => {
-
-                            if (otherRow !== row) {
-
-                                otherRow.querySelector(".why-content").style.maxHeight = "0px";
-
-                                otherRow.querySelectorAll(".why-panel").forEach(panel => {
-                                    panel.classList.add("hidden");
-                                });
-
-                                otherRow.querySelectorAll(".why-btn i").forEach(icon => {
-                                    icon.className = "ri-add-line text-xl";
-                                });
-
-                            }
-
-                        });
-
-                        // Hide all panels in current row
                         panels.forEach(panel => panel.classList.add("hidden"));
 
-                        // Show selected panel
-                        targetPanel.classList.remove("hidden");
-
-                        // Expand row
-                        content.style.maxHeight = content.scrollHeight + "px";
-
-                        // Reset icons
                         buttons.forEach(btn => {
                             btn.querySelector("i").className = "ri-add-line text-xl";
                         });
 
-                        // Minus icon
-                        button.querySelector("i").className = "ri-subtract-line text-xl";
-
-                    });
-
-                });
-
-            });
-
-            // Close when clicking outside
-            document.addEventListener("click", () => {
-
-                rows.forEach(row => {
-
-                    row.querySelector(".why-content").style.maxHeight = "0px";
-
-                    row.querySelectorAll(".why-panel").forEach(panel => {
-                        panel.classList.add("hidden");
-                    });
-
-                    row.querySelectorAll(".why-btn i").forEach(icon => {
-                        icon.className = "ri-add-line text-xl";
-                    });
-
-                });
-
-            });
-
-
-
-            const section = document.getElementById("solutionsSection");
-            const track = document.getElementById("solutionsTrack");
-
-            function horizontalScroll() {
-
-                const rect = section.getBoundingClientRect();
-
-                const totalScroll =
-                    section.offsetHeight - window.innerHeight;
-
-                let progress = -rect.top;
-
-                progress = Math.max(0, Math.min(progress, totalScroll));
-
-                const maxTranslate =
-                    track.scrollWidth - window.innerWidth;
-
-                const x =
-                    (progress / totalScroll) * maxTranslate;
-
-                track.style.transform = `translateX(-${x}px)`;
-
-            }
-
-            window.addEventListener("scroll", horizontalScroll);
-
-            window.addEventListener("resize", horizontalScroll);
-        </script>
-    
-        <script>
-            gsap.registerPlugin(CustomEase);
-
-            CustomEase.create("fluid", "0.83,0,0.17,1");
-
-            const paths = document.querySelectorAll(".layer");
-            const transition = document.getElementById("page-transition");
-
-            function pathClosed() {
-                return `
-                M0 0
-                L1000 0
-                L1000 1000
-                Q500 1000 0 1000
-                Z
-            `;
-            }
-
-            function pathOpen(offset) {
-                return `
-                M0 0
-                L1000 0
-                L1000 ${offset}
-                Q500 ${offset - 180} 0 ${offset}
-                Z
-            `;
-            }
-
-            paths.forEach(path => {
-                path.setAttribute("d", pathClosed());
-            });
-
-            function reveal(nextPage) {
-
-                transition.style.visibility = "visible";
-                transition.style.pointerEvents = "all";
-
-                gsap.set(paths, {
-                    attr: { d: pathOpen(1000) }
-                });
-
-                gsap.timeline({
-
-                    defaults: {
-                        ease: "fluid"
-                    },
-
-                    onComplete() {
-
-                        window.location.href = nextPage;
-
+                        return;
                     }
 
-                })
+                    // Close all other rows
+                    rows.forEach(otherRow => {
 
-                    .to(paths[0], {
-                        duration: .9,
-                        attr: { d: pathOpen(0) }
-                    }, 0)
+                        if (otherRow !== row) {
 
-                    .to(paths[1], {
-                        duration: 1,
-                        attr: { d: pathOpen(0) }
-                    }, .08)
+                            otherRow.querySelector(".why-content").style.maxHeight = "0px";
 
-                    .to(paths[2], {
-                        duration: 1.1,
-                        attr: { d: pathOpen(0) }
-                    }, .16);
+                            otherRow.querySelectorAll(".why-panel").forEach(panel => {
+                                panel.classList.add("hidden");
+                            });
 
-            }
-
-            function enter() {
-
-                transition.style.visibility = "visible";
-
-                gsap.set(paths, {
-                    attr: { d: pathOpen(0) }
-                });
-
-                gsap.timeline({
-
-                    defaults: {
-                        ease: "fluid"
-                    },
-
-                    onComplete() {
-
-                        transition.style.visibility = "hidden";
-                        transition.style.pointerEvents = "none";
-
-                        if (window.initTextReveal) {
-
-                            window.initTextReveal();
+                            otherRow.querySelectorAll(".why-btn i").forEach(icon => {
+                                icon.className = "ri-add-line text-xl";
+                            });
 
                         }
 
-                    }
+                    });
 
-                })
+                    // Hide all panels in current row
+                    panels.forEach(panel => panel.classList.add("hidden"));
 
-                    .to(paths[2], {
-                        duration: 1,
-                        attr: { d: pathOpen(1000) }
-                    }, 0)
+                    // Show selected panel
+                    targetPanel.classList.remove("hidden");
 
-                    .to(paths[1], {
-                        duration: .95,
-                        attr: { d: pathOpen(1000) }
-                    }, .08)
+                    // Expand row
+                    content.style.maxHeight = content.scrollHeight + "px";
 
-                    .to(paths[0], {
-                        duration: .9,
-                        attr: { d: pathOpen(1000) }
-                    }, .16);
+                    // Reset icons
+                    buttons.forEach(btn => {
+                        btn.querySelector("i").className = "ri-add-line text-xl";
+                    });
 
-            }
-
-            window.addEventListener("load", enter);
-
-            window.onpageshow = enter;
-
-            document.querySelectorAll(".page-link").forEach(link => {
-
-                link.addEventListener("click", e => {
-
-                    e.preventDefault();
-
-                    reveal(link.href);
+                    // Minus icon
+                    button.querySelector("i").className = "ri-subtract-line text-xl";
 
                 });
 
             });
-        </script>
-    
-        <script>
 
-            gsap.registerPlugin(ScrollTrigger);
+        });
 
-            window.initTextReveal = function () {
+        // Close when clicking outside
+        document.addEventListener("click", () => {
+            closeWhatsappPopup();
 
-                document.querySelectorAll(".text-reveal").forEach(text => {
+            rows.forEach(row => {
 
-                    if (text.dataset.revealed) return;
+                row.querySelector(".why-content").style.maxHeight = "0px";
 
-                    text.dataset.revealed = true;
+                row.querySelectorAll(".why-panel").forEach(panel => {
+                    panel.classList.add("hidden");
+                });
 
-                    const split = new SplitType(text, {
-                        types: "lines,words"
-                    });
+                row.querySelectorAll(".why-btn i").forEach(icon => {
+                    icon.className = "ri-add-line text-xl";
+                });
 
-                    split.lines.forEach(line => {
+            });
 
-                        line.style.display = "block";
-                        line.style.overflow = "hidden";
+        });
 
-                    });
 
-                    split.words.forEach(word => {
 
-                        const mask = document.createElement("span");
+        const section = document.getElementById("solutionsSection");
+        const track = document.getElementById("solutionsTrack");
 
-                        mask.className = "word-mask";
+        function horizontalScroll() {
 
-                        word.parentNode.insertBefore(mask, word);
+            const rect = section.getBoundingClientRect();
 
-                        mask.appendChild(word);
+            const totalScroll =
+                section.offsetHeight - window.innerHeight;
 
-                    });
+            let progress = -rect.top;
 
-                    gsap.set(split.words, {
-                        yPercent: 120
-                    });
+            progress = Math.max(0, Math.min(progress, totalScroll));
 
-                    const hero = text.closest("section") === document.querySelector("section");
+            const maxTranslate =
+                track.scrollWidth - window.innerWidth;
 
-                    if (hero) {
+            const x =
+                (progress / totalScroll) * maxTranslate;
 
-                        gsap.to(split.words, {
-                            yPercent: 0,
-                            stagger: .035,
-                            duration: 1,
-                            ease: "power4.out"
-                        });
+            track.style.transform = `translateX(-${x}px)`;
 
-                    } else {
+        }
 
-                        gsap.to(split.words, {
+        window.addEventListener("scroll", horizontalScroll);
 
-                            yPercent: 0,
-                            stagger: .035,
-                            duration: 1,
-                            ease: "power4.out",
+        window.addEventListener("resize", horizontalScroll);
+    </script>
 
-                            scrollTrigger: {
-                                trigger: text,
-                                start: "top 85%",
-                                once: true
-                            }
+    <script>
+        gsap.registerPlugin(CustomEase);
 
-                        });
+        CustomEase.create("fluid", "0.83,0,0.17,1");
+
+        const paths = document.querySelectorAll(".layer");
+        const transition = document.getElementById("page-transition");
+
+        function pathClosed() {
+            return `
+        M0 0
+        L1000 0
+        L1000 1000
+        Q500 1000 0 1000
+        Z
+    `;
+        }
+
+        function pathOpen(offset) {
+            return `
+        M0 0
+        L1000 0
+        L1000 ${offset}
+        Q500 ${offset - 180} 0 ${offset}
+        Z
+    `;
+        }
+
+        paths.forEach(path => {
+            path.setAttribute("d", pathClosed());
+        });
+
+        function reveal(nextPage) {
+
+            transition.style.visibility = "visible";
+            transition.style.pointerEvents = "all";
+
+            gsap.set(paths, {
+                attr: { d: pathOpen(1000) }
+            });
+
+            gsap.timeline({
+
+                defaults: {
+                    ease: "fluid"
+                },
+
+                onComplete() {
+
+                    window.location.href = nextPage;
+
+                }
+
+            })
+
+                .to(paths[0], {
+                    duration: .9,
+                    attr: { d: pathOpen(0) }
+                }, 0)
+
+                .to(paths[1], {
+                    duration: 1,
+                    attr: { d: pathOpen(0) }
+                }, .08)
+
+                .to(paths[2], {
+                    duration: 1.1,
+                    attr: { d: pathOpen(0) }
+                }, .16);
+
+        }
+
+        function enter() {
+
+            transition.style.visibility = "visible";
+
+            gsap.set(paths, {
+                attr: { d: pathOpen(0) }
+            });
+
+            gsap.timeline({
+
+                defaults: {
+                    ease: "fluid"
+                },
+
+                onComplete() {
+
+                    transition.style.visibility = "hidden";
+                    transition.style.pointerEvents = "none";
+
+                    if (window.initTextReveal) {
+
+                        window.initTextReveal();
 
                     }
 
+                }
+
+            })
+
+                .to(paths[2], {
+                    duration: 1,
+                    attr: { d: pathOpen(1000) }
+                }, 0)
+
+                .to(paths[1], {
+                    duration: .95,
+                    attr: { d: pathOpen(1000) }
+                }, .08)
+
+                .to(paths[0], {
+                    duration: .9,
+                    attr: { d: pathOpen(1000) }
+                }, .16);
+
+        }
+
+        window.addEventListener("load", enter);
+
+        window.onpageshow = enter;
+
+        document.querySelectorAll(".page-link").forEach(link => {
+
+            link.addEventListener("click", e => {
+
+                e.preventDefault();
+
+                reveal(link.href);
+
+            });
+
+        });
+    </script>
+
+    <script>
+        const PRODUCTS = {
+            gmatrix: {
+                title: `<span class="product-name">Gmatrix</span> Key Features & Benefits`,
+                description: "Gmatrix is built for individual, micro SME, EBP, and enhanced SME medical insurance operations. It helps insurers automate quotations, underwriting, policy issuance, endorsements, renewals, member servicing, and reporting while supporting high-volume policy processing with faster turnaround times.",
+                featureList: [
+                    "Instant quotation generation",
+                    "Product configuration and management",
+                    "Policy administration",
+                    "Automated underwriting workflows",
+                    "Endorsement and renewal management",
+                    "Premium calculation engine",
+                    "Document Management with AI Validation",
+                    "User and role management",
+                    "Regulatory compliance support",
+                    "Real-time integration support with payer, TPA and reinsurer",
+                    "Real-time reporting and analytics"
+                ],
+                benefitHeading: "Built for High Volume",
+                benefitList: [
+                    "Instant Policy Issuance",
+                    "Automated Underwriting Workflow"
+                ],
+                benefitList1: [
+                    "Reduce operational complexity",
+                    "Improve processing speed and accuracy",
+                    "Launch products faster"
+                ],
+                benefitList2: [
+                    "Enhance customer and broker experiences",
+                    "Increase operational visibility"
+                ]
+            },
+            greymatter: {
+                title: `<span class="product-name">Grey-Matter</span> Key Features & Benefits`,
+                description: "Grey-Matter is a specialized SME health insurance administration platform for payers, insurers, and administrators. It centralizes claims, provider networks, member services, benefits, pre-authorizations, and healthcare reporting so teams can manage daily insurance operations with stronger control and visibility.",
+                featureList: [
+                    "Member enrollment and policy management",
+                    "Provider network management",
+                    "Claims administration",
+                    "Pre-authorization management",
+                    "Benefit and coverage management",
+                    "Medical provider portal",
+                    "Customer self-service capabilities",
+                    "Real-time claims tracking",
+                    "Reporting and business intelligence",
+                    "Integration with healthcare systems",
+                ],
+                benefitHeading: "Built for SME Growth",
+                benefitList: [
+                    "Faster claims processing",
+                    "Better provider collaboration"
+                ],
+                benefitList1: [
+                    "Improved member satisfaction",
+                    "Reduced administrative costs",
+                    "Enhanced operational efficiency"
+                ],
+                benefitList2: [
+                    "Strengthen customer experience",
+                    "Increase portfolio visibility"
+                ]
+            }
+        };
+
+        const productDetails = document.querySelector("#productDetails");
+        const productTitle = document.querySelector("[data-product-title]");
+        const productDescription = document.querySelector("[data-product-description]");
+        const productFeatureList = document.querySelector("[data-product-feature-list]");
+        const productBenefitHeading = document.querySelector("[data-product-benefit-heading]");
+        const productBenefitListMain = document.querySelector("[data-product-benefit-list-main]");
+        const productBenefitListOne = document.querySelector("[data-product-benefit-list-one]");
+        const productBenefitListTwo = document.querySelector("[data-product-benefit-list-two]");
+        const productCards = document.querySelectorAll("[data-product-card]");
+        const productButtons = document.querySelectorAll("[data-product-trigger]");
+        const productSwitchTargets = productDetails.querySelectorAll("[data-product-title], [data-product-description], [data-product-feature-list], [data-product-benefit-heading], [data-product-benefit-list-main], [data-product-benefit-list-one], [data-product-benefit-list-two]");
+        let activeProduct = "gmatrix";
+        let productTransition;
+
+        function productListItems(items, preserveNoWrap = false) {
+            return items.map(item => `<li${preserveNoWrap ? ' class="text-nowrap"' : ""}>${item}</li>`).join("");
+        }
+
+        function renderProduct(productKey) {
+            const product = PRODUCTS[productKey];
+
+            productTitle.innerHTML = product.title;
+            productDescription.textContent = product.description;
+            productFeatureList.innerHTML = productListItems(product.featureList);
+            productBenefitHeading.textContent = product.benefitHeading;
+            productBenefitListMain.innerHTML = productListItems(product.benefitList);
+            productBenefitListOne.innerHTML = productListItems(product.benefitList1, true);
+            productBenefitListTwo.innerHTML = productListItems(product.benefitList2);
+
+        }
+
+        function setActiveProductCard(productKey, animate = true) {
+            productCards.forEach(card => {
+                const isActive = card.dataset.productCard === productKey;
+                card.dataset.activeProduct = isActive ? "true" : "false";
+
+                if (!animate) return;
+
+                gsap.to(card, {
+                    scale: isActive ? 1.015 : 0.985,
+                    opacity: isActive ? 1 : 0.88,
+                    boxShadow: isActive ? "0 18px 45px rgba(17,159,224,0.25)" : "0 0 0 rgba(0,0,0,0)",
+                    duration: 0.35,
+                    ease: "power3.out",
+                    overwrite: true
+                });
+            });
+
+            productButtons.forEach(button => {
+                button.setAttribute("aria-pressed", button.dataset.productTrigger === productKey ? "true" : "false");
+            });
+        }
+
+        function transitionProduct(productKey) {
+            if (!PRODUCTS[productKey]) return;
+
+            if (productTransition) {
+                productTransition.kill();
+            }
+
+            productTransition = gsap.timeline();
+
+            productTransition
+                .to(productSwitchTargets, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.35,
+                    ease: "power3.in",
+                    overwrite: true
+                }, 0)
+                .add(() => {
+                    activeProduct = productKey;
+                    renderProduct(productKey);
+                    setActiveProductCard(productKey);
+
+                    gsap.set(productSwitchTargets, {
+                        opacity: 0,
+                        y: 30
+                    });
+
+                })
+                .to(productSwitchTargets, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.7,
+                    ease: "fluid",
+                    overwrite: true
+                });
+        }
+
+        setActiveProductCard(activeProduct, false);
+        renderProduct(activeProduct);
+
+        productButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                productDetails.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
                 });
 
-            };
-        </script>
+                transitionProduct(button.dataset.productTrigger);
+            });
+        });
+    </script>
+
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        window.initTextReveal = function () {
+
+            document.querySelectorAll(".text-reveal").forEach(text => {
+
+                if (text.dataset.revealed) return;
+
+                text.dataset.revealed = true;
+
+                const split = new SplitType(text, {
+                    types: "lines,words"
+                });
+
+                split.lines.forEach(line => {
+
+                    line.style.display = "block";
+                    line.style.overflow = "hidden";
+
+                });
+
+                split.words.forEach(word => {
+
+                    const mask = document.createElement("span");
+
+                    mask.className = "word-mask";
+
+                    word.parentNode.insertBefore(mask, word);
+
+                    mask.appendChild(word);
+
+                });
+
+                gsap.set(split.words, {
+                    yPercent: 120
+                });
+
+                const hero = text.closest("section") === document.querySelector("section");
+
+                if (hero) {
+
+                    gsap.to(split.words, {
+                        yPercent: 0,
+                        stagger: .035,
+                        duration: 1,
+                        ease: "power4.out"
+                    });
+
+                } else {
+
+                    gsap.to(split.words, {
+
+                        yPercent: 0,
+                        stagger: .035,
+                        duration: 1,
+                        ease: "power4.out",
+
+                        scrollTrigger: {
+                            trigger: text,
+                            start: "top 85%",
+                            once: true
+                        }
+
+                    });
+
+                }
+
+            });
+
+        };
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const cards = gsap.utils.toArray(".industry-card");
+        const numCards = cards.length;
+
+        // Initial state
+        gsap.set(cards, {
+            yPercent: 110,
+            scale: 1,
+            opacity: 1,
+            zIndex: (i) => i + 1
+        });
+
+        gsap.set(cards[0], {
+            yPercent: 0
+        });
+
+        // Hide inner content initially
+        cards.forEach((card, index) => {
+
+            gsap.set(card.querySelector(".industry-number"), {
+                x: -60,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector("h2"), {
+                y: 50,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector(".industry-image"), {
+                y: 100,
+                scale: 1.15,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector(".industry-content"), {
+                y: 40,
+                opacity: 0
+            });
+
+            const btn = card.querySelector("button");
+            if (btn) {
+                gsap.set(btn, {
+                    x: 30,
+                    opacity: 0
+                });
+            }
+
+        });
+
+        // Reveal first card immediately
+        gsap.to(cards[0].querySelector(".industry-number"), {
+            x: 0,
+            opacity: 1,
+            duration: .8
+        });
+
+        gsap.to(cards[0].querySelector("h2"), {
+            y: 0,
+            opacity: 1,
+            duration: .8,
+            delay: .1
+        });
+
+        gsap.to(cards[0].querySelector(".industry-image"), {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: .8,
+            delay: .15
+        });
+
+        gsap.to(cards[0].querySelector(".industry-content"), {
+            y: 0,
+            opacity: 1,
+            duration: .8,
+            delay: .2
+        });
+
+        if (cards[0].querySelector("button")) {
+            gsap.to(cards[0].querySelector("button"), {
+                x: 0,
+                opacity: 1,
+                duration: .8,
+                delay: .25
+            });
+        }
+
+        // Main timeline — scroll length scales with number of cards
+        const tl = gsap.timeline({
+
+            scrollTrigger: {
+
+                // trigger: "#industries",
+                trigger: ".sticky-wrapper",
+                pin: ".sticky-wrapper",
+
+                start: "top top",
+
+                end: () => "+=" + (window.innerHeight * (numCards + 1)),
+
+                // pin: true,
+
+                scrub: 1.2,
+
+                anticipatePin: 1,
+
+                invalidateOnRefresh: true
+
+            }
+
+        });
+
+        cards.forEach((card, i) => {
+
+            if (i === 0) return;
+
+            // Stack ALL previously revealed cards down/back, not just the immediate previous one
+            for (let j = 0; j < i; j++) {
+
+                tl.to(cards[j], {
+
+                    scale: 1 - (i - j) * 0.035,
+
+                    y: -((i - j) * 22),
+
+                    opacity: 1,
+
+                    duration: 1,
+
+                    ease: "power2.out"
+
+                }, "<");
+
+            }
+
+            // New card slides in
+            tl.to(card, {
+
+                yPercent: 0,
+
+                duration: 1,
+
+                ease: "power4.out"
+
+            }, i === 1 ? "<" : "-=0.85");
+
+            // Number
+            tl.to(card.querySelector(".industry-number"), {
+
+                x: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.15");
+
+            // Title
+            tl.to(card.querySelector("h2"), {
+
+                y: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.05");
+
+            // Image
+            tl.to(card.querySelector(".industry-image"), {
+
+                y: 0,
+
+                scale: 1,
+
+                opacity: 1,
+
+                duration: .8,
+
+                ease: "power3.out"
+
+            }, "<0.1");
+
+            // Paragraph
+            tl.to(card.querySelector(".industry-content"), {
+
+                y: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.15");
+
+            // Button
+            const btn = card.querySelector("button");
+            if (btn) {
+                tl.to(btn, {
+
+                    x: 0,
+
+                    opacity: 1,
+
+                    duration: .5
+
+                }, "<0.2");
+            }
+
+        });
+
+        // Hold on final stacked state briefly before section ends
+        tl.to({}, { duration: 0.5 });
+
+    </script>
+
+    <style>
+        [data-greylinq-industries-stack-root] {
+            height: auto !important;
+            min-height: 100vh;
+            isolation: isolate;
+        }
+
+        [data-greylinq-industries-stack-stage] {
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        [data-greylinq-industries-stack-item] {
+            backface-visibility: hidden;
+            transform-origin: 50% 8%;
+            will-change: transform;
+        }
+    </style>
+
+    <script>
+        (() => {
+            const greylinqIndustriesStackRootNode = document.querySelector("[data-greylinq-industries-stack-root]");
+            const greylinqIndustriesStackStageNode = document.querySelector("[data-greylinq-industries-stack-stage]");
+            const greylinqIndustriesStackDeckItems = gsap.utils.toArray("[data-greylinq-industries-stack-item]");
+
+            if (!greylinqIndustriesStackRootNode || !greylinqIndustriesStackStageNode || greylinqIndustriesStackDeckItems.length < 2) {
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.getAll().forEach((greylinqIndustriesStackRetiredAnchorCandidate) => {
+                const greylinqIndustriesStackRetiredVars = greylinqIndustriesStackRetiredAnchorCandidate.vars || {};
+
+                if (
+                    greylinqIndustriesStackRetiredAnchorCandidate.vars.id !== "greylinqIndustriesPremiumStackScrollTrigger" &&
+                    greylinqIndustriesStackRetiredVars.trigger === ".sticky-wrapper" &&
+                    greylinqIndustriesStackRetiredVars.pin === ".sticky-wrapper"
+                ) {
+                    greylinqIndustriesStackRetiredAnchorCandidate.disable(true);
+                }
+            });
+
+            const greylinqIndustriesStackMotionEaseName = "power3.out";
+            const greylinqIndustriesStackDepthGapValue = 18;
+            const greylinqIndustriesStackScaleStepValue = 0.035;
+            const greylinqIndustriesStackScrollLength = () => window.innerHeight * (greylinqIndustriesStackDeckItems.length + 0.85);
+            const greylinqIndustriesStackDepthScale = (greylinqIndustriesStackActiveSlot, greylinqIndustriesStackItemSlot) =>
+                1 - Math.min((greylinqIndustriesStackActiveSlot - greylinqIndustriesStackItemSlot) * greylinqIndustriesStackScaleStepValue, 0.18);
+            const greylinqIndustriesStackDepthLift = (greylinqIndustriesStackActiveSlot, greylinqIndustriesStackItemSlot) =>
+                -Math.min((greylinqIndustriesStackActiveSlot - greylinqIndustriesStackItemSlot) * greylinqIndustriesStackDepthGapValue, 96);
+
+            gsap.set(greylinqIndustriesStackDeckItems, {
+                yPercent: 112,
+                y: 0,
+                x: 0,
+                scale: 1,
+                rotation: 0,
+                opacity: 1,
+                force3D: true,
+                zIndex: (greylinqIndustriesStackSlot) => greylinqIndustriesStackSlot + 20
+            });
+
+            gsap.set(greylinqIndustriesStackDeckItems[0], {
+                yPercent: 0,
+                zIndex: 30
+            });
+
+            const greylinqIndustriesStackSequence = gsap.timeline({
+                defaults: {
+                    ease: greylinqIndustriesStackMotionEaseName,
+                    duration: 1
+                },
+                scrollTrigger: {
+                    id: "greylinqIndustriesPremiumStackScrollTrigger",
+                    trigger: greylinqIndustriesStackRootNode,
+                    start: "top top",
+                    end: greylinqIndustriesStackScrollLength,
+                    scrub: 1.15,
+                    pin: greylinqIndustriesStackStageNode,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true
+                }
+            });
+
+            greylinqIndustriesStackDeckItems.forEach((greylinqIndustriesStackIncomingItem, greylinqIndustriesStackIncomingSlot) => {
+                if (greylinqIndustriesStackIncomingSlot === 0) {
+                    return;
+                }
+
+                const greylinqIndustriesStackArrivalLabelName = `greylinqIndustriesStackArrival${String(greylinqIndustriesStackIncomingSlot + 1).padStart(2, "0")}`;
+
+                greylinqIndustriesStackSequence.add(greylinqIndustriesStackArrivalLabelName, greylinqIndustriesStackIncomingSlot - 0.08);
+
+                for (let greylinqIndustriesStackPriorSlot = 0; greylinqIndustriesStackPriorSlot < greylinqIndustriesStackIncomingSlot; greylinqIndustriesStackPriorSlot += 1) {
+                    greylinqIndustriesStackSequence.to(greylinqIndustriesStackDeckItems[greylinqIndustriesStackPriorSlot], {
+                        yPercent: 0,
+                        y: greylinqIndustriesStackDepthLift(greylinqIndustriesStackIncomingSlot, greylinqIndustriesStackPriorSlot),
+                        scale: greylinqIndustriesStackDepthScale(greylinqIndustriesStackIncomingSlot, greylinqIndustriesStackPriorSlot),
+                        zIndex: 30 + greylinqIndustriesStackPriorSlot
+                    }, greylinqIndustriesStackArrivalLabelName);
+                }
+
+                greylinqIndustriesStackSequence.to(greylinqIndustriesStackIncomingItem, {
+                    yPercent: 0,
+                    y: 0,
+                    scale: 1,
+                    zIndex: 80 + greylinqIndustriesStackIncomingSlot,
+                    duration: 1.08,
+                    ease: "power4.out"
+                }, greylinqIndustriesStackArrivalLabelName);
+            });
+
+            greylinqIndustriesStackSequence.to(greylinqIndustriesStackDeckItems[greylinqIndustriesStackDeckItems.length - 1], {
+                y: -24,
+                scale: 0.985,
+                duration: 0.45,
+                ease: "power2.inOut"
+            });
+
+            window.addEventListener("load", () => {
+                if (greylinqIndustriesStackSequence.scrollTrigger) {
+                    greylinqIndustriesStackSequence.scrollTrigger.refresh();
+                }
+            }, { once: true });
+        })();
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        /*=============================
+          CONTENT
+        =============================*/
+
+        const solutions = [
+            {
+                title: "Health Insurance Software",
+                description:
+                    "Streamline healthcare insurance administration through intelligent policy management, provider integration, member services and automated."
+            },
+            {
+                title: "Policy Administration System",
+                description:
+                    "Manage the complete policy lifecycle including underwriting, issuance, endorsements, renewals and reporting through one centralized platform."
+            },
+            {
+                title: "Insurance Quotation Management",
+                description:
+                    "Generate accurate insurance quotations instantly using configurable rating engines, business rules and automated pricing workflows."
+            },
+            {
+                title: "Travel Insurance Solutions",
+                description:
+                    "Offer digital travel insurance products with automated issuance, online purchasing, policy management and integrated support."
+            },
+            {
+                title: "Policy Management System",
+                description:
+                    "Accelerate claim processing through automated validation, fraud detection, document management and real time claim tracking."
+            }
+        ];
+
+        const solutionCards = gsap.utils.toArray(".solutionCard");
+
+        const cardsWrapper = document.querySelector("#solutionsCards");
+
+        const title = document.querySelector("#solutionTitle");
+
+        const description = document.querySelector("#solutionDescription");
+
+        // const cards = gsap.utils.toArray(".industry-card")
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#industries"
+            }
+        })
+
+        /*=============================
+          DISTANCE
+        =============================*/
+
+        let moveDistance =
+            cardsWrapper.scrollHeight - window.innerHeight + 120;
+
+        /*=============================
+          MAIN SCROLL
+        =============================*/
+
+        gsap.to(cardsWrapper, {
+
+            y: () => -moveDistance,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: "#solutionsSection",
+
+                start: "top top",
+
+                end: () => "+=" + moveDistance,
+
+                pin: "#solutionsSticky",
+
+                scrub: 1.3,
+
+                anticipatePin: 1,
+
+                invalidateOnRefresh: true
+
+            }
+
+        });
+
+        /*=============================
+          ACTIVE CARD
+        =============================*/
+
+        cards.forEach((card, index) => {
+
+            ScrollTrigger.create({
+
+                trigger: card,
+
+                start: "top center",
+
+                end: "bottom center",
+
+                containerAnimation: null,
+
+                onEnter: () => changeContent(index),
+
+                onEnterBack: () => changeContent(index)
+
+            });
+
+        });
+
+        /*=============================
+          CHANGE LEFT CONTENT
+        =============================*/
+
+        function changeContent(index) {
+
+            gsap.timeline()
+
+                .to([title, description], {
+
+                    opacity: 0,
+
+                    y: 25,
+
+                    duration: .25
+
+                })
+
+                .add(() => {
+
+                    title.textContent =
+                        solutions[index].title;
+
+                    description.textContent =
+                        solutions[index].description;
+
+                })
+
+                .to([title, description], {
+
+                    opacity: 1,
+
+                    y: 0,
+
+                    duration: .45,
+
+                    stagger: .05
+
+                });
+
+        }
+
+        /*=============================
+          CARD EFFECT
+        =============================*/
+
+        cards.forEach(card => {
+
+            ScrollTrigger.create({
+
+                trigger: card,
+
+                start: "top center",
+
+                end: "bottom center",
+
+                onUpdate: self => {
+
+                    const progress = self.progress;
+
+                    gsap.to(card, {
+
+                        scale: 1 - (Math.abs(progress - .5) * 0.12),
+
+                        opacity: 1 - (Math.abs(progress - .5) * 0.35),
+
+                        duration: .2,
+
+                        overwrite: true
+
+                    });
+
+                }
+
+            });
+
+        });
+
+        /*=============================
+          REFRESH
+        =============================*/
+
+        window.addEventListener("resize", () => {
+
+            moveDistance =
+                cardsWrapper.scrollHeight - window.innerHeight + 120;
+
+            ScrollTrigger.refresh();
+
+        });
+    </script>
+
+    <script>
+        gsap.config({
+                force3D: true
+            });
+        gsap.registerPlugin(ScrollTrigger);
+
+            gsap.set(".industry-reveal", {
+                y: 140,
+                opacity: 0,
+                scale: 0.96,
+                filter: "blur(4px)",
+                transformOrigin: "bottom center",
+                willChange: "transform, opacity"
+            });
+
+            CustomEase.create(
+                    "industrySmooth",
+                    "M0,0 C0.12,0 0.18,1 1,1"
+                );
+
+            ScrollTrigger.batch(".industry-reveal", {
+
+                start: "top 88%",
+
+                once: true,
+
+                onEnter: batch => {
+
+                    gsap.to(batch, {
+
+                        y: 0,
+
+                        opacity: 1,
+
+                        scale: 1,
+
+                        filter: "blur(0px)",
+
+                        duration: 1.4,
+
+                        ease: "expo.out",
+
+                        stagger: {
+                            each: 0.12,
+                            from: "start"
+                        }
+
+                    });
+
+                }
+
+            });
+
+
+            // Logo reveal
+            gsap.registerPlugin(ScrollTrigger);
+
+                gsap.utils.toArray(".logo-reveal").forEach((logo, index) => {
+
+                    const target = logo.querySelector("img, span");
+
+                    gsap.set(target, {
+                        yPercent: 120,
+                        opacity: 0.15
+                    });
+
+                    gsap.to(target, {
+
+                        yPercent: 0,
+
+                        opacity: 1,
+
+                        duration: 1.2,
+
+                        ease: "power4.out",
+
+                        delay: index * 0.04,
+
+                        scrollTrigger: {
+                            trigger: logo,
+                            start: "top 90%",
+                            toggleActions: "play none none none",
+                            once: true
+                        }
+
+                    });
+
+                });
+
+
+
+                // Footer
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                    gsap.fromTo(
+                        "footer, section:last-of-type",
+                        {
+                            borderTopLeftRadius: 100,
+                            borderTopRightRadius: 100
+                        },
+                        {
+                            borderTopLeftRadius: 0,
+                            borderTopRightRadius: 0,
+
+                            ease: "power2.out",
+
+                            scrollTrigger: {
+                                trigger: "footer, section:last-of-type",
+                                start: "top 90%",
+                                end: "top 15%",
+                                scrub: 1.2
+                            }
+                        }
+                    );
+
+                
+                gsap.fromTo(
+                        "#footerSection",
+                        {
+                            borderTopLeftRadius: 100,
+                            borderTopRightRadius: 100,
+                            y: 80
+                        },
+                        {
+                            borderTopLeftRadius: 0,
+                            borderTopRightRadius: 0,
+                            y: 0,
+
+                            ease: "none",
+
+                            scrollTrigger: {
+                                trigger: "#footerSection",
+                                start: "top bottom",
+                                end: "top center",
+                                scrub: 1.5
+                            }
+                        }
+                    );
+
+    </script>
     </div>
 </body>
 </html>

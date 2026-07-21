@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Greylinq Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+        integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/transition.css">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
     <link rel="stylesheet" href="../css/transition.css">
+    <link rel="stylesheet" href="../css/global.css">
     <link rel="prefetch" href="../about/about.html">
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
 </head>
 
 <style>
@@ -21,9 +26,10 @@
         src: url('../assets/font/kinetika-medium.ttf');
     }
 
-    *{
+    * {
         font-family: 'Kinetica', sans-serif;
     }
+
     * {
         margin: 0;
         padding: 0;
@@ -218,6 +224,7 @@
 
     .mask-text {
         overflow: hidden;
+        
     }
 
     .mask-text span {
@@ -232,6 +239,8 @@
     .text-reveal .word-mask {
         display: inline-block;
         overflow: hidden;
+        padding-right: 2px;
+        padding-bottom: 5px;
         vertical-align: top;
     }
 
@@ -239,12 +248,150 @@
         display: inline-block;
         will-change: transform;
     }
+
+    /* #solutionsTrack > div{
+    
+        transition:
+            transform .6s cubic-bezier(.19,1,.22,1),
+            box-shadow .6s;
+    
+    }
+    
+    #solutionsTrack > div:hover{
+    
+        transform:
+            translateY(-14px);
+    
+        box-shadow:
+            0 40px 80px rgba(0,0,0,.25);
+    
+    }
+    
+    #solutionsTrack img{
+    
+        transition:
+            transform 1s cubic-bezier(.19,1,.22,1);
+    
+    }
+    
+    #solutionsTrack > div:hover img{
+    
+        transform:scale(1.08);
+    
+    } */
+
+     .whatsapp-widget {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 14px;
+        }
+
+        .whatsapp-popup {
+            width: min(320px, calc(100vw - 32px));
+            padding: 18px;
+            border: 1px solid rgba(17, 159, 224, 0.14);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+            color: #111827;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(14px) scale(0.96);
+            transform-origin: bottom right;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .whatsapp-widget.is-open .whatsapp-popup {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+
+        .whatsapp-popup p {
+            margin-top: 6px;
+            color: #4b5563;
+            line-height: 1.45;
+            font-size: 14px;
+        }
+
+        .whatsapp-popup__button {
+            display: inline-flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 11px 14px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #2C3184, #01628F, #119FE0);
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .whatsapp-toggle {
+            width: 58px;
+            height: 58px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25D366;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 16px 34px rgba(37, 211, 102, 0.38);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .whatsapp-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 42px rgba(37, 211, 102, 0.45);
+        }
+
+        .whatsapp-toggle i {
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        @media(max-width:640px) {
+            .whatsapp-widget {
+                right: 16px;
+                bottom: 16px;
+            }
+
+            .whatsapp-toggle {
+                width: 54px;
+                height: 54px;
+            }
+        }
 </style>
+
 <body>
+     <!-- WhatsApp Quick Contact -->
+    <div class="whatsapp-widget" id="whatsappWidget">
+        <div class="whatsapp-popup" id="whatsappPopup" aria-hidden="true">
+            <span class="text-sm font-semibold text-[#01628F]">Talk to Greylinq</span>
+            <p>Have a question about insurance software or digital transformation? Start a WhatsApp chat with our team.</p>
+            <a class="whatsapp-popup__button" id="whatsappMessageLink" href="#" target="_blank" rel="noopener">
+                <i class="ri-whatsapp-line"></i>
+                Message on WhatsApp
+            </a>
+        </div>
+        <button class="whatsapp-toggle" id="whatsappToggle" type="button" aria-label="Open WhatsApp contact popup" aria-expanded="false" aria-controls="whatsappPopup">
+            <i class="ri-whatsapp-fill"></i>
+        </button>
+    </div>
     <div>
         <header id="header"
             class="fixed top-5 left-1/2 -translate-x-1/2 w-full max-w-[1400px] px-8 py-5 flex items-center justify-between transition-all duration-500 ease-in-out z-50">
-            <a href="index.html">
+            <a href="../home/index.html">
                 <div class="w-[100px]">
                     <img src="../assets/logo.png" alt="">
                 </div>
@@ -291,13 +438,16 @@
         </header>
     
     
-        <section class="min-h-screen w-full flex justify-center items-center">
+        <section class="min-h-screen relative w-full flex justify-center items-center">
+            <div class="absolute top-0 bottom-0 left-0 right-0 z-0">
+                <img src="../assets/g copy.png" alt="" class="w-full h-full object-contain opacity-10">
+            </div>
             <div>
                 <div>
-                    <h2 class="text-6xl tracking-[-5px] text-center">Your Trusted Partner in <span class="text-[#01628F] block">Insurance Innovation</span></h2>
+                    <h2 class="text-6xl max-w-[600px] mx-auto tracking-[-5px] text-center text-reveal">Your Trusted Partner in <span class="text-[#01628F] block">Insurance Innovation</span></h2>
                     <div>
                         <div class="flex justify-center items-center mt-10">
-                            <button class="flex items-center gap-2 tracking-[-1px] bg-gradient-to-r from-[#000] flex items-center justify-between max-w-[180px] w-full to-[#595959] text-white py-2 pl-3 pr-2 rounded-3xl hover:bg-[#333] transition-colors duration-300">Explore More <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-[#fff] text-black"><i class="ri-arrow-right-down-line"></i></span></button>
+                            <button class="flex items-center gap-2 tracking-[-1px] bg-gradient-to-r from-[#000] flex items-center justify-between max-w-[180px] w-full to-[#595959] text-white py-2 pl-3 pr-2 rounded-3xl hover:bg-[#333] transition-colors duration-300 text-reveal">Explore More <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-[#fff] text-black"><i class="ri-arrow-right-down-line"></i></span></button>
                         </div>
                         <div></div>
                     </div>
@@ -322,9 +472,9 @@
                         </div>
                     </div>
                     <div class="md:w-[40%]">
-                        <span class="tracking-[-1px] font-medium text-[#01628F]">--- Vision ---</span>
+                        <span class="tracking-[-1px] font-medium text-[#01628F] text-reveal">--- Vision ---</span>
                         <div>
-                            <h2 class="text-6xl tracking-[-5px]">Connecting People with Better Insurance Solutions</h2>
+                            <h2 class="text-5xl tracking-[-3px] text-reveal">Connecting People with Better Insurance Solutions</h2>
                         </div>
                         <div class="h-full mt-3 md:mt-24">
                             <button class="bg-gradient-to-r from-[#2C3184] to-[#119FE0] text-white py-2 pl-4 pr-2 rounded-3xl hover:opacity-90 transition-opacity duration-300 tracking-[-1px] flex items-center gap-2">Explore More <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-[#fff] text-[#01628F]"><i class="ri-arrow-right-down-line"></i></span></button>
@@ -338,17 +488,17 @@
             <div>
                 <div class="max-w-[1200px] mx-auto">
                     <div class="text-center mb-10">
-                        <span class="tracking-[-1px] font-medium text-[#01628F]">--- Mission ---</span>
-                        <h2 class="text-6xl text-center tracking-[-5px] max-w-[700px] mx-auto">Building Efficient Insurance Systems for Lasting Business Growth</h2>
+                        <span class="tracking-[-1px] font-medium text-[#01628F] text-reveal">--- Mission ---</span>
+                        <h2 class="text-6xl text-center tracking-[-5px] max-w-[700px] mx-auto text-reveal">Building Efficient Insurance Systems for Lasting Business Growth</h2>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                         <div class="text-center flex flex-col justify-center items-center">
-                            <div class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex items-center justify-center rounded-full text-white">
-                                <i class="ri-shield-flash-fill"></i>
+                            <div class="w-[40px] h-[40px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] flex items-center justify-center rounded-full text-white text-reveal">
+                                <i class="ri-shield-flash-fill text-reveal"></i>
                             </div>
                             <div class="text-center flex flex-col gap-2">
-                                <span class="text-2xl tracking-[-1.5px]">Protect</span>
-                                <p>We build reliable insurance technology that keeps services secure, simple, and accessible. Our solutions help providers protect people with confidence.</p>
+                                <span class="text-2xl tracking-[-1.5px] text-reveal">Protect</span>
+                                <p class="text-reveal leading-tight ">We build reliable insurance technology that keeps services secure, simple, and accessible. Our solutions help providers protect people with confidence.</p>
                             </div>
                         </div>
                         
@@ -357,8 +507,8 @@
                                 <i class="ri-color-filter-ai-fill"></i>
                             </div>
                             <div class="text-center flex flex-col gap-2">
-                                <span class="text-2xl tracking-[-1.5px]">Innovate</span>
-                                <p>We create smart digital solutions that simplify insurance operations and improve everyday efficiency. Innovation helps our clients stay ready for tomorrow.</p>
+                                <span class="text-2xl tracking-[-1.5px] text-reveal">Innovate</span>
+                                <p class="text-reveal leading-tight">We create smart digital solutions that simplify insurance operations and improve everyday efficiency. Innovation helps our clients stay ready for tomorrow.</p>
                             </div>
                         </div>
 
@@ -367,8 +517,8 @@
                                 <i class="ri-wireless-charging-line"></i>
                             </div>
                             <div class="text-center flex flex-col gap-2">
-                                <span class="text-2xl tracking-[-1.5px]">Empower</span>
-                                <p>We provide scalable technology that helps insurance businesses grow with confidence. Our focus is on building trust, improving productivity, and creating lasting value.</p>
+                                <span class="text-2xl tracking-[-1.5px] text-reveal">Empower</span>
+                                <p class="text-reveal leading-tight">We provide scalable technology that helps insurance businesses grow with confidence. Our focus is on building trust, improving productivity, and creating lasting value.</p>
                             </div>
                         </div>
                     </div>
@@ -384,10 +534,10 @@
                         <div class="flex justify-between gap-10 items-end">
                             <div>
                                 <span class="tracking-[-1px] px-5 py-1.5 border-2 rounded-3xl border-[#2C3184]">Our Expertise</span>
-                                <h2 class="text-6xl tracking-[-5px] mt-5">What We Do</h2>
+                                <h2 class="text-6xl tracking-[-5px] mt-5 text-reveal">What We Do</h2>
                             </div>
                             <div class="md:w-[40%]">
-                                <p>We specialize in designing and delivering insurance software solutions that address the operational challenges faced by modern insurance organizations.</p>
+                                <p class="text-reveal">We specialize in designing and delivering insurance software solutions that address the operational challenges faced by modern insurance organizations.</p>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
@@ -399,12 +549,12 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal">
                                             Policy<br>
                                             Administration
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Manage the complete policy lifecycle, from issuance and endorsements to renewals and cancellations.
                                         </p>
                         
@@ -429,11 +579,11 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal">
                                             Quotation Management
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Generate accurate insurance quotations quickly using configurable pricing rules, product plans, and underwriting criteria.
                                         </p>
                         
@@ -458,11 +608,11 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal">
                                             Health Insurance Management
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Simplify member enrollment, policy administration, provider management, and benefit tracking through a unified healthcare platform.
                                         </p>
                         
@@ -487,11 +637,11 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal leading-tight">
                                             Claims Processing
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Accelerate the entire claims lifecycle with automated validation, approvals, settlements, and real time claim tracking.
                                         </p>
                         
@@ -516,11 +666,11 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal leading-tight">
                                             Customer Relationship Management
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-3 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Manage customer interactions, policy history, and service requests from a single platform.
                                         </p>
                         
@@ -545,11 +695,11 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal leading-tight">
                                             Workflow Automation
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-3 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Eliminate manual processes by automating business workflows, approvals, notifications, and operational tasks across departments.
                                         </p>
                         
@@ -574,11 +724,11 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal leading-tight">
                                             Reporting & Analytics
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-3 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Transform operational data into meaningful insights with interactive dashboards, custom reports, and real time business intelligence.
                                         </p>
                         
@@ -603,11 +753,11 @@
                                     <!-- Content -->
                                     <div class="flex flex-col h-full rounded-t-3xl rounded-b-[70px] p-8">
                         
-                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black">
+                                        <h3 class="max-w-[220px] text-3xl font-semibold tracking-[-2px] leading-tight text-black text-reveal leading-tight">
                                             Third Party Integrations
                                         </h3>
                         
-                                        <p class="mt-5 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600">
+                                        <p class="mt-3 max-w-[220px] flex-1 text-sm font-medium leading-normal text-zinc-600 text-reveal leading-tight">
                                             Connect seamlessly with payment gateways, healthcare providers, government systems, and external APIs for a unified ecosystem.
                                         </p>
                         
@@ -635,16 +785,16 @@
             <div>
                 <div class="max-w-[1200px] mx-auto">
                     <div class="text-center mb-10 max-w-[800px] mx-auto">
-                        <span class="tracking-[-1px] mb-2 text-[#01628F]">--- Our Approach ---</span>
-                        <h2 class="text-6xl tracking-[-5px] mb-3">Delivering Practical Solutions for Modern Insurance Needs</h2>
-                        <p>We believe technology should simplify business operations, not complicate them. Our approach focuses on understanding our clients' unique requirements and delivering solutions that create measurable business value.</p>
+                        <span class="tracking-[-1px] mb-2 text-[#01628F] text-reveal leading-tight">--- Our Approach ---</span>
+                        <h2 class="text-6xl tracking-[-5px] mb-3 text-reveal">Delivering Practical Solutions for Modern Insurance Needs</h2>
+                        <p class="text-reveal">We believe technology should simplify business operations, not complicate them. Our approach focuses on understanding our clients' unique requirements and delivering solutions that create measurable business value.</p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div class="h-[400px] flex flex-col gap-5">
                             <div class="w-full h-[50%] flex justify-center items-center bg-[radial-gradient(circle_at_center,_#2C3184_0%,_#01628F_50%,_#119FE0_100%)]">
                                 <div class="px-5 py-5 flex flex-col justify-center items-center">
                                     <span class="text-3xl text-white"><i class="ri-donut-chart-fill"></i></span>
-                                    <h4 class="text-3xl text-center tracking-[-2px] text-white mb-2">Analyze operational challenges</h4>
+                                    <h4 class="text-3xl text-center tracking-[-2px] text-white mb-2 text-reveal">Analyze operational challenges</h4>
                                     <!-- <span>Identify operational gaps and improve business efficiency.</span> -->
                                      <!-- <div class="w-full h-full flex justify-center items-center">
                                         <img src="../assets/rounded-line.png" alt="" class="max-w-[200px] text-shadow-md">
@@ -654,7 +804,7 @@
                             <div class="w-full h-[50%] flex justify-center items-center bg-gray-100">
                                 <div class="flex flex-col justify-center items-center">
                                     <span class="text-3xl text-[#01628F]"><i class="ri-bubble-chart-fill"></i></span>
-                                    <h4 class="text-3xl text-center tracking-[-2px] text-[#000] mb-2">Design scalable technology strategies</h4>
+                                    <h4 class="text-3xl text-center tracking-[-2px] text-[#000] mb-2 text-reveal">Design scalable technology strategies</h4>
                                     <!-- <div class="w-full h-full flex justify-center items-center">
                                         <img src="../assets/rounded-line.png" alt="" class="max-w-[200px] text-shadow-md">
                                     </div> -->
@@ -670,7 +820,7 @@
                             <div class="w-full h-[50%] flex justify-center items-center bg-gray-100">
                                 <div class="flex flex-col justify-center items-center">
                                     <span class="text-3xl text-[#01628F]"><i class="ri-apps-2-ai-line"></i></span>
-                                    <h4 class="text-3xl text-center tracking-[-2px] text-[#000] mb-2">Implement tailored software solutions</h4>
+                                    <h4 class="text-3xl text-center tracking-[-2px] text-[#000] mb-2 text-reveal">Implement tailored software solutions</h4>
                                     <!-- <div class="w-full h-full flex justify-center items-center">
                                         <img src="../assets/rounded-line.png" alt="" class="max-w-[200px] text-shadow-md">
                                     </div> -->
@@ -679,7 +829,7 @@
                             <div class="w-full h-[50%] flex justify-center items-center bg-[radial-gradient(circle_at_center,_#2C3184_0%,_#01628F_50%,_#119FE0_100%)]">
                                 <div class="px-5 py-5 flex flex-col justify-center items-center">
                                     <span class="text-3xl text-white"><i class="ri-shake-hands-line"></i></span>
-                                    <h4 class="text-3xl text-center tracking-[-2px] text-white mb-2">Support ongoing optimization and growth</h4>
+                                    <h4 class="text-3xl text-center tracking-[-2px] text-white mb-2 text-reveal">Support ongoing optimization and growth</h4>
                                     <!-- <span>Identify operational gaps and improve business efficiency.</span> -->
                                 </div>
                             </div>
@@ -722,8 +872,8 @@
                         </div>
                         <div class="md:w-[50%]">
                             <div>
-                                <span class="tracking-[-1px] text-[#01628F] mb-2">--- Our Values ---</span>
-                                <h3 class="text-6xl tracking-[-5px]">The Values That Inspire Everything We Build</h3>
+                                <span class="tracking-[-1px] text-[#01628F] mb-2 text-reveal">--- Our Values ---</span>
+                                <h3 class="text-6xl text-reveal tracking-[-5px]">The Values That Inspire Everything We Build</h3>
                             </div>
                         </div>
                     </div>
@@ -741,9 +891,9 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center">
                         <div class="flex flex-col">
-                            <span class="tracking-[-1px] text-[#01628F] mb-2 text-left mb-5">--- Why Greylinq ---</span>
-                            <h2 class="text-left text-6xl tracking-[-5px] mb-5">Where Innovation Meets Insurance</h2>
-                            <p>By combining insurance expertise with technology innovation, GreyLinq delivers practical solutions that help
+                            <span class="tracking-[-1px] text-reveal text-[#01628F] mb-2 text-left mb-5">--- Why Greylinq ---</span>
+                            <h2 class="text-left text-reveal text-6xl tracking-[-5px] mb-5">Where Innovation Meets Insurance</h2>
+                            <p class="text-reveal leading-tight">By combining insurance expertise with technology innovation, GreyLinq delivers practical solutions that help
                                 organizations improve performance, reduce costs, and stay competitive in a dynamic market.</p>
                         </div>
                         <div class="w-full h-[500px] bg-[#000] rounded-t-[60px] rounded-bl-[60px] overflow-hidden">
@@ -752,6 +902,113 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footerSection" class="bg-gradient-to-r from-[#000] via-[#000] to-[#000] mt-10 min-h-[350px] rounded-t-[100px]">
+            <div>
+                <div class="">
+                    <div class="grid grid-cols-1 place-items-center gap-20 md:flex justify-between w-full max-w-[1200px] mx-auto pt-10 border-b pb-10">
+                        <div class="flex flex-col justify-center items-center md:justify-start md:items-start">
+                            <div class="h-[100px] w-[200px]">
+                                <img src="../assets/logo.png" alt="" class="h-full w-full object-contain">
+                            </div>
+                            <p class="max-w-[300px] mt-5 text-white text-center md:text-start">Empowering insurers with intelligent software solutions for seamless, secure, and efficient operations.</p>
+                        </div>
+                        <div class="flex flex-wrap justify-center items-center gap-10">
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>Our Solutions</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Products</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Industries We Serve</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Clients</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Why CHoose Us</li>
+                                    </a>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>About</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Vision</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Mission</li>
+                                    </a>
+                                    <a href="">
+                                        <li>What We Do</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Our Approach</li>
+                                    </a>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="text-[#fff]">
+                                    <a href="">
+                                        <li>Gmatrix</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Grey-Matter</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Career</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Mail Us</li>
+                                    </a>
+                                    <a href="">
+                                        <li>Call Us</li>
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col justify-center items-center md:justify-end md:items-end">
+                            <ul class="text-white flex items-center gap-3 mb-5">
+                                <a href="">
+                                    <li><i class="ri-instagram-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-whatsapp-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-linkedin-box-fill"></i></li>
+                                </a>
+
+                                <a href="">
+                                    <li><i class="ri-facebook-circle-fill"></i></li>
+                                </a>
+                            </ul>
+                            <div>
+                                <button
+                                    class="bg-[#fff] flex items-center justify-between pl-5 py-2 tracking-[-1px] rounded-[2px] pr-2 w-[150px]">Book
+                                    Now <span
+                                        class="w-[30px] h-[30px] rounded-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-2 flex items-center justify-center text-white"><i
+                                            class="ri-arrow-right-up-line"></i></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <h1
+                        class="w-full text-center leading-none uppercase text-[clamp(5rem,22vw,20rem)] tracking-[-0.08em] text-[#f1f1f1] text-reveal border-b border-[#ffffff63] pb-10">
+                        Greylinq
+                    </h1>
+                    <p class="text-white py-3 w-full flex items-center justify-center text-center gap-2">Copyright <i class="ri-copyright-fill"></i> 2026.  All Rights Reserved.</p>
                 </div>
             </div>
         </section>
@@ -775,26 +1032,28 @@
     
         <script>
 
-            const header = document.getElementById("header");
+        const header = document.getElementById("header");
 
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 100) {
+        function updateHeader() {
+            const isMobile = window.innerWidth < 1024; // Tailwind lg breakpoint
 
-                    header.classList.remove("w-full", "max-w-[1400px]", "top-5");
+            if (window.scrollY > 100) {
+
+                header.classList.remove("w-full", "max-w-[1400px]", "top-5");
+
+                if (isMobile) {
                     header.classList.add(
-                        "w-[800px]",
+                        "w-[92%]",          // or w-[95%]
                         "top-4",
                         "rounded-full",
                         "bg-white/90",
                         "backdrop-blur-xl",
                         "shadow-2xl",
-                        "px-6",
+                        "px-4",
                         "py-3"
                     );
-
                 } else {
-
-                    header.classList.remove(
+                    header.classList.add(
                         "w-[800px]",
                         "top-4",
                         "rounded-full",
@@ -804,363 +1063,1107 @@
                         "px-6",
                         "py-3"
                     );
-
-                    header.classList.add(
-                        "w-full",
-                        "max-w-[1400px]",
-                        "top-5"
-                    );
-
                 }
-            });
 
-            const mobileMenu = document.getElementById("mobileMenu");
-            const closeMenu = document.getElementById("closeMenu");
+            } else {
 
-            menuBtn.addEventListener("click", () => {
-                mobileMenu.classList.remove("translate-x-full");
-            });
+                header.classList.remove(
+                    "w-[800px]",
+                    "w-[98%]",
+                    "top-4",
+                    "rounded-full",
+                    "bg-white/90",
+                    "backdrop-blur-xl",
+                    "shadow-2xl",
+                    "px-4",
+                    "px-6",
+                    "py-3"
+                );
 
-            closeMenu.addEventListener("click", () => {
-                mobileMenu.classList.add("translate-x-full");
-            });
+                header.classList.add(
+                    "w-full",
+                    "max-w-[1400px]",
+                    "top-5"
+                );
+            }
+        }
+
+        window.addEventListener("scroll", updateHeader);
+        window.addEventListener("resize", updateHeader);
+
+        const mobileMenu = document.getElementById("mobileMenu");
+        const closeMenu = document.getElementById("closeMenu");
+
+        const whatsappWidget = document.getElementById("whatsappWidget");
+        const whatsappToggle = document.getElementById("whatsappToggle");
+        const whatsappPopup = document.getElementById("whatsappPopup");
+        const whatsappMessageLink = document.getElementById("whatsappMessageLink");
+        const whatsappPhoneNumber = "971509596896";
+        const whatsappMessage = "Hello Greylinq, I would like to know more about your insurance technology solutions.";
+
+        whatsappMessageLink.href = `https://wa.me/${whatsappPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        function closeWhatsappPopup() {
+            whatsappWidget.classList.remove("is-open");
+            whatsappPopup.setAttribute("aria-hidden", "true");
+            whatsappToggle.setAttribute("aria-expanded", "false");
+            whatsappToggle.setAttribute("aria-label", "Open WhatsApp contact popup");
+        }
+
+        function toggleWhatsappPopup(event) {
+            event.stopPropagation();
+            const isOpen = whatsappWidget.classList.toggle("is-open");
+
+            whatsappPopup.setAttribute("aria-hidden", String(!isOpen));
+            whatsappToggle.setAttribute("aria-expanded", String(isOpen));
+            whatsappToggle.setAttribute("aria-label", isOpen ? "Close WhatsApp contact popup" : "Open WhatsApp contact popup");
+        }
+
+        whatsappToggle.addEventListener("click", toggleWhatsappPopup);
+        whatsappWidget.addEventListener("click", (event) => event.stopPropagation());
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeWhatsappPopup();
+            }
+        });
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.remove("translate-x-full");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("translate-x-full");
+        });
 
 
-            const rows = document.querySelectorAll(".why-row");
+        const rows = document.querySelectorAll(".why-row");
 
-            rows.forEach(row => {
+        rows.forEach(row => {
 
-                const buttons = row.querySelectorAll(".why-btn");
-                const content = row.querySelector(".why-content");
-                const panels = row.querySelectorAll(".why-panel");
+            const buttons = row.querySelectorAll(".why-btn");
+            const content = row.querySelector(".why-content");
+            const panels = row.querySelectorAll(".why-panel");
 
-                buttons.forEach(button => {
+            buttons.forEach(button => {
 
-                    button.addEventListener("click", (e) => {
+                button.addEventListener("click", (e) => {
 
-                        e.stopPropagation();
+                    e.stopPropagation();
 
-                        const targetPanel = row.querySelector("#" + button.dataset.target);
+                    const targetPanel = row.querySelector("#" + button.dataset.target);
 
-                        const isOpen =
-                            content.style.maxHeight &&
-                            content.style.maxHeight !== "0px" &&
-                            !targetPanel.classList.contains("hidden");
+                    const isOpen =
+                        content.style.maxHeight &&
+                        content.style.maxHeight !== "0px" &&
+                        !targetPanel.classList.contains("hidden");
 
-                        // Close if same button clicked again
-                        if (isOpen) {
+                    // Close if same button clicked again
+                    if (isOpen) {
 
-                            content.style.maxHeight = "0px";
+                        content.style.maxHeight = "0px";
 
-                            panels.forEach(panel => panel.classList.add("hidden"));
-
-                            buttons.forEach(btn => {
-                                btn.querySelector("i").className = "ri-add-line text-xl";
-                            });
-
-                            return;
-                        }
-
-                        // Close all other rows
-                        rows.forEach(otherRow => {
-
-                            if (otherRow !== row) {
-
-                                otherRow.querySelector(".why-content").style.maxHeight = "0px";
-
-                                otherRow.querySelectorAll(".why-panel").forEach(panel => {
-                                    panel.classList.add("hidden");
-                                });
-
-                                otherRow.querySelectorAll(".why-btn i").forEach(icon => {
-                                    icon.className = "ri-add-line text-xl";
-                                });
-
-                            }
-
-                        });
-
-                        // Hide all panels in current row
                         panels.forEach(panel => panel.classList.add("hidden"));
 
-                        // Show selected panel
-                        targetPanel.classList.remove("hidden");
-
-                        // Expand row
-                        content.style.maxHeight = content.scrollHeight + "px";
-
-                        // Reset icons
                         buttons.forEach(btn => {
                             btn.querySelector("i").className = "ri-add-line text-xl";
                         });
 
-                        // Minus icon
-                        button.querySelector("i").className = "ri-subtract-line text-xl";
-
-                    });
-
-                });
-
-            });
-
-            // Close when clicking outside
-            document.addEventListener("click", () => {
-
-                rows.forEach(row => {
-
-                    row.querySelector(".why-content").style.maxHeight = "0px";
-
-                    row.querySelectorAll(".why-panel").forEach(panel => {
-                        panel.classList.add("hidden");
-                    });
-
-                    row.querySelectorAll(".why-btn i").forEach(icon => {
-                        icon.className = "ri-add-line text-xl";
-                    });
-
-                });
-
-            });
-
-
-
-            const section = document.getElementById("solutionsSection");
-            const track = document.getElementById("solutionsTrack");
-
-            function horizontalScroll() {
-
-                const rect = section.getBoundingClientRect();
-
-                const totalScroll =
-                    section.offsetHeight - window.innerHeight;
-
-                let progress = -rect.top;
-
-                progress = Math.max(0, Math.min(progress, totalScroll));
-
-                const maxTranslate =
-                    track.scrollWidth - window.innerWidth;
-
-                const x =
-                    (progress / totalScroll) * maxTranslate;
-
-                track.style.transform = `translateX(-${x}px)`;
-
-            }
-
-            window.addEventListener("scroll", horizontalScroll);
-
-            window.addEventListener("resize", horizontalScroll);
-        </script>
-    
-        <script>
-            gsap.registerPlugin(CustomEase);
-
-            CustomEase.create("fluid", "0.83,0,0.17,1");
-
-            const paths = document.querySelectorAll(".layer");
-            const transition = document.getElementById("page-transition");
-
-            function pathClosed() {
-                return `
-                    M0 0
-                    L1000 0
-                    L1000 1000
-                    Q500 1000 0 1000
-                    Z
-                `;
-            }
-
-            function pathOpen(offset) {
-                return `
-                    M0 0
-                    L1000 0
-                    L1000 ${offset}
-                    Q500 ${offset - 180} 0 ${offset}
-                    Z
-                `;
-            }
-
-            paths.forEach(path => {
-                path.setAttribute("d", pathClosed());
-            });
-
-            function reveal(nextPage) {
-
-                transition.style.visibility = "visible";
-                transition.style.pointerEvents = "all";
-
-                gsap.set(paths, {
-                    attr: { d: pathOpen(1000) }
-                });
-
-                gsap.timeline({
-
-                    defaults: {
-                        ease: "fluid"
-                    },
-
-                    onComplete() {
-
-                        window.location.href = nextPage;
-
+                        return;
                     }
 
-                })
+                    // Close all other rows
+                    rows.forEach(otherRow => {
 
-                    .to(paths[0], {
-                        duration: .9,
-                        attr: { d: pathOpen(0) }
-                    }, 0)
+                        if (otherRow !== row) {
 
-                    .to(paths[1], {
-                        duration: 1,
-                        attr: { d: pathOpen(0) }
-                    }, .08)
+                            otherRow.querySelector(".why-content").style.maxHeight = "0px";
 
-                    .to(paths[2], {
-                        duration: 1.1,
-                        attr: { d: pathOpen(0) }
-                    }, .16);
+                            otherRow.querySelectorAll(".why-panel").forEach(panel => {
+                                panel.classList.add("hidden");
+                            });
 
-            }
-
-            function enter() {
-
-                transition.style.visibility = "visible";
-
-                gsap.set(paths, {
-                    attr: { d: pathOpen(0) }
-                });
-
-                gsap.timeline({
-
-                    defaults: {
-                        ease: "fluid"
-                    },
-
-                    onComplete() {
-
-                        transition.style.visibility = "hidden";
-                        transition.style.pointerEvents = "none";
-
-                        if (window.initTextReveal) {
-
-                            window.initTextReveal();
+                            otherRow.querySelectorAll(".why-btn i").forEach(icon => {
+                                icon.className = "ri-add-line text-xl";
+                            });
 
                         }
 
-                    }
+                    });
 
-                })
+                    // Hide all panels in current row
+                    panels.forEach(panel => panel.classList.add("hidden"));
 
-                    .to(paths[2], {
-                        duration: 1,
-                        attr: { d: pathOpen(1000) }
-                    }, 0)
+                    // Show selected panel
+                    targetPanel.classList.remove("hidden");
 
-                    .to(paths[1], {
-                        duration: .95,
-                        attr: { d: pathOpen(1000) }
-                    }, .08)
+                    // Expand row
+                    content.style.maxHeight = content.scrollHeight + "px";
 
-                    .to(paths[0], {
-                        duration: .9,
-                        attr: { d: pathOpen(1000) }
-                    }, .16);
+                    // Reset icons
+                    buttons.forEach(btn => {
+                        btn.querySelector("i").className = "ri-add-line text-xl";
+                    });
 
-            }
-
-            window.addEventListener("load", enter);
-
-            window.onpageshow = enter;
-
-            document.querySelectorAll(".page-link").forEach(link => {
-
-                link.addEventListener("click", e => {
-
-                    e.preventDefault();
-
-                    reveal(link.href);
+                    // Minus icon
+                    button.querySelector("i").className = "ri-subtract-line text-xl";
 
                 });
 
             });
-        </script>
-    
-        <script>
 
-            gsap.registerPlugin(ScrollTrigger);
+        });
 
-            window.initTextReveal = function () {
+        // Close when clicking outside
+        document.addEventListener("click", () => {
+            closeWhatsappPopup();
 
-                document.querySelectorAll(".text-reveal").forEach(text => {
+            rows.forEach(row => {
 
-                    if (text.dataset.revealed) return;
+                row.querySelector(".why-content").style.maxHeight = "0px";
 
-                    text.dataset.revealed = true;
+                row.querySelectorAll(".why-panel").forEach(panel => {
+                    panel.classList.add("hidden");
+                });
 
-                    const split = new SplitType(text, {
-                        types: "lines,words"
-                    });
+                row.querySelectorAll(".why-btn i").forEach(icon => {
+                    icon.className = "ri-add-line text-xl";
+                });
 
-                    split.lines.forEach(line => {
+            });
 
-                        line.style.display = "block";
-                        line.style.overflow = "hidden";
+        });
 
-                    });
 
-                    split.words.forEach(word => {
 
-                        const mask = document.createElement("span");
+        const section = document.getElementById("solutionsSection");
+        const track = document.getElementById("solutionsTrack");
 
-                        mask.className = "word-mask";
+        function horizontalScroll() {
 
-                        word.parentNode.insertBefore(mask, word);
+            const rect = section.getBoundingClientRect();
 
-                        mask.appendChild(word);
+            const totalScroll =
+                section.offsetHeight - window.innerHeight;
 
-                    });
+            let progress = -rect.top;
 
-                    gsap.set(split.words, {
-                        yPercent: 120
-                    });
+            progress = Math.max(0, Math.min(progress, totalScroll));
 
-                    const hero = text.closest("section") === document.querySelector("section");
+            const maxTranslate =
+                track.scrollWidth - window.innerWidth;
 
-                    if (hero) {
+            const x =
+                (progress / totalScroll) * maxTranslate;
 
-                        gsap.to(split.words, {
-                            yPercent: 0,
-                            stagger: .035,
-                            duration: 1,
-                            ease: "power4.out"
-                        });
+            track.style.transform = `translateX(-${x}px)`;
 
-                    } else {
+        }
 
-                        gsap.to(split.words, {
+        window.addEventListener("scroll", horizontalScroll);
 
-                            yPercent: 0,
-                            stagger: .035,
-                            duration: 1,
-                            ease: "power4.out",
+        window.addEventListener("resize", horizontalScroll);
+    </script>
 
-                            scrollTrigger: {
-                                trigger: text,
-                                start: "top 85%",
-                                once: true
-                            }
+    <script>
+        gsap.registerPlugin(CustomEase);
 
-                        });
+        CustomEase.create("fluid", "0.83,0,0.17,1");
+
+        const paths = document.querySelectorAll(".layer");
+        const transition = document.getElementById("page-transition");
+
+        function pathClosed() {
+            return `
+        M0 0
+        L1000 0
+        L1000 1000
+        Q500 1000 0 1000
+        Z
+    `;
+        }
+
+        function pathOpen(offset) {
+            return `
+        M0 0
+        L1000 0
+        L1000 ${offset}
+        Q500 ${offset - 180} 0 ${offset}
+        Z
+    `;
+        }
+
+        paths.forEach(path => {
+            path.setAttribute("d", pathClosed());
+        });
+
+        function reveal(nextPage) {
+
+            transition.style.visibility = "visible";
+            transition.style.pointerEvents = "all";
+
+            gsap.set(paths, {
+                attr: { d: pathOpen(1000) }
+            });
+
+            gsap.timeline({
+
+                defaults: {
+                    ease: "fluid"
+                },
+
+                onComplete() {
+
+                    window.location.href = nextPage;
+
+                }
+
+            })
+
+                .to(paths[0], {
+                    duration: .9,
+                    attr: { d: pathOpen(0) }
+                }, 0)
+
+                .to(paths[1], {
+                    duration: 1,
+                    attr: { d: pathOpen(0) }
+                }, .08)
+
+                .to(paths[2], {
+                    duration: 1.1,
+                    attr: { d: pathOpen(0) }
+                }, .16);
+
+        }
+
+        function enter() {
+
+            transition.style.visibility = "visible";
+
+            gsap.set(paths, {
+                attr: { d: pathOpen(0) }
+            });
+
+            gsap.timeline({
+
+                defaults: {
+                    ease: "fluid"
+                },
+
+                onComplete() {
+
+                    transition.style.visibility = "hidden";
+                    transition.style.pointerEvents = "none";
+
+                    if (window.initTextReveal) {
+
+                        window.initTextReveal();
 
                     }
 
+                }
+
+            })
+
+                .to(paths[2], {
+                    duration: 1,
+                    attr: { d: pathOpen(1000) }
+                }, 0)
+
+                .to(paths[1], {
+                    duration: .95,
+                    attr: { d: pathOpen(1000) }
+                }, .08)
+
+                .to(paths[0], {
+                    duration: .9,
+                    attr: { d: pathOpen(1000) }
+                }, .16);
+
+        }
+
+        window.addEventListener("load", enter);
+
+        window.onpageshow = enter;
+
+        document.querySelectorAll(".page-link").forEach(link => {
+
+            link.addEventListener("click", e => {
+
+                e.preventDefault();
+
+                reveal(link.href);
+
+            });
+
+        });
+    </script>
+
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        window.initTextReveal = function () {
+
+            document.querySelectorAll(".text-reveal").forEach(text => {
+
+                if (text.dataset.revealed) return;
+
+                text.dataset.revealed = true;
+
+                const split = new SplitType(text, {
+                    types: "lines,words"
                 });
 
-            };
-        </script>
+                split.lines.forEach(line => {
+
+                    line.style.display = "block";
+                    line.style.overflow = "hidden";
+
+                });
+
+                split.words.forEach(word => {
+
+                    const mask = document.createElement("span");
+
+                    mask.className = "word-mask";
+
+                    word.parentNode.insertBefore(mask, word);
+
+                    mask.appendChild(word);
+
+                });
+
+                gsap.set(split.words, {
+                    yPercent: 120
+                });
+
+                const hero = text.closest("section") === document.querySelector("section");
+
+                if (hero) {
+
+                    gsap.to(split.words, {
+                        yPercent: 0,
+                        stagger: .035,
+                        duration: 1,
+                        ease: "power4.out"
+                    });
+
+                } else {
+
+                    gsap.to(split.words, {
+
+                        yPercent: 0,
+                        stagger: .035,
+                        duration: 1,
+                        ease: "power4.out",
+
+                        scrollTrigger: {
+                            trigger: text,
+                            start: "top 85%",
+                            once: true
+                        }
+
+                    });
+
+                }
+
+            });
+
+        };
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const cards = gsap.utils.toArray(".industry-card");
+        const numCards = cards.length;
+
+        // Initial state
+        gsap.set(cards, {
+            yPercent: 110,
+            scale: 1,
+            opacity: 1,
+            zIndex: (i) => i + 1
+        });
+
+        gsap.set(cards[0], {
+            yPercent: 0
+        });
+
+        // Hide inner content initially
+        cards.forEach((card, index) => {
+
+            gsap.set(card.querySelector(".industry-number"), {
+                x: -60,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector("h2"), {
+                y: 50,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector(".industry-image"), {
+                y: 100,
+                scale: 1.15,
+                opacity: 0
+            });
+
+            gsap.set(card.querySelector(".industry-content"), {
+                y: 40,
+                opacity: 0
+            });
+
+            const btn = card.querySelector("button");
+            if (btn) {
+                gsap.set(btn, {
+                    x: 30,
+                    opacity: 0
+                });
+            }
+
+        });
+
+        // Reveal first card immediately
+        gsap.to(cards[0].querySelector(".industry-number"), {
+            x: 0,
+            opacity: 1,
+            duration: .8
+        });
+
+        gsap.to(cards[0].querySelector("h2"), {
+            y: 0,
+            opacity: 1,
+            duration: .8,
+            delay: .1
+        });
+
+        gsap.to(cards[0].querySelector(".industry-image"), {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: .8,
+            delay: .15
+        });
+
+        gsap.to(cards[0].querySelector(".industry-content"), {
+            y: 0,
+            opacity: 1,
+            duration: .8,
+            delay: .2
+        });
+
+        if (cards[0].querySelector("button")) {
+            gsap.to(cards[0].querySelector("button"), {
+                x: 0,
+                opacity: 1,
+                duration: .8,
+                delay: .25
+            });
+        }
+
+        // Main timeline — scroll length scales with number of cards
+        const tl = gsap.timeline({
+
+            scrollTrigger: {
+
+                // trigger: "#industries",
+                trigger: ".sticky-wrapper",
+                pin: ".sticky-wrapper",
+
+                start: "top top",
+
+                end: () => "+=" + (window.innerHeight * (numCards + 1)),
+
+                // pin: true,
+
+                scrub: 1.2,
+
+                anticipatePin: 1,
+
+                invalidateOnRefresh: true
+
+            }
+
+        });
+
+        cards.forEach((card, i) => {
+
+            if (i === 0) return;
+
+            // Stack ALL previously revealed cards down/back, not just the immediate previous one
+            for (let j = 0; j < i; j++) {
+
+                tl.to(cards[j], {
+
+                    scale: 1 - (i - j) * 0.035,
+
+                    y: -((i - j) * 22),
+
+                    opacity: 1,
+
+                    duration: 1,
+
+                    ease: "power2.out"
+
+                }, "<");
+
+            }
+
+            // New card slides in
+            tl.to(card, {
+
+                yPercent: 0,
+
+                duration: 1,
+
+                ease: "power4.out"
+
+            }, i === 1 ? "<" : "-=0.85");
+
+            // Number
+            tl.to(card.querySelector(".industry-number"), {
+
+                x: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.15");
+
+            // Title
+            tl.to(card.querySelector("h2"), {
+
+                y: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.05");
+
+            // Image
+            tl.to(card.querySelector(".industry-image"), {
+
+                y: 0,
+
+                scale: 1,
+
+                opacity: 1,
+
+                duration: .8,
+
+                ease: "power3.out"
+
+            }, "<0.1");
+
+            // Paragraph
+            tl.to(card.querySelector(".industry-content"), {
+
+                y: 0,
+
+                opacity: 1,
+
+                duration: .6
+
+            }, "<0.15");
+
+            // Button
+            const btn = card.querySelector("button");
+            if (btn) {
+                tl.to(btn, {
+
+                    x: 0,
+
+                    opacity: 1,
+
+                    duration: .5
+
+                }, "<0.2");
+            }
+
+        });
+
+        // Hold on final stacked state briefly before section ends
+        tl.to({}, { duration: 0.5 });
+
+    </script>
+
+    <style>
+        [data-greylinq-industries-stack-root] {
+            height: auto !important;
+            min-height: 100vh;
+            isolation: isolate;
+        }
+
+        [data-greylinq-industries-stack-stage] {
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        [data-greylinq-industries-stack-item] {
+            backface-visibility: hidden;
+            transform-origin: 50% 8%;
+            will-change: transform;
+        }
+    </style>
+
+    <script>
+        (() => {
+            const greylinqIndustriesStackRootNode = document.querySelector("[data-greylinq-industries-stack-root]");
+            const greylinqIndustriesStackStageNode = document.querySelector("[data-greylinq-industries-stack-stage]");
+            const greylinqIndustriesStackDeckItems = gsap.utils.toArray("[data-greylinq-industries-stack-item]");
+
+            if (!greylinqIndustriesStackRootNode || !greylinqIndustriesStackStageNode || greylinqIndustriesStackDeckItems.length < 2) {
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.getAll().forEach((greylinqIndustriesStackRetiredAnchorCandidate) => {
+                const greylinqIndustriesStackRetiredVars = greylinqIndustriesStackRetiredAnchorCandidate.vars || {};
+
+                if (
+                    greylinqIndustriesStackRetiredAnchorCandidate.vars.id !== "greylinqIndustriesPremiumStackScrollTrigger" &&
+                    greylinqIndustriesStackRetiredVars.trigger === ".sticky-wrapper" &&
+                    greylinqIndustriesStackRetiredVars.pin === ".sticky-wrapper"
+                ) {
+                    greylinqIndustriesStackRetiredAnchorCandidate.disable(true);
+                }
+            });
+
+            const greylinqIndustriesStackMotionEaseName = "power3.out";
+            const greylinqIndustriesStackDepthGapValue = 18;
+            const greylinqIndustriesStackScaleStepValue = 0.035;
+            const greylinqIndustriesStackScrollLength = () => window.innerHeight * (greylinqIndustriesStackDeckItems.length + 0.85);
+            const greylinqIndustriesStackDepthScale = (greylinqIndustriesStackActiveSlot, greylinqIndustriesStackItemSlot) =>
+                1 - Math.min((greylinqIndustriesStackActiveSlot - greylinqIndustriesStackItemSlot) * greylinqIndustriesStackScaleStepValue, 0.18);
+            const greylinqIndustriesStackDepthLift = (greylinqIndustriesStackActiveSlot, greylinqIndustriesStackItemSlot) =>
+                -Math.min((greylinqIndustriesStackActiveSlot - greylinqIndustriesStackItemSlot) * greylinqIndustriesStackDepthGapValue, 96);
+
+            gsap.set(greylinqIndustriesStackDeckItems, {
+                yPercent: 112,
+                y: 0,
+                x: 0,
+                scale: 1,
+                rotation: 0,
+                opacity: 1,
+                force3D: true,
+                zIndex: (greylinqIndustriesStackSlot) => greylinqIndustriesStackSlot + 20
+            });
+
+            gsap.set(greylinqIndustriesStackDeckItems[0], {
+                yPercent: 0,
+                zIndex: 30
+            });
+
+            const greylinqIndustriesStackSequence = gsap.timeline({
+                defaults: {
+                    ease: greylinqIndustriesStackMotionEaseName,
+                    duration: 1
+                },
+                scrollTrigger: {
+                    id: "greylinqIndustriesPremiumStackScrollTrigger",
+                    trigger: greylinqIndustriesStackRootNode,
+                    start: "top top",
+                    end: greylinqIndustriesStackScrollLength,
+                    scrub: 1.15,
+                    pin: greylinqIndustriesStackStageNode,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true
+                }
+            });
+
+            greylinqIndustriesStackDeckItems.forEach((greylinqIndustriesStackIncomingItem, greylinqIndustriesStackIncomingSlot) => {
+                if (greylinqIndustriesStackIncomingSlot === 0) {
+                    return;
+                }
+
+                const greylinqIndustriesStackArrivalLabelName = `greylinqIndustriesStackArrival${String(greylinqIndustriesStackIncomingSlot + 1).padStart(2, "0")}`;
+
+                greylinqIndustriesStackSequence.add(greylinqIndustriesStackArrivalLabelName, greylinqIndustriesStackIncomingSlot - 0.08);
+
+                for (let greylinqIndustriesStackPriorSlot = 0; greylinqIndustriesStackPriorSlot < greylinqIndustriesStackIncomingSlot; greylinqIndustriesStackPriorSlot += 1) {
+                    greylinqIndustriesStackSequence.to(greylinqIndustriesStackDeckItems[greylinqIndustriesStackPriorSlot], {
+                        yPercent: 0,
+                        y: greylinqIndustriesStackDepthLift(greylinqIndustriesStackIncomingSlot, greylinqIndustriesStackPriorSlot),
+                        scale: greylinqIndustriesStackDepthScale(greylinqIndustriesStackIncomingSlot, greylinqIndustriesStackPriorSlot),
+                        zIndex: 30 + greylinqIndustriesStackPriorSlot
+                    }, greylinqIndustriesStackArrivalLabelName);
+                }
+
+                greylinqIndustriesStackSequence.to(greylinqIndustriesStackIncomingItem, {
+                    yPercent: 0,
+                    y: 0,
+                    scale: 1,
+                    zIndex: 80 + greylinqIndustriesStackIncomingSlot,
+                    duration: 1.08,
+                    ease: "power4.out"
+                }, greylinqIndustriesStackArrivalLabelName);
+            });
+
+            greylinqIndustriesStackSequence.to(greylinqIndustriesStackDeckItems[greylinqIndustriesStackDeckItems.length - 1], {
+                y: -24,
+                scale: 0.985,
+                duration: 0.45,
+                ease: "power2.inOut"
+            });
+
+            window.addEventListener("load", () => {
+                if (greylinqIndustriesStackSequence.scrollTrigger) {
+                    greylinqIndustriesStackSequence.scrollTrigger.refresh();
+                }
+            }, { once: true });
+        })();
+    </script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        /*=============================
+          CONTENT
+        =============================*/
+
+        const solutions = [
+            {
+                title: "Health Insurance Software",
+                description:
+                    "Streamline healthcare insurance administration through intelligent policy management, provider integration, member services and automated."
+            },
+            {
+                title: "Policy Administration System",
+                description:
+                    "Manage the complete policy lifecycle including underwriting, issuance, endorsements, renewals and reporting through one centralized platform."
+            },
+            {
+                title: "Insurance Quotation Management",
+                description:
+                    "Generate accurate insurance quotations instantly using configurable rating engines, business rules and automated pricing workflows."
+            },
+            {
+                title: "Travel Insurance Solutions",
+                description:
+                    "Offer digital travel insurance products with automated issuance, online purchasing, policy management and integrated support."
+            },
+            {
+                title: "Policy Management System",
+                description:
+                    "Accelerate claim processing through automated validation, fraud detection, document management and real time claim tracking."
+            }
+        ];
+
+        const solutionCards = gsap.utils.toArray(".solutionCard");
+
+        const cardsWrapper = document.querySelector("#solutionsCards");
+
+        const title = document.querySelector("#solutionTitle");
+
+        const description = document.querySelector("#solutionDescription");
+
+        // const cards = gsap.utils.toArray(".industry-card")
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: "#industries"
+            }
+        })
+
+        /*=============================
+          DISTANCE
+        =============================*/
+
+        let moveDistance =
+            cardsWrapper.scrollHeight - window.innerHeight + 120;
+
+        /*=============================
+          MAIN SCROLL
+        =============================*/
+
+        gsap.to(cardsWrapper, {
+
+            y: () => -moveDistance,
+
+            ease: "none",
+
+            scrollTrigger: {
+
+                trigger: "#solutionsSection",
+
+                start: "top top",
+
+                end: () => "+=" + moveDistance,
+
+                pin: "#solutionsSticky",
+
+                scrub: 1.3,
+
+                anticipatePin: 1,
+
+                invalidateOnRefresh: true
+
+            }
+
+        });
+
+        /*=============================
+          ACTIVE CARD
+        =============================*/
+
+        cards.forEach((card, index) => {
+
+            ScrollTrigger.create({
+
+                trigger: card,
+
+                start: "top center",
+
+                end: "bottom center",
+
+                containerAnimation: null,
+
+                onEnter: () => changeContent(index),
+
+                onEnterBack: () => changeContent(index)
+
+            });
+
+        });
+
+        /*=============================
+          CHANGE LEFT CONTENT
+        =============================*/
+
+        function changeContent(index) {
+
+            gsap.timeline()
+
+                .to([title, description], {
+
+                    opacity: 0,
+
+                    y: 25,
+
+                    duration: .25
+
+                })
+
+                .add(() => {
+
+                    title.textContent =
+                        solutions[index].title;
+
+                    description.textContent =
+                        solutions[index].description;
+
+                })
+
+                .to([title, description], {
+
+                    opacity: 1,
+
+                    y: 0,
+
+                    duration: .45,
+
+                    stagger: .05
+
+                });
+
+        }
+
+        /*=============================
+          CARD EFFECT
+        =============================*/
+
+        cards.forEach(card => {
+
+            ScrollTrigger.create({
+
+                trigger: card,
+
+                start: "top center",
+
+                end: "bottom center",
+
+                onUpdate: self => {
+
+                    const progress = self.progress;
+
+                    gsap.to(card, {
+
+                        scale: 1 - (Math.abs(progress - .5) * 0.12),
+
+                        opacity: 1 - (Math.abs(progress - .5) * 0.35),
+
+                        duration: .2,
+
+                        overwrite: true
+
+                    });
+
+                }
+
+            });
+
+        });
+
+        /*=============================
+          REFRESH
+        =============================*/
+
+        window.addEventListener("resize", () => {
+
+            moveDistance =
+                cardsWrapper.scrollHeight - window.innerHeight + 120;
+
+            ScrollTrigger.refresh();
+
+        });
+    </script>
+
+    <script>
+        gsap.config({
+                force3D: true
+            });
+        gsap.registerPlugin(ScrollTrigger);
+
+            gsap.set(".industry-reveal", {
+                y: 140,
+                opacity: 0,
+                scale: 0.96,
+                filter: "blur(4px)",
+                transformOrigin: "bottom center",
+                willChange: "transform, opacity"
+            });
+
+            CustomEase.create(
+                    "industrySmooth",
+                    "M0,0 C0.12,0 0.18,1 1,1"
+                );
+
+            ScrollTrigger.batch(".industry-reveal", {
+
+                start: "top 88%",
+
+                once: true,
+
+                onEnter: batch => {
+
+                    gsap.to(batch, {
+
+                        y: 0,
+
+                        opacity: 1,
+
+                        scale: 1,
+
+                        filter: "blur(0px)",
+
+                        duration: 1.4,
+
+                        ease: "expo.out",
+
+                        stagger: {
+                            each: 0.12,
+                            from: "start"
+                        }
+
+                    });
+
+                }
+
+            });
+
+
+            // Logo reveal
+            gsap.registerPlugin(ScrollTrigger);
+
+                gsap.utils.toArray(".logo-reveal").forEach((logo, index) => {
+
+                    const target = logo.querySelector("img, span");
+
+                    gsap.set(target, {
+                        yPercent: 120,
+                        opacity: 0.15
+                    });
+
+                    gsap.to(target, {
+
+                        yPercent: 0,
+
+                        opacity: 1,
+
+                        duration: 1.2,
+
+                        ease: "power4.out",
+
+                        delay: index * 0.04,
+
+                        scrollTrigger: {
+                            trigger: logo,
+                            start: "top 90%",
+                            toggleActions: "play none none none",
+                            once: true
+                        }
+
+                    });
+
+                });
+
+
+
+                // Footer
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                    gsap.fromTo(
+                        "footer, section:last-of-type",
+                        {
+                            borderTopLeftRadius: 100,
+                            borderTopRightRadius: 100
+                        },
+                        {
+                            borderTopLeftRadius: 0,
+                            borderTopRightRadius: 0,
+
+                            ease: "power2.out",
+
+                            scrollTrigger: {
+                                trigger: "footer, section:last-of-type",
+                                start: "top 90%",
+                                end: "top 15%",
+                                scrub: 1.2
+                            }
+                        }
+                    );
+
+                
+                gsap.fromTo(
+                        "#footerSection",
+                        {
+                            borderTopLeftRadius: 100,
+                            borderTopRightRadius: 100,
+                            y: 80
+                        },
+                        {
+                            borderTopLeftRadius: 0,
+                            borderTopRightRadius: 0,
+                            y: 0,
+
+                            ease: "none",
+
+                            scrollTrigger: {
+                                trigger: "#footerSection",
+                                start: "top bottom",
+                                end: "top center",
+                                scrub: 1.5
+                            }
+                        }
+                    );
+
+    </script>
     </div>
 </body>
 </html> 
