@@ -282,9 +282,6 @@
     </style>
 
     <style>
-        /* ==========================================
-INDUSTRIES SECTION
-========================================== */
 
         #industries {
             position: relative;
@@ -300,11 +297,6 @@ INDUSTRIES SECTION
             max-width: 1200px;
             margin: auto;
         }
-
-
-        /* ==========================================
-HEADING
-========================================== */
 
         .industry-heading {
 
@@ -352,11 +344,6 @@ HEADING
 
         }
 
-
-        /* ==========================================
-CARDS
-========================================== */
-
         .industry-cards {
 
             position: relative;
@@ -367,11 +354,6 @@ CARDS
             background: linear-gradient(45deg, #0c82c9, yellow);
 
         }
-
-
-        /* ==========================================
-SINGLE CARD
-========================================== */
 
         .industry-card {
 
@@ -388,11 +370,6 @@ SINGLE CARD
             will-change: transform;
         }
 
-
-        /* ==========================================
-NUMBER
-========================================== */
-
         .industry-no {
 
             font-size: 90px;
@@ -407,11 +384,6 @@ NUMBER
 
         }
 
-
-        /* ==========================================
-RIGHT CONTENT
-========================================== */
-
         .industry-main {
 
             display: flex;
@@ -419,11 +391,6 @@ RIGHT CONTENT
             flex-direction: column;
 
         }
-
-
-        /* ==========================================
-TOP
-========================================== */
 
         .industry-top {
 
@@ -489,11 +456,6 @@ TOP
 
         }
 
-
-        /* ==========================================
-BODY
-========================================== */
-
         .industry-body {
 
             display: grid;
@@ -506,10 +468,6 @@ BODY
 
         }
 
-
-        /* ==========================================
-IMAGE
-========================================== */
 
         .industry-image {
 
@@ -533,11 +491,6 @@ IMAGE
 
         }
 
-
-        /* ==========================================
-DESCRIPTION
-========================================== */
-
         .industry-content {
 
             display: flex;
@@ -556,28 +509,6 @@ DESCRIPTION
             color: #555;
 
         }
-
-
-        /* ==========================================
-INITIAL STATE
-========================================== */
-
-        /* .industry-card {
-
-            transform: translateY(120%);
-
-        }
-
-        .industry-card:first-child {
-
-            transform: translateY(0);
-
-        } */
-
-
-        /* ==========================================
-RESPONSIVE
-========================================== */
 
         @media(max-width:991px) {
 
@@ -651,20 +582,11 @@ RESPONSIVE
             font-weight: 700;
         }
 
-        /* ==========================================================
-OUR SOLUTIONS
-========================================================== */
-
         #solutionsSection {
             position: relative;
             height: auto;
             background: #fff;
         }
-
-
-        /* ==========================================================
-STICKY WRAPPER
-========================================================== */
 
         #solutionsSticky {
             position: sticky;
@@ -673,20 +595,10 @@ STICKY WRAPPER
             overflow: hidden;
         }
 
-
-        /* ==========================================================
-RIGHT PANEL
-========================================================== */
-
         #solutionsCards {
             width: 100%;
             will-change: transform;
         }
-
-
-        /* ==========================================================
-CARD
-========================================================== */
 
         .solutionCard {
             position: relative;
@@ -708,11 +620,6 @@ CARD
                 box-shadow .5s ease;
         }
 
-
-        /* ==========================================================
-IMAGE
-========================================================== */
-
         .solutionCard img {
 
             width: 100%;
@@ -723,11 +630,6 @@ IMAGE
                 transform 1.2s cubic-bezier(.22, 1, .36, 1);
 
         }
-
-
-        /* ==========================================================
-HOVER
-========================================================== */
 
         .solutionCard:hover {
 
@@ -743,11 +645,6 @@ HOVER
             transform: scale(1.08);
 
         }
-
-
-        /* ==========================================================
-CONTENT
-========================================================== */
 
         .solutionCard span {
 
@@ -769,11 +666,6 @@ CONTENT
 
         }
 
-
-        /* ==========================================================
-LEFT PANEL
-========================================================== */
-
         #solutionTitle {
 
             transition:
@@ -790,11 +682,6 @@ LEFT PANEL
 
         }
 
-
-        /* ==========================================================
-BUTTON
-========================================================== */
-
         #solutionsSticky button {
 
             transition:
@@ -808,11 +695,6 @@ BUTTON
 
         }
 
-
-        /* ==========================================================
-PERFORMANCE
-========================================================== */
-
         #solutionsSticky,
         #solutionsCards,
         .solutionCard,
@@ -823,10 +705,6 @@ PERFORMANCE
 
         }
 
-
-        /* ==========================================================
-RESPONSIVE
-========================================================== */
 
         @media(max-width:1024px) {
 
@@ -905,6 +783,8 @@ RESPONSIVE
             gap: 14px;
         }
 
+        /* Whatsapp */
+
         .whatsapp-popup {
             width: min(320px, calc(100vw - 32px));
             padding: 18px;
@@ -914,15 +794,17 @@ RESPONSIVE
             box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
             color: #111827;
             opacity: 0;
+            display: none;
             pointer-events: none;
             transform: translateY(14px) scale(0.96);
             transform-origin: bottom right;
-            transition: opacity 0.25s ease, transform 0.25s ease;
+            transition: opacity 1s ease, transform 1s ease;
             backdrop-filter: blur(12px);
         }
 
         .whatsapp-widget.is-open .whatsapp-popup {
             opacity: 1;
+            display: block;
             pointer-events: auto;
             transform: translateY(0) scale(1);
         }
@@ -1048,7 +930,7 @@ RESPONSIVE
             }
 
             .mobile-menu-section:last-child a {
-                font-size: clamp(1.35rem, 7vw, 1.65rem);
+                /* font-size: clamp(1.35rem, 7vw, 1.65rem); */
                 line-height: 1.12;
             }
         }
@@ -1119,12 +1001,12 @@ RESPONSIVE
                     <span class="mobile-menu-item text-gray-300 text-lg">Connect</span>
                     <nav>
                         <ul class="flex flex-col gap-1">
-                            <a href="mailto:info@greylinq.com" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Mail Us</a>
-                            <a href="tel" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Call Us</a>
-                            <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Whatsapp</a>
-                            <a href="../product/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Instagram</a>
-                            <a href="../career/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">LinkedIn</a>
-                            <a href="../contact/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Contact</a>
+                            <a href="mailto:info@greylinq.com" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Mail Us</a>
+                            <a href="tel" class="mobile-menu-item text-4xl tracking-[-1px] font-semibold  text-gray-200">Call Us</a>
+                            <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Whatsapp</a>
+                            <a href="../product/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">Instagram</a>
+                            <a href="../career/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">LinkedIn</a>
+                            <a href="../contact/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">Contact</a>
                         </ul>
                     </nav>
                 </div>
@@ -1168,11 +1050,13 @@ RESPONSIVE
 
             <div class="flex justify-center items-center gap-5">
                 <div class="hidden md:block">
+                    <a href="https://wa.me/971509596896?text=Hello%20Greylinq%2C%20I%20would%20like%20to%20know%20more%20about%20your%20insurance%20technology%20solutions.">
                     <button
                         class="flex items-center justify-between gap-3 md:gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-3 md:pl-5 pr-2 py-2 rounded-3xl font-medium md:tracking-[-1px] text-xs md:text-base text-[#fff]">Request
                         a Demo<span
                             class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
                                 class="ri-arrow-right-up-line"></i></span></button>
+                    </a>
                 </div>
 
                 <button id="menuBtn"
@@ -1234,13 +1118,16 @@ RESPONSIVE
                         </h1>
                         <p class="text-center max-w-[900px] mx-auto mt-5 text-[#3c3c3c] text-reveal">GreyLinq empowers insurance providers with innovative software solutions that streamline operations, enhance customer experiences, and accelerate business growth. Our technology-driven platforms help insurers automate processes, manage policies efficiently, and adapt to evolving market demands with confidence.</p>
                         <div class="grid grid-cols-1 place-items-center md:flex justify-center items-center gap-5 mt-10">
-                            <button
+                            <button id="exploreMoreBtn" type="button"
                                 class="px-10 text-reveal py-2 bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white tracking-[-1px] font-medium">Explore
                                 More</button>
                             <div class="bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] p-0.5">
-                                <button class="px-10 text-reveal py-2 bg-white tracking-[-1px] font-medium">
-                                    Request a Demo
-                                </button>
+                                <a
+                                    href="https://wa.me/971509596896?text=Hello%20Greylinq%2C%20I%20would%20like%20to%20know%20more%20about%20your%20insurance%20technology%20solutions.">
+                                    <button class="px-10 text-reveal py-2 bg-white tracking-[-1px] font-medium">
+                                        Request a Demo
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1249,7 +1136,7 @@ RESPONSIVE
         </section>
 
         <!-- About -->
-        <section class="w-full min-h-screen bg-gradient-to-b from-[#106fb6] via-[#01628F] to-[#119FE0]">
+        <section id="aboutSection" class="w-full min-h-screen bg-gradient-to-b from-[#106fb6] via-[#01628F] to-[#119FE0]">
             <div class="relative w-full min-h-screen flex items-center justify-center">
                 <div class="absolute top-0 bottom-0 left-0 right-0">
                     <img src="../assets/dot.png" alt="" class="w-full h-full object-contain opacity-50">
@@ -1265,13 +1152,16 @@ RESPONSIVE
                         GreyLinq is a trusted InsurTech solutions provider specializing in insurance software development, policy administration systems, healthcare integration, workflow management, and digital  transformation administrations for modern insurance businesses.
                         </p>
                     <div class="relative flex justify-center">
-                        <button
-                            class="px-10 bg-gradient-to-r from-[#fff] to-[#ffffff] py-2 tracking-[-1px] font-medium text-[#464646] flex items-center justify-center gap-2 text-reveal">Read More
-                            <span class="text-[#119FE0]">
-                                <i class="ri-share-forward-fill"></i>
-                                 <!-- <i class="ri-color-filter-ai-fill"></i> -->
-                            </span>
-                        </button>
+                        <a href="./about/index.html">
+                            <button
+                                class="px-10 bg-gradient-to-r from-[#fff] to-[#ffffff] py-2 tracking-[-1px] font-medium text-[#464646] flex items-center justify-center gap-2 text-reveal">Read
+                                More
+                                <span class="text-[#119FE0]">
+                                    <i class="ri-share-forward-fill"></i>
+                                    <!-- <i class="ri-color-filter-ai-fill"></i> -->
+                                </span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1297,11 +1187,15 @@ RESPONSIVE
                             </p>
                         </div>
                         <div class="flex justify-center items-center gap-2 w-full">
-                            <button
-                                class="bg-gradient-to-r px-6 py-2 from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-tr-3xl rounded-bl-3xl w-full max-w-[150px] text-[#fff] tracking-[-1px] font-medium text-reveal">Explore</button>
-                            <button
-                                class="bg-gradient-to-r px-6 py-2 from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-tl-3xl rounded-br-3xl w-full max-w-[150px] text-[#fff] tracking-[-1px] font-medium text-reveal">Read
-                                More</button>
+                            <a href="./about/index.html">
+                                <button
+                                    class="bg-gradient-to-r px-6 py-2 from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-tr-3xl rounded-bl-3xl w-full max-w-[150px] text-[#fff] tracking-[-1px] font-medium text-reveal">Explore</button>
+                            </a>
+                            <a href="./about/index.html">
+                                <button
+                                    class="bg-gradient-to-r px-6 py-2 from-[#2C3184] via-[#01628F] to-[#119FE0] rounded-tl-3xl rounded-br-3xl w-full max-w-[150px] text-[#fff] tracking-[-1px] font-medium text-reveal">Read
+                                    More</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1349,12 +1243,14 @@ RESPONSIVE
                                     </li>
                                 </ul>
                             </div>
-                            <div class="flex justify-start items-center gap-5 mt-5">
-                                <p class="text-reveal">Unlock Smarter Insurance Solutions</p>
-                                <span
-                                    class="w-[40px] h-[40px] border-[#20202054] border-[1.5px] transition-all ease duration-300 hover:bg-gradient-to-r from-[#000] via-[#000] to-[#000] hover:text-[#fff] rounded-full flex items-center justify-center"><i
-                                        class="ri-arrow-right-up-line"></i></span>
-                            </div>
+                            <a href="./product/index.html">
+                                <div class="flex justify-start items-center gap-5 mt-5">
+                                    <p class="text-reveal">Unlock Smarter Insurance Solutions</p>
+                                    <span
+                                        class="w-[40px] h-[40px] border-[#20202054] border-[1.5px] transition-all ease duration-300 hover:bg-gradient-to-r from-[#000] via-[#000] to-[#000] hover:text-[#fff] rounded-full flex items-center justify-center"><i
+                                            class="ri-arrow-right-up-line"></i></span>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -1549,11 +1445,12 @@ RESPONSIVE
                                             class="block">Enhanced SME</span></span>
                                 </div>
                                 <div class="mt-5">
-                                    <button
-                                        class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Get
-                                        Plan <span
-                                            class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
-                                                class="ri-arrow-right-up-line"></i></span></button>
+                                    <a href="./product/index.html">
+                                        <button
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-revea">Get
+                                            Plan <span class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                    </a>
                                 </div>
                             </div>
                     
@@ -1576,11 +1473,12 @@ RESPONSIVE
                                     <span class="text-gray-200 tracking-[-1px] text-xl text-center font-medium">SME</span>
                                 </div>
                                 <div class="mt-5">
-                                    <button
-                                        class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Get
-                                        Plan <span
-                                            class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
-                                                class="ri-arrow-right-up-line"></i></span></button>
+                                    <a href="./product/index.html">
+                                        <button
+                                            class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-reveal">Get
+                                            Plan <span class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
+                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                    </a>
                                 </div>
                             </div>
                     
@@ -1678,7 +1576,7 @@ RESPONSIVE
                     <div
                         class="grid px-2 grid-cols-1 max-w-[1200px] mx-auto md:flex w-full md:justify-center md:items-center gap-10">
                         <div class="md:w-[30%]">
-                            <h3 class="text-4xl tracking-[-1.5px] text-center md:text-start md:text-6xl md:tracking-[-5px] text-reveal leading-tight">Trusted by our major clients
+                            <h3 class="text-4xl tracking-[-1.5px] text-center md:text-start md:text-5xl md:tracking-[-3px] text-reveal">Trusted by our major clients
                             </h3>
                         </div>
                         <div class="md:w-[70%] grid grid-cols-2 md:grid-cols-4 gap-5 border-l pl-7 border-[#000]">
@@ -1732,17 +1630,17 @@ RESPONSIVE
 
                 <!-- ROW 1 -->
 
-                <div class="why-row mb-5 px-2 border rounded-3xl overflow-hidden">
+                <div class="why-row mb-5 border rounded-3xl overflow-hidden">
                     <div class="grid md:grid-cols-2">
                         <button
                             class="why-btn p-7 text-left flex justify-between bg-gray-100 items-center border-b md:border-b-0 md:border-r"
                             data-target="industry">
                             <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-building-3-fill"></i></span>Industry Expertise</span>
-                            <i class="ri-add-line text-xl"></i>
+                            <i class="toggle-icon ri-add-line text-xl"></i>
                         </button>
                         <button class="why-btn p-7 bg-gray-200 text-left flex justify-between items-center" data-target="scalable">
                             <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-exchange-funds-line"></i></span>Scalable Technology</span>
-                            <i class="ri-add-line text-xl"></i>
+                            <i class="toggle-icon ri-add-line text-xl"></i>
                         </button>
                     </div>
 
@@ -1778,7 +1676,7 @@ RESPONSIVE
 
                             <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-webhook-fill"></i></span>Process Automation</span>
 
-                            <i class="ri-add-line text-xl"></i>
+                            <i class="toggle-icon ri-add-line text-xl"></i>
 
                         </button>
 
@@ -1787,7 +1685,7 @@ RESPONSIVE
 
                             <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-customer-service-2-fill"></i></span>Enhanced Customer Experience</span>
 
-                            <i class="ri-add-line text-xl"></i>
+                            <i class="toggle-icon ri-add-line text-xl"></i>
 
                         </button>
 
@@ -1825,7 +1723,7 @@ RESPONSIVE
 
                             <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-shield-check-fill"></i></span>Secure & Compliance</span>
 
-                            <i class="ri-add-line text-xl"></i>
+                            <i class="toggle-icon ri-add-line text-xl"></i>
 
                         </button>
 
@@ -1834,7 +1732,7 @@ RESPONSIVE
 
                             <span class="tracking-[-1px]"><span class="text-[#119FE0] mr-2"><i class="ri-user-add-fill"></i></span>Integration Ready</span>
 
-                            <i class="ri-add-line text-xl"></i>
+                            <i class="toggle-icon ri-add-line text-xl"></i>
 
                         </button>
 
@@ -1880,8 +1778,10 @@ RESPONSIVE
                         <p class="mt-3 text-center max-w-[900px] mx-auto text-[#edededdd] text-reveal">Whether you're a health insurer, TPA, broker, or insurance provider, our innovative software solutions help automate workflows, improve operational efficiency, and accelerate your digital transformation.</p>
                     </div>
                     <div class="flex justify-center items-center mt-5">
-                        <button class="px-10 py-2 text-reveal bg-[#fff] tracking-[-1px] font-medium text-[#106fb6]">Connect
-                            Now</button>
+                        <a href="./contact/index.html">
+                            <button class="px-10 py-2 text-reveal bg-[#fff] tracking-[-1px] font-medium text-[#106fb6]">Connect
+                                Now</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -2193,6 +2093,8 @@ RESPONSIVE
         });
 
 
+        // Why Choose Us
+
         const rows = document.querySelectorAll(".why-row");
 
         rows.forEach(row => {
@@ -2222,7 +2124,7 @@ RESPONSIVE
                         panels.forEach(panel => panel.classList.add("hidden"));
 
                         buttons.forEach(btn => {
-                            btn.querySelector("i").className = "ri-add-line text-xl";
+                            btn.querySelector(".toggle-icon").className = "ri-add-line text-xl";
                         });
 
                         return;
@@ -2239,7 +2141,7 @@ RESPONSIVE
                                 panel.classList.add("hidden");
                             });
 
-                            otherRow.querySelectorAll(".why-btn i").forEach(icon => {
+                            otherRow.querySelectorAll(".why-btn .toggle-icon").forEach(icon => {
                                 icon.className = "ri-add-line text-xl";
                             });
 
@@ -2258,11 +2160,11 @@ RESPONSIVE
 
                     // Reset icons
                     buttons.forEach(btn => {
-                        btn.querySelector("i").className = "ri-add-line text-xl";
+                        btn.querySelector(".toggle-icon").className = "ri-add-line text-xl";
                     });
 
                     // Minus icon
-                    button.querySelector("i").className = "ri-subtract-line text-xl";
+                    button.querySelector(".toggle-icon").className = "ri-subtract-line text-xl";
 
                 });
 
@@ -2282,13 +2184,16 @@ RESPONSIVE
                     panel.classList.add("hidden");
                 });
 
-                row.querySelectorAll(".why-btn i").forEach(icon => {
+                row.querySelectorAll(".why-btn .toggle-icon").forEach(icon => {
                     icon.className = "ri-add-line text-xl";
                 });
 
             });
 
         });
+
+
+        // Solutions
 
 
 
@@ -2319,6 +2224,18 @@ RESPONSIVE
         window.addEventListener("scroll", horizontalScroll);
 
         window.addEventListener("resize", horizontalScroll);
+
+        const exploreMoreBtn = document.getElementById("exploreMoreBtn");
+        const aboutSection = document.getElementById("aboutSection");
+
+        if (exploreMoreBtn && aboutSection) {
+            exploreMoreBtn.addEventListener("click", () => {
+                aboutSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }
     </script>
 
     <script>

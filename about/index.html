@@ -434,7 +434,7 @@
             }
 
             .mobile-menu-section:last-child a {
-                font-size: clamp(1.35rem, 7vw, 1.65rem);
+                /* font-size: clamp(1.35rem, 7vw, 1.65rem); */
                 line-height: 1.12;
             }
         }
@@ -503,12 +503,12 @@
                     <span class="mobile-menu-item text-gray-300 text-lg">Connect</span>
                     <nav>
                         <ul class="flex flex-col gap-1">
-                            <a href="mailto:info@greylinq.com" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Mail Us</a>
-                            <a href="tel" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Call Us</a>
-                            <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Whatsapp</a>
-                            <a href="../product/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Instagram</a>
-                            <a href="../career/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">LinkedIn</a>
-                            <a href="../contact/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Contact</a>
+                            <a href="mailto:info@greylinq.com" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Mail Us</a>
+                            <a href="tel" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Call Us</a>
+                            <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Whatsapp</a>
+                            <a href="../product/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">Instagram</a>
+                            <a href="../career/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">LinkedIn</a>
+                            <a href="../contact/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">Contact</a>
                         </ul>
                     </nav>
                 </div>
@@ -552,11 +552,13 @@
 
             <div class="flex justify-center items-center gap-5">
                 <div class="hidden md:block">
+                    <a href="https://wa.me/971509596896?text=Hello%20Greylinq%2C%20I%20would%20like%20to%20know%20more%20about%20your%20insurance%20technology%20solutions.">
                     <button
                         class="flex items-center justify-between gap-3 md:gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-3 md:pl-5 pr-2 py-2 rounded-3xl font-medium md:tracking-[-1px] text-xs md:text-base text-[#fff]">Request
                         a Demo<span
                             class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
                                 class="ri-arrow-right-up-line"></i></span></button>
+                    </a>
                 </div>
 
                 <button id="menuBtn"
@@ -575,8 +577,8 @@
                 <div>
                     <h2 class="text-5xl md:text-6xl max-w-[600px] mx-auto tracking-[-5px] text-center text-reveal">Your Trusted Partner in <span class="text-[#01628F] block">Insurance Innovation</span></h2>
                     <div>
-                        <div class="flex justify-center items-center mt-10">
-                            <button class="flex items-center gap-2 tracking-[-1px] bg-gradient-to-r from-[#000] flex items-center justify-between max-w-[180px] w-full to-[#595959] text-white py-2 pl-3 pr-2 rounded-3xl hover:bg-[#333] transition-colors duration-300 text-revea">Explore More <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-[#fff] text-black"><i class="ri-arrow-right-down-line"></i></span></button>
+                        <div class="flex relative justify-center items-center mt-10">
+                            <button id="exploreMoreBtn" type="button" class="flex items-center gap-2 tracking-[-1px] bg-gradient-to-r from-[#000] flex items-center justify-between max-w-[180px] w-full to-[#595959] text-white py-2 pl-3 pr-2 rounded-3xl hover:bg-[#333] transition-colors duration-300 text-revea">Explore More <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-[#fff] text-black"><i class="ri-arrow-right-down-line"></i></span></button>
                         </div>
                         <div></div>
                     </div>
@@ -585,7 +587,7 @@
         </section>
     
 
-        <section>
+        <section id="visionSection">
             <div class="max-w-[1200px] mx-auto">
                 <div class="flex px-2 flex-col-reverse justify-center md:flex-row  md:flex md:justify-between gap-10">
                     <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-x-3 md:w-[60%]">
@@ -606,14 +608,14 @@
                             <h2 class="text-4xl md:text-5xl md:tracking-[-3px] tracking-[-2px] text-reveal">Connecting People with Better Insurance Solutions</h2>
                         </div>
                         <div class="h-full mt-3 md:mt-24">
-                            <button class="bg-gradient-to-r from-[#2C3184] to-[#119FE0] text-white py-2 pl-4 pr-2 rounded-3xl hover:opacity-90 transition-opacity duration-300 tracking-[-1px] flex items-center gap-2">Explore More <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-[#fff] text-[#01628F]"><i class="ri-arrow-right-down-line"></i></span></button>
+                            <button id="visionExploreMoreBtn" type="button" class="bg-gradient-to-r from-[#2C3184] to-[#119FE0] text-white py-2 pl-4 pr-2 rounded-3xl hover:opacity-90 transition-opacity duration-300 tracking-[-1px] flex items-center gap-2">Explore More <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-[#fff] text-[#01628F]"><i class="ri-arrow-right-down-line"></i></span></button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="mt-24">
+        <section id="missionSection" class="mt-24">
             <div>
                 <div class="max-w-[1200px] mx-auto">
                     <div class="text-center mb-10">
@@ -1466,6 +1468,29 @@
         window.addEventListener("scroll", horizontalScroll);
 
         window.addEventListener("resize", horizontalScroll);
+
+        const exploreMoreBtn = document.getElementById("exploreMoreBtn");
+        const visionExploreMoreBtn = document.getElementById("visionExploreMoreBtn");
+        const visionSection = document.getElementById("visionSection");
+        const missionSection = document.getElementById("missionSection");
+
+        if (exploreMoreBtn && visionSection) {
+            exploreMoreBtn.addEventListener("click", () => {
+                visionSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }
+
+        if (visionExploreMoreBtn && missionSection) {
+            visionExploreMoreBtn.addEventListener("click", () => {
+                missionSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }
     </script>
 
     <script>
@@ -1542,47 +1567,18 @@
 
         function enter() {
 
-            transition.style.visibility = "visible";
+            transition.style.visibility = "hidden";
+            transition.style.pointerEvents = "none";
 
             gsap.set(paths, {
-                attr: { d: pathOpen(0) }
+                attr: { d: pathOpen(1000) }
             });
 
-            gsap.timeline({
+            if (window.initTextReveal) {
 
-                defaults: {
-                    ease: "fluid"
-                },
+                window.initTextReveal();
 
-                onComplete() {
-
-                    transition.style.visibility = "hidden";
-                    transition.style.pointerEvents = "none";
-
-                    if (window.initTextReveal) {
-
-                        window.initTextReveal();
-
-                    }
-
-                }
-
-            })
-
-                .to(paths[2], {
-                    duration: 1,
-                    attr: { d: pathOpen(1000) }
-                }, 0)
-
-                .to(paths[1], {
-                    duration: .95,
-                    attr: { d: pathOpen(1000) }
-                }, .08)
-
-                .to(paths[0], {
-                    duration: .9,
-                    attr: { d: pathOpen(1000) }
-                }, .16);
+            }
 
         }
 

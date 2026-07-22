@@ -252,6 +252,30 @@
             color: #01628F;
         }
 
+        .product-scroll-button {
+            transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+            will-change: transform;
+        }
+
+        .product-scroll-button span {
+            transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease;
+        }
+
+        .product-scroll-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 34px rgba(17, 159, 224, 0.24);
+            filter: saturate(1.08);
+        }
+
+        .product-scroll-button:hover span {
+            transform: translateX(4px);
+        }
+
+        .product-scroll-button:focus-visible {
+            outline: 2px solid #119FE0;
+            outline-offset: 4px;
+        }
+
         .whatsapp-widget {
             position: fixed;
             right: 24px;
@@ -406,7 +430,7 @@
             }
 
             .mobile-menu-section:last-child a {
-                font-size: clamp(1.35rem, 7vw, 1.65rem);
+                /* font-size: clamp(1.35rem, 7vw, 1.65rem); */
                 line-height: 1.12;
             }
         }
@@ -474,12 +498,12 @@
                     <span class="mobile-menu-item text-gray-300 text-lg">Connect</span>
                     <nav>
                         <ul class="flex flex-col gap-1">
-                            <a href="mailto:info@greylinq.com" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Mail Us</a>
-                            <a href="tel" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Call Us</a>
-                            <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="mobile-menu-item text-2xl tracking-[-1px]  text-gray-200">Whatsapp</a>
-                            <a href="../product/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Instagram</a>
-                            <a href="../career/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">LinkedIn</a>
-                            <a href="../contact/index.html" class="mobile-menu-item text-2xl tracking-[-1px] text-gray-200">Contact</a>
+                            <a href="mailto:info@greylinq.com" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Mail Us</a>
+                            <a href="tel" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Call Us</a>
+                            <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="mobile-menu-item text-4xl font-semibold tracking-[-1px]  text-gray-200">Whatsapp</a>
+                            <a href="../product/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">Instagram</a>
+                            <a href="../career/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">LinkedIn</a>
+                            <a href="../contact/index.html" class="mobile-menu-item text-4xl font-semibold tracking-[-1px] text-gray-200">Contact</a>
                         </ul>
                     </nav>
                 </div>
@@ -523,11 +547,13 @@
 
             <div class="flex justify-center items-center gap-5">
                 <div class="hidden md:block">
+                    <a href="https://wa.me/971509596896?text=Hello%20Greylinq%2C%20I%20would%20like%20to%20know%20more%20about%20your%20insurance%20technology%20solutions.">
                     <button
                         class="flex items-center justify-between gap-3 md:gap-[20px] bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-3 md:pl-5 pr-2 py-2 rounded-3xl font-medium md:tracking-[-1px] text-xs md:text-base text-[#fff]">Request
                         a Demo<span
                             class="w-[30px] h-[30px] rounded-full flex justify-center items-center bg-[#fff] text-[#01628F]"><i
                                 class="ri-arrow-right-up-line"></i></span></button>
+                    </a>
                 </div>
 
                 <button id="menuBtn"
@@ -540,7 +566,7 @@
     
         <section class="min-h-screen md:min-h-screen mb-20 w-full flex justify-center items-center">
             <div class="h-full w-full flex justify-center items-center flex-col">
-                <div class="h-full pt-32 w-full max-w-[1200px] mx-auto">
+                <div class="h-full md:pt-32 w-full max-w-[1200px] mx-auto">
                     <!-- <h2 class="text-6xl tracking-[-5px] mb-10 text-center">Insurance Technology Solutions<span class="md:block">Designed for Growth</span></h2> -->
                     <div class="grid md:grid-cols-2 gap-x-3 h-[500px] w-full">
                         <div class="h-full w-full bg-gray-100 py-10 md:py-0">
@@ -553,7 +579,7 @@
                                     <p class="text-center mt-3 text-reveal text-lg leading-tight">Building secure and scalable insurance platforms that help organizations operate smarter and serve customers better.</p>
                                 </div>
                                 <div class="mb-5">
-                                    <button class="text bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 rounded-3xl min-w-[160px] text-white tracking-[-1px] py-2 pr-2 flex items-center gap-2 justify-between">Explore More <span class="w-[30px] flex items-center bg-white justify-center h-[30px] text-[#000] rounded-full"><i class="ri-arrow-right-up-line"></i></span></button>
+                                    <button id="heroExploreMoreBtn" type="button" class="product-scroll-button text bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] pl-5 rounded-3xl min-w-[160px] text-white tracking-[-1px] py-2 pr-2 flex items-center gap-2 justify-between">Explore More <span class="w-[30px] flex items-center bg-white justify-center h-[30px] text-[#000] rounded-full"><i class="ri-arrow-right-down-line"></i></span></button>
                                 </div>
                             </div>
                         </div>
@@ -568,7 +594,7 @@
         </section>
 
 
-        <section class="pt-[300px]">
+        <section id="productIntroSection" class="pt-[300px] md:pt-24">
           <div>
             <div>
                 <div class="max-w-[1200px] w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -577,7 +603,7 @@
                             <div class="px-3 flex flex-col justify-evenly h-full">
                                 <h4 class="text-2xl tracking-[-1px] text-[#fff] text-reveal">Empowering Digital Insurance Transformation</h4>
                                 <div class="">
-                                    <button class="flex items-center gap-3 bg-[#fff] tracking-[-1px] pl-3 pr-2 py-2 rounded-3xl">Explore Products <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white"><i class="ri-arrow-right-up-line"></i></span></button>
+                                    <button id="exploreProductsBtn" type="button" class="product-scroll-button flex items-center gap-3 bg-[#fff] tracking-[-1px] pl-3 pr-2 py-2 rounded-3xl">Explore Products <span class="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0] text-white"><i class="ri-arrow-right-down-line"></i></span></button>
                                 </div>
                             </div>
                         </div>
@@ -613,7 +639,7 @@
         </section>
 
 
-        <section class="bg-gradient from-[#000] via-[#000] to-[#000] min-h-screen relative">
+        <section id="ourProductsSection" class="bg-gradient from-[#000] via-[#000] to-[#000] min-h-screen relative">
             <div class="absolute top-0 bottom-0 right-0 left-0 mix-blend- z-20">
                 <img src="../assets/grid-line.jpg" alt="" class="w-full h-full object-cover opacity-30">
             </div>
@@ -655,8 +681,7 @@
                                         <button data-product-trigger="gmatrix"
                                             class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-revea">Choose the right
                                             Plan <span
-                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
-                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i class="ri-arrow-right-down-line"></i></span></button>
                                     </div>
                                 </div>
         
@@ -684,8 +709,7 @@
                                         <button data-product-trigger="greymatter"
                                             class="bg-gradient-to-r flex items-center rounded-3xl from-[#2C3184] text-white via-[#01628F] to-[#119FE0] pl-3 pr-2 gap-5 border-[#ffffff59] border py-2 tracking-[-1px] text-revea">Choose the right
                                             Plan <span
-                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i
-                                                    class="ri-arrow-right-up-line"></i></span></button>
+                                                class="w-[30px] h-[30px] rounded-full bg-[#fff] text-black flex justify-center items-center"><i class="ri-arrow-right-down-line"></i></span></button>
                                     </div>
                                 </div>
         
@@ -1329,47 +1353,18 @@
 
         function enter() {
 
-            transition.style.visibility = "visible";
+            transition.style.visibility = "hidden";
+            transition.style.pointerEvents = "none";
 
             gsap.set(paths, {
-                attr: { d: pathOpen(0) }
+                attr: { d: pathOpen(1000) }
             });
 
-            gsap.timeline({
+            if (window.initTextReveal) {
 
-                defaults: {
-                    ease: "fluid"
-                },
+                window.initTextReveal();
 
-                onComplete() {
-
-                    transition.style.visibility = "hidden";
-                    transition.style.pointerEvents = "none";
-
-                    if (window.initTextReveal) {
-
-                        window.initTextReveal();
-
-                    }
-
-                }
-
-            })
-
-                .to(paths[2], {
-                    duration: 1,
-                    attr: { d: pathOpen(1000) }
-                }, 0)
-
-                .to(paths[1], {
-                    duration: .95,
-                    attr: { d: pathOpen(1000) }
-                }, .08)
-
-                .to(paths[0], {
-                    duration: .9,
-                    attr: { d: pathOpen(1000) }
-                }, .16);
+            }
 
         }
 
@@ -1466,8 +1461,26 @@
         const productCards = document.querySelectorAll("[data-product-card]");
         const productButtons = document.querySelectorAll("[data-product-trigger]");
         const productSwitchTargets = productDetails.querySelectorAll("[data-product-title], [data-product-description], [data-product-feature-list], [data-product-benefit-heading], [data-product-benefit-list-main], [data-product-benefit-list-one], [data-product-benefit-list-two]");
+        const heroExploreMoreBtn = document.getElementById("heroExploreMoreBtn");
+        const exploreProductsBtn = document.getElementById("exploreProductsBtn");
+        const productIntroSection = document.getElementById("productIntroSection");
+        const ourProductsSection = document.getElementById("ourProductsSection");
         let activeProduct = "gmatrix";
         let productTransition;
+
+        function smoothScrollToSection(trigger, target) {
+            if (!trigger || !target) return;
+
+            trigger.addEventListener("click", () => {
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }
+
+        smoothScrollToSection(heroExploreMoreBtn, productIntroSection);
+        smoothScrollToSection(exploreProductsBtn, ourProductsSection);
 
         function productListItems(items, preserveNoWrap = false) {
             return items.map(item => `<li${preserveNoWrap ? ' class="text-nowrap"' : ""}>${item}</li>`).join("");
