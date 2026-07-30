@@ -10,12 +10,9 @@
         integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/transition.css">
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
     <link rel="icon" href="/assets/g-logo.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
-    <link rel="stylesheet" href="../css/transition.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="prefetch" href="../about/about.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1166,28 +1163,28 @@
                         Submit <span class="rounded-full w-[30px] h-[30px] bg-[#fff] text-[#000] flex items-center justify-center"><i class="ri-arrow-right-up-line"></i></span>
                     </button>
                 </form> -->
-                <form id="applyForm" class="flex flex-col gap-4" action="https://formsubmit.co/amalkrishna2001ma@gmail.com"
-                    method="POST" enctype="multipart/form-data">
+                <form id="applyForm" enctype="multipart/form-data">
                 
-                    <input type="hidden" name="_subject" value="New Career Application">
+                    <!-- <input type="hidden" name="_subject" value="New Career Application">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                 
-                    <input type="hidden" id="applyRoleInput" name="Applying Position">
+                    <input type="hidden" id="applyRoleInput" name="Applying Position"> -->
                 
+                    <input type="hidden" id="applyRoleInput" name="role">
                     <div>
                         <label for="applyName" class="block mb-2 tracking-[-1px]">Full Name</label>
-                        <input id="applyName" class="apply-modal__input" type="text" name="Full Name" required>
+                        <input id="applyName" class="apply-modal__input" type="text" name="name" required>
                     </div>
                 
                     <div>
                         <label for="applyEmail" class="block mb-2 tracking-[-1px]">Email</label>
-                        <input id="applyEmail" class="apply-modal__input" type="email" name="Email" required>
+                        <input id="applyEmail" class="apply-modal__input" type="email" name="email" required>
                     </div>
                 
                     <div>
                         <label for="applyPhone" class="block mb-2 tracking-[-1px]">Phone</label>
-                        <input id="applyPhone" class="apply-modal__input" type="tel" name="Phone" required>
+                        <input id="applyPhone" class="apply-modal__input" type="tel" name="phone" required>
                     </div>
                 
                     <div>
@@ -1198,7 +1195,7 @@
                     <div>
                         <label for="applyDescription" class="block mb-2 tracking-[-1px]">Cover Letter</label>
                 
-                        <textarea id="applyDescription" class="apply-modal__input min-h-[140px] resize-none" name="Cover Letter" required></textarea>
+                        <textarea id="applyDescription" class="apply-modal__input min-h-[140px] resize-none" name="message" required></textarea>
                     </div>
 
                     <p id="applyFormMessage" class="hidden text-sm text-[#01628F]"></p>
@@ -2501,6 +2498,30 @@
                         }
                     );
 
+    </script>
+
+    <script>
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", async (e) => {
+
+            e.preventDefault();
+
+            const data = new FormData(form);
+
+            const response = await fetch(
+                "https://young-snowflake-76e1.amalikka0.workers.dev",
+                {
+                    method: "POST",
+                    body: data
+                }
+            );
+
+            const result = await response.text();
+
+            alert(result);
+
+        });
     </script>
     </div>
 </body>
