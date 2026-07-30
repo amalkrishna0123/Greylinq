@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greylinq Solutions</title>
+    <meta name="description"
+content="Explore GreyLinq's insurance software products including health insurance platforms, policy administration systems, quotation engines, underwriting, claims management, and digital insurance solutions for insurers and TPAs.">
+    <title>Insurance Policy Administration Software | GreyLinq Products UAE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
         integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -11,14 +13,31 @@
     <link rel="stylesheet" href="css/transition.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
-
+    <link rel="icon" href="/assets/g-logo.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"></script>
     <link rel="stylesheet" href="../css/transition.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="prefetch" href="../about/about.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/split-type"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
 </head>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "name":"GMATRIX",
+  "applicationCategory":"BusinessApplication",
+  "operatingSystem":"Web",
+  "creator":{
+    "@type":"Organization",
+    "name":"GreyLinq Solutions"
+  },
+  "description":"Health insurance policy administration software for insurers and TPAs."
+}
+</script>
 
 <style>
         @font-face {
@@ -27,7 +46,8 @@
         }
     
         * {
-            font-family: 'Kinetica', sans-serif;
+            /* font-family: 'Kinetica', sans-serif; */
+            font-family: "Inter", sans-serif;
         }
     
         * {
@@ -296,6 +316,7 @@
             box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
             color: #111827;
             opacity: 0;
+            display: none;
             pointer-events: none;
             transform: translateY(14px) scale(0.96);
             transform-origin: bottom right;
@@ -305,6 +326,7 @@
 
         .whatsapp-widget.is-open .whatsapp-popup {
             opacity: 1;
+            display: block;
             pointer-events: auto;
             transform: translateY(0) scale(1);
         }
@@ -453,6 +475,14 @@
                 font-size: clamp(1.18rem, 6vw, 1.42rem);
             }
         }
+
+        .active-page{
+            background: linear-gradient(90deg, #2C3184, #01628F, #119FE0);
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 300;
+        }
     </style>
 <body>
      <!-- WhatsApp Quick Contact -->
@@ -523,6 +553,10 @@
 
             <nav id="desktopNav" class="hidden md:flex items-center transition-all duration-500">
                 <ul class="flex items-center gap-5 font-semibold tracking-[-1px]">
+                    <a href="../home/index.html" class="page-link">
+                        <li>Home</li>
+                    </a>
+
                     <a href="../about/index.html" class="page-link">
                         <li>About</li>
                     </a>
@@ -532,7 +566,7 @@
                     </a>
 
                     <a href="../product/index.html" class="page-link">
-                        <li>Products</li>
+                        <li class="active-page">Products</li>
                     </a>
 
                     <a href="../career/index.html" class="page-link">
@@ -573,9 +607,9 @@
                             <div class="h-full flex flex-col justify-center items-center px-5">
                                 <div class="w-full flex flex-col justify-center items-center mb-10">
                                     <span class="px-6 py-2 rounded-3xl border border-gray-400 mb-3">Our Products</span>
-                                    <h3 class="text-4xl md:text-5xl text-gray-800 tracking-[-2px] md:tracking-[-4px] text-center text-reveal">Insurance Technology Solutions
+                                    <h1 class="text-4xl md:text-5xl text-gray-800 tracking-[-2px] md:tracking-[-2px] text-center text-reveal">Insurance Technology Solutions
                                         Designed for Growth
-                                    </h3>
+                                    </h1>
                                     <p class="text-center mt-3 text-reveal text-lg leading-tight">Building secure and scalable insurance platforms that help organizations operate smarter and serve customers better.</p>
                                 </div>
                                 <div class="mb-5">
@@ -585,7 +619,7 @@
                         </div>
                         <div class="h-full w-full bg-[#000]">
                             <div class="w-full h-full">
-                                <img src="../assets/product-hero.png" class="w-full h-full object-cover" alt="">
+                                <img src="../assets/product-hero.jpeg" class="w-full h-full object-cover" alt="">
                             </div>
                         </div>
                     </div>
@@ -653,7 +687,7 @@
                             <!-- <h3
                                     class="text-6xl text-center bg-gradient-to-r from-[#2C3184] to-[#119FE0] bg-clip-text text-transparent tracking-[-5px] flex items-center gap-3 justify-center">
                                     <span class="text-6xl"><i class="ri-gemini-fill"></i></span>Our Products</h3> -->
-                            <h2 class="text-4xl tracking-[-2px] md:text-6xl md:tracking-[-5px] flex items-center justify-center gap-5 text-reveal">
+                            <h2 class="text-4xl tracking-[-2px] md:text-6xl md:tracking-[-2px] flex items-center justify-center gap-5 text-reveal">
                                 <span class="text-3xl md:text-5xl text-[#01628F] mr-5"><i class="ri-gemini-fill"></i></span>Our
                                 Products
                             </h2>
@@ -745,7 +779,7 @@
                             <div class="md:h-[400px] grid grid-cols-1 md:grid-cols-[1.5fr_2fr] gap-2">
                                 <div class="h-full rounded-3xl overflow-hidden w-full bg-[#000]">
                                     <div>
-                                        <img src="../assets/key-features.png" class="w-full h-full object-cover" alt="">
+                                        <img src="../assets/key-features.jpeg" class="w-full h-full object-cover" alt="">
                                     </div>
                                 </div>
                                 <div class="h-full rounded-3xl px-5 py-5 overflow-hidden w-full bg-gradient-to-r from-[#2C3184] via-[#01628F] to-[#119FE0]">
@@ -792,7 +826,7 @@
                                     <li class="text-nowrap">Launch products faster</li>
                                 </ul>
                                 <div class="md:h-[300px] w-full md:max-w-[250px] bg-[#000]">
-                                    <img src="../assets/benefits.png" class="h-full object-cover" alt="">
+                                    <img src="../assets/benefits.jpeg" class="h-full object-cover" alt="">
                                 </div>
                             </div>
                             <div class="md:flex grid w-full flex-row-reverse gap-10 justify-center items-center">
@@ -801,7 +835,7 @@
                                     <li>Increase operational visibility</li>
                                 </ul>
                                 <div class="md:h-[300px] w-full md:max-w-[250px] bg-[#000]">
-                                    <img src="../assets/benefits2.png" class="w-full h-full object-cover" alt="">
+                                    <img src="../assets/benefits2.jpeg" class="w-full h-full object-cover" alt="">
                                 </div>
                             </div>
                         </div>
@@ -918,21 +952,18 @@
 
                         <div class="flex flex-col justify-center items-center md:justify-end md:items-end">
                             <ul class="text-white flex items-center gap-3 mb-5">
-                                <a href="">
-                                    <li><i class="ri-instagram-fill"></i></li>
+                                <a href="mailto:info@greylinq.com">
+                                    <li><i class="ri-mail-fill"></i></li>
                                 </a>
 
-                                <a href="">
+                                <a href="https://wa.me/919876543210?text=Hello%20GreyLinq!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank">
                                     <li><i class="ri-whatsapp-fill"></i></li>
                                 </a>
 
-                                <a href="">
+                                <a href="https://www.linkedin.com/company/greylinq-solutions/posts/?feedView=all">
                                     <li><i class="ri-linkedin-box-fill"></i></li>
                                 </a>
 
-                                <a href="">
-                                    <li><i class="ri-facebook-circle-fill"></i></li>
-                                </a>
                             </ul>
                             <div>
                                 <button
@@ -943,11 +974,11 @@
                             </div>
                         </div>
                     </div>
-                    <h1
-                        class="w-full text-center leading-none uppercase text-[clamp(5rem,22vw,20rem)] tracking-[-0.08em] text-[#f1f1f1] text-reveal border-b border-[#ffffff63] pb-10">
+                    <!-- <h1
+                        class="w-full text-center leading-none uppercase text-[clamp(5rem,22vw,5rem)] tracking-[-0.08em] text-[#f1f1f1] text-reveal border-b border-[#ffffff63] pb-10">
                         Greylinq
-                    </h1>
-                    <p class="text-white py-3 w-full flex items-center justify-center text-center gap-2">Copyright <i class="ri-copyright-fill"></i> 2026.  All Rights Reserved.</p>
+                    </h1> -->
+                    <p class="text-white py-3 w-full flex items-center justify-center text-center gap-2">Copyright <i class="ri-copyright-fill"></i> 2026 Greylinq. All Rights Reserved.</p>
                 </div>
             </div>
         </section>
@@ -994,7 +1025,7 @@
                     );
                 } else {
                     header.classList.add(
-                        "w-[800px]",
+                        "w-[900px]",
                         "top-4",
                         "rounded-full",
                         "bg-white/90",
@@ -1008,7 +1039,7 @@
             } else {
 
                 header.classList.remove(
-                    "w-[800px]",
+                    "w-[900px]",
                     "w-[92%]",
                     "top-4",
                     "rounded-full",
