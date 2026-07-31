@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'Kinetica';
+    src: url('../assets/font/kinetika-medium.ttf');
+}
+
+*{
+    font-family: 'Kinetica', sans-serif;
+}
+
+button,
+[role="button"],
+.book-btn,
+.whatsapp-popup__button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    transition:
+        transform 520ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 520ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 520ms cubic-bezier(0.16, 1, 0.3, 1),
+        background-position 800ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 320ms ease;
+    background-size: 180% 180%;
+}
+
+button::before,
+[role="button"]::before,
+.book-btn::before,
+.whatsapp-popup__button::before {
+    content: "";
+    position: absolute;
+    inset: -45%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.42), transparent 24%),
+        linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.34) 48%, transparent 66%);
+    opacity: 0;
+    transform: translate3d(-72%, 28%, 0) rotate(8deg) scale(0.86);
+    transition:
+        transform 760ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 420ms ease;
+}
+
+button:hover,
+button:focus-visible,
+[role="button"]:hover,
+[role="button"]:focus-visible,
+.book-btn:hover,
+.book-btn:focus-visible,
+.whatsapp-popup__button:hover,
+.whatsapp-popup__button:focus-visible {
+    transform: translate3d(0, -3px, 0) scale(1.018);
+    box-shadow: 0 14px 34px rgba(17, 159, 224, 0.22);
+    filter: saturate(1.08);
+    background-position: 100% 50%;
+}
+
+button:hover::before,
+button:focus-visible::before,
+[role="button"]:hover::before,
+[role="button"]:focus-visible::before,
+.book-btn:hover::before,
+.book-btn:focus-visible::before,
+.whatsapp-popup__button:hover::before,
+.whatsapp-popup__button:focus-visible::before {
+    opacity: 1;
+    transform: translate3d(42%, -18%, 0) rotate(8deg) scale(1.12);
+}
+
+button:active,
+[role="button"]:active,
+.book-btn:active,
+.whatsapp-popup__button:active {
+    transform: translate3d(0, -1px, 0) scale(0.99);
+    transition-duration: 160ms;
+}
+
+button:disabled,
+button[aria-disabled="true"],
+[role="button"][aria-disabled="true"] {
+    cursor: not-allowed;
+    filter: grayscale(0.15);
+    opacity: 0.62;
+}
+
+button:disabled:hover,
+button[aria-disabled="true"]:hover,
+[role="button"][aria-disabled="true"]:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button,
+    [role="button"],
+    .book-btn,
+    .whatsapp-popup__button,
+    button::before,
+    [role="button"]::before,
+    .book-btn::before,
+    .whatsapp-popup__button::before {
+        transition-duration: 1ms;
+    }
+
+    button:hover,
+    button:focus-visible,
+    [role="button"]:hover,
+    [role="button"]:focus-visible,
+    .book-btn:hover,
+    .book-btn:focus-visible,
+    .whatsapp-popup__button:hover,
+    .whatsapp-popup__button:focus-visible {
+        transform: none;
+    }
+}
